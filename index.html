@@ -1,5 +1,15 @@
 <!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Fashion Lottery | Closet Drawers</title><style>
+<title>Closet Drawers ファッションくじ | Fashion Lottery</title>
+<meta name="description" content="Closet Drawersのファッションくじ。14色・27スタイル・38シーンからランダムにテーマを組み合わせ、いつもと少し違うコーデを楽しめる非公式ファン企画です。">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://azubass.github.io/closet-drawers/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Closet Drawers">
+<meta property="og:title" content="Closet Drawers ファッションくじ">
+<meta property="og:description" content="14色・27スタイル・38シーンからランダムにテーマを組み合わせて、新しいコーデに挑戦できるCloset Drawersのファッションくじ。">
+<meta property="og:url" content="https://azubass.github.io/closet-drawers/">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "Closet Drawers ファッションくじ", "url": "https://azubass.github.io/closet-drawers/", "description": "Closet Drawersのファッションくじ。COLOR・STYLE・SCENEをランダムに組み合わせて、いつもと少し違うコーデを楽しめる非公式ファン企画です。", "inLanguage": "ja"}</script><style>
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;background:#faf9f7;color:#111;font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic",Meiryo,sans-serif}
@@ -47,9 +57,9 @@ h1{font-family:"Yu Mincho","Hiragino Mincho ProN",serif;font-size:35px;margin:9p
 <footer>Closet Drawers / Fashion is self-expression.<br>当サイトは非公式ファン企画です。ピグパーティ運営とは関係ありません。</footer>
 </main>
 <script>
-const COLORS=[["PINK","#f3a6b8"],["BLACK","#111111"],["WHITE","#f7f7f5"],["BLUE","#7196c5"],["RED","#c84b4b"],["GREEN","#668d67"],["PURPLE","#8c70aa"],["BROWN","#8a644d"]];
-const STYLES=["GIRLY","Y2K","STREET","MODE","RETRO","KOREAN","LOLITA","CASUAL"];
-const SCENES=["美術館巡り","お花畑","キャンプ","学校","カフェ","植物園","水族館","イルミネーション"];
+const COLORS=[["PINK","#f3a6b8"],["BLACK","#111111"],["WHITE","#f7f7f5"],["BLUE","#7196c5"],["RED","#c84b4b"],["GREEN","#668d67"],["PURPLE","#8c70aa"],["BROWN","#8a644d"],["ORANGE","#f28a2b"],["GRAY","#a9aaad"],["YELLOW","#f3d56b"],["BEIGE","#d8c2a0"],["KHAKI","#8b8964"],["LIGHT BLUE","#9fc8e8"]];
+const STYLES=["GIRLY","Y2K","STREET","MODE","RETRO","KOREAN","LOLITA","CASUAL","PREPPY","SPORTY","VINTAGE","NATURAL","GRUNGE","OFFICE","CITYLOOK","CLASSICAL","MILITARY","POP","CUTE","OUTDOOR","FEMININE","GOTHIC","PUNK","ROCK","MINIMAL","ROMANTIC","BALLET CORE"];
+const SCENES=["美術館巡り","お花畑","キャンプ","学校","カフェ","植物園","水族館","イルミネーション","雨の日","ピクニック","夜の街","海辺","レストラン","古着屋巡り","デート","春","夏","秋","冬","クリスマス","ハロウィン","バレンタイン","ショッピング","映画館","ドライブ","旅行","女子会","ライブ","テーマパーク","公園","図書館","喫茶店","ホテル","空港","散歩","仕事帰り","休日","雨上がり"];
 let mode="mix", last=[];
 const combo=document.getElementById("combo"), card=document.getElementById("card"), wrap=document.getElementById("resultWrap");
 const pick=a=>a[Math.floor(Math.random()*a.length)];
