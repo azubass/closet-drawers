@@ -13,3 +13,5 @@ save-image.html も必要です。
 - HOME最上部ロゴのクローゼットOPEN演出
 - HOME最下部のクローゼットCLOSE＋THANKS FOR OPENING
 - テンプレート保存はsave-image.htmlで長押し保存
+
+追加アセット: closet-mark.png / closet-wordmark.png / closet-clothes.png も必ずアップロードしてください。
