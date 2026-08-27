@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://azubass.github.io/closet-drawers/</loc><priority>1.0</priority></url>
-  <url><loc>https://azubass.github.io/closet-drawers/how-to-play.html</loc><priority>0.8</priority></url>
-  <url><loc>https://azubass.github.io/closet-drawers/about.html</loc><priority>0.7</priority></url>
-  <url><loc>https://azubass.github.io/closet-drawers/menu.html</loc><priority>0.5</priority></url>
+<url><loc>https://azubass.github.io/closet-drawers/</loc></url>
+<url><loc>https://azubass.github.io/closet-drawers/weekly.html</loc></url>
+<url><loc>https://azubass.github.io/closet-drawers/menu.html</loc></url>
+<url><loc>https://azubass.github.io/closet-drawers/how-to-play.html</loc></url>
+<url><loc>https://azubass.github.io/closet-drawers/dictionary.html</loc></url>
+<url><loc>https://azubass.github.io/closet-drawers/template.html</loc></url>
+<url><loc>https://azubass.github.io/closet-drawers/about.html</loc></url>
 </urlset>
