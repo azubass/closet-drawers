@@ -19,3 +19,5 @@ Ver.2データ: COLOR 47 / STYLE 51 / POINT 79
 通常MIX組み合わせ: 189,363通り
 
 注意: Weekly WINTER WEEK 05のPOINT「アシメ」は、承認済み52テーマをそのまま保持するためWeekly専用テーマ値として残しています。通常くじ79POINTには含まれません。
+
+2026-08-27 update: SECRET CARD, HOW TO PLAY secret guidance, Weekly title/color icon/sealing stamp, template text alignment, accordion UPDATE HISTORY.
