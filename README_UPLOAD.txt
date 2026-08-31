@@ -15,3 +15,8 @@ save-image.html も必要です。
 - テンプレート保存はsave-image.htmlで長押し保存
 
 追加アセット: closet-mark.png / closet-wordmark.png / closet-clothes.png も必ずアップロードしてください。
+
+[2026-08-31 本番修正]
+- 「今週のファッションくじ」の月曜更新を13週×4季節（52週）サイクルへ修正。
+- 2026-03-02(月)を SPRING / WEEK 01 の基準日として、13週ごとに次季節へ切り替わります。
+- 2026-08-31(月)は AUTUMN / WEEK 01 になります。
