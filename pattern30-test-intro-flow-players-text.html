@@ -905,7 +905,7 @@ function go(el){ setTimeout(()=>el.scrollIntoView({behavior:"smooth",block:"star
 for(let n=1;n<=9;n++) {
   const b = document.createElement("button");
   b.className = "btn";
-  b.textContent = n + "人用";
+  b.textContent = n + "人";
   b.onclick = () => handlePeople(n);
   peopleGrid.appendChild(b);
 }
