@@ -124,7 +124,7 @@ h1{font-family:"Yu Mincho","Hiragino Mincho ProN",serif;font-size:30px;margin:10
 .shape-layer.basic{transform:translate(-50%,-50%)}
 .tint{position:absolute;inset:0;mask-size:contain;-webkit-mask-size:contain;mask-repeat:no-repeat;-webkit-mask-repeat:no-repeat;mask-position:center;-webkit-mask-position:center;background:var(--c)}
 .pattern{position:absolute;inset:0;mask-size:contain;-webkit-mask-size:contain;mask-repeat:no-repeat;-webkit-mask-repeat:no-repeat;mask-position:center;-webkit-mask-position:center;
-  background-image:var(--p);background-repeat:no-repeat;background-position:center;background-size:100% 100%;opacity:1;image-rendering:auto}
+  background-image:var(--p);background-repeat:repeat;background-position:center;background-size:var(--tile,65%) var(--tile,65%);opacity:1;image-rendering:auto}
 .label{
   position:absolute;
   transform:translate(-50%,0);
@@ -502,7 +502,7 @@ const SEAMLESS_PATTERNS = ["pattern-01.png", "pattern-02.png", "pattern-03.png",
 const COLORS = [["ピンク", "#f3a6b8"], ["ブラック", "#111111"], ["ホワイト", "#f7f7f5"], ["ブルー", "#7196c5"], ["レッド", "#c84b4b"], ["グリーン", "#668d67"], ["パープル", "#8c70aa"], ["ブラウン", "#8a644d"], ["オレンジ", "#f28a2b"], ["グレー", "#a9aaad"], ["イエロー", "#f3d56b"], ["ベージュ", "#d8c2a0"], ["カーキ", "#8b8964"], ["ライトブルー", "#9fc8e8"], ["ターコイズ", "#46b8b1"], ["ネイビー", "#1f3558"], ["ボルドー", "#76263b"], ["アイボリー", "#eee6d4"], ["ミント", "#b7dfcf"], ["テラコッタ", "#c76b4a"], ["オリーブ", "#707446"], ["ゴールド", "#c6a23d"], ["シルバー", "#b7bbc1"], ["ラベンダー", "#b7a2d6"], ["キャメル", "#c28a54"]];
 const CAMO_PATTERN_INDEX = 29;
 const CAMO_PATTERN_URI = "pattern-30.png";
-const PATTERN_ASSET_VERSION = "20260831f";
+const PATTERN_ASSET_VERSION = "20260831g";
 
 function getPatternUri(index){
   const uri = index === CAMO_PATTERN_INDEX ? CAMO_PATTERN_URI : SEAMLESS_PATTERNS[index];
@@ -637,10 +637,17 @@ function chooseColor(excludeNames=[], allowBlack=true) {
   return c;
 }
 
-// 30柄マスターは完成済み画像としてそのまま表示し、形マスターでマスクする。
-// 柄ごとのタイル倍率・repeat処理は使用しない。
+const PATTERN_TILE_SIZES = [
+  65, 65, 65, 65, 65, 65, 65, 65, 70, 65,
+  65, 65, 70, 65, 70, 70, 65, 65, 65, 65,
+  70, 65, 65, 70, 65, 65, 65, 65, 65, 70
+];
+
+// 30柄マスターをベースに、共通65%スケールでrepeat表示。
+// 指定の7柄だけ少しだけ大きく見せる。
 function getPatternTileSize(index) {
-  return 100;
+  const size = PATTERN_TILE_SIZES[index] || 65;
+  return size + "%";
 }
 
 function makeIslandSpec(i) {
@@ -736,6 +743,7 @@ function createShapeLayer(shapeUri, fillStyle, patternUri=null, cls="basic", til
     const patt = document.createElement("div");
     patt.className = "pattern";
     patt.style.setProperty("--p", `url("${patternUri}")`);
+    patt.style.setProperty("--tile", tileSize || "65%");
     applyMask(patt, shapeUri);
     layer.appendChild(patt);
   }
