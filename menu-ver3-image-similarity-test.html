@@ -1,0 +1,85 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MENU | Closet Drawers Ver.3 テスト</title><meta name="description" content="Closet Drawers Ver.3のメニュー。ファッションくじ、今週のファッションくじ、画像でシミラーくじを楽しめます。"><style>
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#fbfaf8;color:#2b211b;font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic",Meiryo,sans-serif;-webkit-font-smoothing:antialiased}.wrap{max-width:680px;margin:0 auto;padding:18px 18px 48px;min-height:100vh}.header{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;min-height:78px}.logo{width:132px;display:block;mix-blend-mode:multiply}.header-link{font-size:10px;letter-spacing:.14em;color:#5d4434;text-decoration:none}.header-link.right{justify-self:end}.header-link.left{justify-self:start}footer{margin-top:34px;padding-top:18px;border-top:1px solid #e8c49e;text-align:center;font-size:9px;line-height:1.8;color:#96755e}button,a{-webkit-tap-highlight-color:transparent}:root{--o:#d98232;--amber:#e6a24d;--apricot:#efa767;--terra:#b86635;--peach:#f5dcc4;--cream:#fffaf4;--line:#e8c49e;--ink:#2b211b;--muted:#8b6d58}.kicker{font-family:Georgia,"Times New Roman",serif;font-size:10px;letter-spacing:.24em;color:var(--o)}.page-title{font-family:"Yu Mincho","Hiragino Mincho ProN",serif;font-size:34px;text-align:center;margin:10px 0 8px}.lead{font-size:12px;line-height:1.9;color:#766052;text-align:center}.primary{border:0;background:linear-gradient(135deg,var(--amber),var(--terra));color:#fff;border-radius:12px;padding:14px 18px;font-weight:700;cursor:pointer;box-shadow:0 8px 20px rgba(184,102,53,.15)}.primary:active,.ghost:active{transform:scale(.985)}.ghost{border:1px solid #dfb98f;background:#fffdfa;color:#6d4a34;border-radius:10px;padding:12px 14px;cursor:pointer}.section-title{font-family:Georgia,serif;font-size:11px;letter-spacing:.16em;color:var(--o);margin-bottom:10px}.panel{background:linear-gradient(180deg,#fff,#fffaf5);border:1px solid #ead0b5;border-radius:16px;padding:18px}.fine{font-size:10px;line-height:1.8;color:#8a705e}.toast-ok{color:#356b48!important;border-color:#b7d8c2!important;background:#f5fbf7!important}
+.menu-head{text-align:center;padding:34px 0 22px}.play-grid{display:grid;gap:12px;margin-bottom:24px}.play-card{display:block;text-decoration:none;color:var(--ink);padding:20px;border:1px solid #e3bb93;background:linear-gradient(135deg,#fff,#fff7ed);border-radius:16px;box-shadow:0 8px 20px rgba(160,95,41,.05)}.play-card .main{font:700 17px Georgia,serif;color:var(--terra)}.play-card .sub{font-size:11px;color:#8d6a52;margin-top:6px;line-height:1.7}.nav{border-top:1px solid var(--line)}.nav a{display:flex;justify-content:space-between;padding:18px 2px;border-bottom:1px solid #efd7bf;text-decoration:none;color:var(--ink)}.nav .main{font:17px Georgia,serif}.nav .sub{display:block;font-size:10px;color:#99735a;margin-top:4px}
+/* Drawer menu — Closet Drawers Ver.2 final */
+.menu-head{padding-bottom:20px}
+.menu-head .lead{margin-top:6px}
+.drawer-label{text-align:center;margin:2px 0 13px;font:600 10px Georgia,"Times New Roman",serif;letter-spacing:.22em;color:var(--o)}
+.drawer-caption{text-align:center;font-size:11px;color:#9b765b;margin-bottom:16px}
+.drawer-chest{position:relative;margin:0 0 28px;perspective:900px}
+.drawer-card{position:relative;display:block;text-decoration:none;color:#2b211b;padding:20px 56px 18px 18px;background:linear-gradient(180deg,#fffdf9,#fff6ec);border:1px solid #e3bb93;box-shadow:0 7px 16px rgba(160,95,41,.07);transform-origin:center top;transition:transform .48s cubic-bezier(.2,.75,.2,1),box-shadow .48s ease,filter .48s ease;z-index:2}
+.drawer-card:first-child{border-radius:15px 15px 3px 3px}
+.drawer-card+ .drawer-card{margin-top:-1px;border-radius:3px 3px 15px 15px;z-index:1}
+.drawer-card:before{content:"";position:absolute;left:10px;right:10px;top:8px;height:1px;background:linear-gradient(90deg,transparent,#f0d2b4 18%,#f0d2b4 82%,transparent)}
+.drawer-number{font:700 8px Georgia,serif;letter-spacing:.18em;color:#c28b60;margin-bottom:6px}
+.drawer-main{font:500 clamp(16px,4.7vw,20px) Georgia,"Times New Roman",serif;letter-spacing:.02em;white-space:nowrap}
+.drawer-sub{font-size:10px;color:#9b765b;margin-top:5px}
+.drawer-handle{position:absolute;right:18px;top:50%;width:25px;height:9px;border:1px solid #c78a55;border-top:0;border-radius:0 0 14px 14px;transform:translateY(-50%);box-shadow:0 2px 3px rgba(147,85,40,.06)}
+.drawer-new{position:absolute;right:12px;top:9px;background:#efad78;color:white;border-radius:999px;padding:3px 7px;font:700 8px Georgia,serif;letter-spacing:.06em;box-shadow:0 3px 8px rgba(184,102,53,.14)}
+.drawer-card.opening{transform:translateY(12px) translateZ(90px) scale(1.018);box-shadow:0 22px 38px rgba(134,78,39,.18);filter:saturate(1.04);z-index:9}
+.drawer-card.opening .drawer-handle{transform:translateY(-50%) scale(1.08)}
+.drawer-chest.locked .drawer-card:not(.opening){opacity:.7;transform:scale(.992)}
+@media(prefers-reduced-motion:reduce){.drawer-card{transition:none}.drawer-card.opening{transform:none}}
+@media(max-width:390px){.drawer-card{padding-left:15px;padding-right:50px}.drawer-main{font-size:15px}.drawer-caption{font-size:10px}}
+
+
+/* Drawer cabinet visibility polish */
+.drawer-chest{padding:8px;border:1px solid #e2bb94;border-radius:18px;background:linear-gradient(180deg,#f8eadb,#f3dcc6);box-shadow:0 12px 28px rgba(145,86,43,.10),inset 0 0 0 3px rgba(255,255,255,.55)}
+.drawer-card{min-height:112px;padding:22px 70px 20px 22px;background:linear-gradient(180deg,#fffdf9 0%,#fff4e8 100%);border-color:#d8a978;box-shadow:inset 0 -4px 8px rgba(153,88,38,.035),0 4px 8px rgba(120,70,35,.07)}
+.drawer-card:first-child{border-radius:12px 12px 4px 4px}.drawer-card+.drawer-card{border-radius:4px 4px 12px 12px;margin-top:5px}.drawer-card:after{content:"";position:absolute;inset:6px;border:1px solid rgba(218,172,127,.36);pointer-events:none}.drawer-handle{right:24px;width:34px;height:12px;border-width:1.5px;border-color:#9d653b;box-shadow:0 2px 4px rgba(86,49,25,.13),inset 0 -1px 0 rgba(255,255,255,.7)}.drawer-handle:before,.drawer-handle:after{content:"";position:absolute;top:-2px;width:5px;height:5px;border:1px solid #9d653b;background:#f7e5d1;border-radius:50%}.drawer-handle:before{left:-4px}.drawer-handle:after{right:-4px}.drawer-number{font-size:9px}.drawer-main{color:#6e432d}.drawer-new{z-index:3;right:15px;top:10px;box-shadow:0 3px 8px rgba(184,102,53,.15)}
+.drawer-card.opening{transform:translateY(18px) translateZ(70px) rotateX(-7deg);box-shadow:0 26px 30px rgba(104,57,28,.22);filter:saturate(1.03)}
+@media(max-width:430px){.drawer-card{min-height:104px;padding:20px 60px 18px 17px}.drawer-main{font-size:16px}.drawer-handle{right:18px;width:30px}.drawer-chest{padding:6px}}
+</style><style>
+/* === Closet Drawers shared logo motion === */
+.cd-brand-logo{width:132px;justify-self:center;display:flex;flex-direction:column;align-items:center;line-height:0;position:relative}
+.cd-wardrobe{position:relative;width:82px;aspect-ratio:530/590;perspective:700px;transform-style:preserve-3d}
+.cd-base{display:block;width:100%;height:100%;object-fit:contain}
+.cd-wordmark{display:block;width:112px;height:auto;margin-top:-2px}
+.cd-clothes-window{position:absolute;left:48.1%;top:24.6%;width:33%;height:49.2%;overflow:hidden;background:#050505;z-index:2;pointer-events:none}
+.cd-clothes{display:block;width:100%;height:100%;object-fit:fill;transform-origin:50% 8%}
+.cd-door{position:absolute;top:18.5%;height:61%;width:21.5%;background:linear-gradient(90deg,#fff 0 83%,#f7f7f5 83% 100%);border:2px solid #111;z-index:4;backface-visibility:hidden;box-sizing:border-box}
+.cd-door:after{content:"";position:absolute;top:49%;width:3px;height:3px;border-radius:50%;background:#111}
+.cd-door-left{left:45%;transform-origin:left center}.cd-door-left:after{right:3px}
+.cd-door-right{left:66.5%;transform-origin:right center}.cd-door-right:after{left:3px}
+.cd-brand-logo.opening .cd-door-left{animation:cdOpenLeft .74s cubic-bezier(.22,.72,.24,1) .08s both}
+.cd-brand-logo.opening .cd-door-right{animation:cdOpenRight .74s cubic-bezier(.22,.72,.24,1) .08s both}
+.cd-brand-logo.opening .cd-clothes{animation:cdClothesSway 1.05s cubic-bezier(.36,.05,.2,1) .70s both}
+.cd-brand-logo .cd-spark{position:absolute;z-index:6;color:#d98232;opacity:0;font:10px Georgia,serif;pointer-events:none}
+.cd-brand-logo .cd-spark-a{right:-9px;top:21%}.cd-brand-logo .cd-spark-b{left:-6px;top:42%;font-size:7px}
+.cd-brand-logo.opening .cd-spark-a{animation:cdLogoSpark .55s ease .72s both}.cd-brand-logo.opening .cd-spark-b{animation:cdLogoSpark .55s ease .82s both}
+@keyframes cdOpenLeft{from{transform:rotateY(0deg)}to{transform:rotateY(-104deg)}}
+@keyframes cdOpenRight{from{transform:rotateY(0deg)}to{transform:rotateY(104deg)}}
+@keyframes cdClothesSway{0%{transform:rotate(0deg) translateX(0)}18%{transform:rotate(4.2deg) translateX(1.5px)}42%{transform:rotate(-3.1deg) translateX(-1px)}65%{transform:rotate(1.8deg) translateX(.6px)}82%{transform:rotate(-.8deg)}100%{transform:rotate(0deg) translateX(0)}}
+@keyframes cdLogoSpark{0%{opacity:0;transform:scale(.45)}48%{opacity:.82;transform:scale(1.22)}100%{opacity:0;transform:scale(.78)}}
+@media(max-width:430px){.cd-brand-logo{width:118px}.cd-wardrobe{width:74px}.cd-wordmark{width:101px}}
+@media(prefers-reduced-motion:reduce){.cd-brand-logo.opening .cd-door-left{animation:none;transform:rotateY(-104deg)}.cd-brand-logo.opening .cd-door-right{animation:none;transform:rotateY(104deg)}.cd-brand-logo.opening .cd-clothes,.cd-brand-logo.opening .cd-spark{animation:none}}
+</style><style>
+/* Drawer menu final visibility pass */
+.drawer-chest{background:linear-gradient(180deg,#f5e3d1,#eed1b5);border:1px solid #d6a576;box-shadow:0 13px 28px rgba(121,70,34,.14),inset 0 0 0 4px rgba(255,255,255,.42)}
+.drawer-card{background:linear-gradient(180deg,#fffdf9,#fff2e3);border-color:#d5a16e;box-shadow:inset 0 -8px 12px rgba(146,84,37,.045),0 4px 8px rgba(94,54,28,.08)}
+.drawer-card:after{border-color:rgba(194,135,82,.42)}.drawer-handle{border-color:#805031;background:linear-gradient(#efd6bd,#d6ad86);box-shadow:0 2px 5px rgba(80,43,20,.17)}
+.drawer-card.opening{transform:translateY(23px) translateZ(96px) rotateX(-9deg) scale(1.012);box-shadow:0 30px 38px rgba(85,45,22,.25);background:#fff8ef}
+.drawer-chest.locked{overflow:visible}.drawer-chest.locked .drawer-card:not(.opening){opacity:.58}
+</style></head><body><main class="wrap"><header class="header"><a class="header-link left" href="index.html">← HOME</a><div class="cd-brand-logo opening" aria-label="Closet Drawers"><div class="cd-wardrobe" aria-hidden="true"><img class="cd-base" src="closet-mark.png" alt=""><div class="cd-clothes-window"><img class="cd-clothes" src="closet-clothes.png" alt=""></div><span class="cd-door cd-door-left"></span><span class="cd-door cd-door-right"></span><span class="cd-spark cd-spark-a">✦</span><span class="cd-spark cd-spark-b">✦</span></div><img class="cd-wordmark" src="closet-wordmark.png" alt="Closet Drawers"></div><a class="header-link right" href="about.html">ABOUT</a></header><section class="menu-head"><div class="kicker">CLOSET DRAWERS</div><h1 class="page-title">MENU</h1><div class="lead">今日はどの引き出しを開ける？</div></section><div class="drawer-label">CHOOSE YOUR DRAWER</div><div class="drawer-caption">ファッションの遊びを選んでね ♡</div><div class="drawer-chest" id="drawerChest"><a class="drawer-card" href="index.html"><div class="drawer-number">DRAWER 01</div><div class="drawer-main">FASHION LOTTERY</div><div class="drawer-sub">ファッションくじ</div><span class="drawer-handle" aria-hidden="true"></span></a><a class="drawer-card" href="weekly.html"><div class="drawer-number">DRAWER 02</div><div class="drawer-main">WEEKLY FASHION LOTTERY</div><div class="drawer-sub">今週のファッションくじ</div><span class="drawer-handle" aria-hidden="true"></span></a><a class="drawer-card" href="pattern30-test-theme-animated-bg-drift-v9-save-sizefix.html"><span class="drawer-new">NEW</span><div class="drawer-number">DRAWER 03</div><div class="drawer-main">IMAGE SIMILARITY LOTTERY</div><div class="drawer-sub">画像でシミラーくじ</div><span class="drawer-handle" aria-hidden="true"></span></a></div><nav class="nav"><a href="how-to-play.html"><div><span class="main">HOW TO PLAY</span><span class="sub">遊び方</span></div><span>→</span></a><a href="dictionary.html"><div><span class="main">FASHION DICTIONARY</span><span class="sub">ファッション辞典</span></div><span>→</span></a><a href="template.html"><div><span class="main">POST TEMPLATE</span><span class="sub">投稿テンプレート</span></div><span>→</span></a><a href="about.html"><div><span class="main">ABOUT / NEWS</span><span class="sub">Closet Drawersについて・お知らせ</span></div><span>→</span></a></nav><footer>Closet Drawers / Fashion is self-expression.<br>当サイトは非公式ファン企画です。ピグパーティ運営とは関係ありません。</footer></main><script>
+(function(){
+  const chest=document.getElementById('drawerChest');
+  if(!chest)return;
+  chest.querySelectorAll('.drawer-card').forEach(drawer=>{
+    drawer.addEventListener('click',e=>{
+      if(e.metaKey||e.ctrlKey||e.shiftKey||e.altKey)return;
+      e.preventDefault();
+      const href=drawer.getAttribute('href');
+      chest.classList.add('locked');
+      drawer.classList.add('opening');
+      const reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      setTimeout(()=>{location.href=href},reduce?40:520);
+    });
+  });
+})();
+</script></body></html>
+<style>
+/* Ver.3 menu test: support three drawers while preserving current cabinet styling */
+.drawer-card:first-child{border-radius:12px 12px 4px 4px}
+.drawer-card + .drawer-card{border-radius:4px;margin-top:5px}
+.drawer-card:last-child{border-radius:4px 4px 12px 12px}
+</style>
