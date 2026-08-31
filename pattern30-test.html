@@ -124,7 +124,7 @@ h1{font-family:"Yu Mincho","Hiragino Mincho ProN",serif;font-size:30px;margin:10
 .shape-layer.basic{transform:translate(-50%,-50%)}
 .tint{position:absolute;inset:0;mask-size:contain;-webkit-mask-size:contain;mask-repeat:no-repeat;-webkit-mask-repeat:no-repeat;mask-position:center;-webkit-mask-position:center;background:var(--c)}
 .pattern{position:absolute;inset:0;mask-size:contain;-webkit-mask-size:contain;mask-repeat:no-repeat;-webkit-mask-repeat:no-repeat;mask-position:center;-webkit-mask-position:center;
-  background-image:var(--p);background-repeat:repeat;background-position:0 0;background-size:var(--tile,20px) var(--tile,20px);opacity:.9}
+  background-image:var(--p);background-repeat:no-repeat;background-position:center;background-size:100% 100%;opacity:.9}
 .label{
   position:absolute;
   transform:translate(-50%,0);
@@ -503,8 +503,11 @@ const COLORS = [["ピンク", "#f3a6b8"], ["ブラック", "#111111"], ["ホワ�
 const CAMO_PATTERN_INDEX = 29;
 const CAMO_PATTERN_URI = "30_迷彩柄.png";
 
+const PATTERN_ASSET_VERSION = "20260831b";
 function getPatternUri(index){
-  return index === CAMO_PATTERN_INDEX ? CAMO_PATTERN_URI : SEAMLESS_PATTERNS[index];
+  const uri = index === CAMO_PATTERN_INDEX ? CAMO_PATTERN_URI : SEAMLESS_PATTERNS[index];
+  if (!uri || uri.startsWith("data:")) return uri;
+  return uri + (uri.includes("?") ? "&" : "?") + "v=" + PATTERN_ASSET_VERSION;
 }
 
 function getColorFill(colorTuple){
@@ -631,13 +634,10 @@ function chooseColor(excludeNames=[], allowBlack=true) {
   return c;
 }
 
-const PATTERN_TILE_SIZES = [18,18,20,18,18,18,20,20,20,20,20,18,22,16,16,22,20,18,18,20,22,22,18,20,20,22,18,16,18,18];
-
+// 30柄は完成済みの正方形パターン画像として使用する。
+// 旧版の16〜22px縮小タイル方式は使わない。
 function getPatternTileSize(index) {
-  const base = PATTERN_TILE_SIZES[index] || 24;
-  if (selectedPeople === 1) return Math.round(base * 1.15);
-  if (selectedPeople >= 7) return Math.round(base * 0.96);
-  return base;
+  return 100;
 }
 
 function makeIslandSpec(i) {
@@ -944,7 +944,32 @@ document.getElementById("copyBtn").onclick = async () => {
   }
 };
 
-document.getElementById("saveBtn").onclick = () => {
+async function urlToDataUrl(url) {
+  if (!url || url.startsWith("data:")) return url;
+  const absolute = new URL(url, window.location.href).href;
+  const res = await fetch(absolute, {cache:"no-store"});
+  if (!res.ok) throw new Error(`pattern fetch failed: ${res.status}`);
+  const blob = await res.blob();
+  return await new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = reject;
+    reader.readAsDataURL(blob);
+  });
+}
+
+async function inlinePatternImagesForSave(clone) {
+  const nodes = [...clone.querySelectorAll(".pattern")];
+  await Promise.all(nodes.map(async node => {
+    const raw = node.style.getPropertyValue("--p").trim();
+    const match = raw.match(/^url\(["']?(.*?)["']?\)$/);
+    if (!match) return;
+    const dataUrl = await urlToDataUrl(match[1]);
+    node.style.setProperty("--p", `url("${dataUrl}")`);
+  }));
+}
+
+document.getElementById("saveBtn").onclick = async () => {
   const stage = resultStage;
   const rect = stage.getBoundingClientRect();
   const popup = window.open("", "_blank");
@@ -952,6 +977,15 @@ document.getElementById("saveBtn").onclick = () => {
   const clone = stage.cloneNode(true);
   clone.style.width = rect.width + "px";
   clone.style.height = rect.height + "px";
+
+  try {
+    await inlinePatternImagesForSave(clone);
+  } catch (e) {
+    console.error(e);
+    if (popup) popup.close();
+    showToast("保存用画像の読み込みに失敗しました");
+    return;
+  }
 
   const wrapper = document.createElement("div");
   wrapper.setAttribute("xmlns", "http://www.w3.org/1999/xhtml");
