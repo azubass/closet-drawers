@@ -125,6 +125,59 @@ h1{font-family:"Yu Mincho","Hiragino Mincho ProN",serif;font-size:30px;margin:10
 .tint{position:absolute;inset:0;mask-size:contain;-webkit-mask-size:contain;mask-repeat:no-repeat;-webkit-mask-repeat:no-repeat;mask-position:center;-webkit-mask-position:center;background:var(--c)}
 .pattern{position:absolute;inset:0;mask-size:contain;-webkit-mask-size:contain;mask-repeat:no-repeat;-webkit-mask-repeat:no-repeat;mask-position:center;-webkit-mask-position:center;
   background-image:var(--p);background-repeat:repeat;background-position:center;background-size:var(--tile,65%) var(--tile,65%);opacity:1;image-rendering:auto}
+
+.result-meta{
+  position:absolute;
+  top:5.4%;
+  right:4.8%;
+  z-index:25;
+  width:25%;
+  min-width:78px;
+  font-family:Georgia,"Times New Roman",serif;
+  color:#52443a;
+}
+.result-meta-row{
+  display:flex;
+  align-items:baseline;
+  justify-content:space-between;
+  gap:7px;
+  margin-bottom:3px;
+  white-space:nowrap;
+}
+.result-meta-key{
+  font-size:5px;
+  line-height:1;
+  font-style:italic;
+  letter-spacing:.12em;
+  color:#9b8776;
+}
+.result-meta-value{
+  font-size:6px;
+  line-height:1;
+  letter-spacing:.035em;
+  color:#5f5045;
+}
+.result-kicker{
+  position:absolute;
+  left:4.8%;
+  bottom:5.2%;
+  z-index:25;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:5px;
+  font-style:italic;
+  letter-spacing:.09em;
+  color:#8b7564;
+  white-space:nowrap;
+}
+.result-kicker::after{
+  content:"";
+  display:block;
+  width:72px;
+  height:1px;
+  margin-top:4px;
+  background:#d4c2b3;
+}
+
 .label{
   position:absolute;
   transform:translate(-50%,0);
@@ -502,7 +555,7 @@ const SEAMLESS_PATTERNS = ["pattern-01.png", "pattern-02.png", "pattern-03.png",
 const COLORS = [["ピンク", "#f3a6b8"], ["ブラック", "#111111"], ["ホワイト", "#f7f7f5"], ["ブルー", "#7196c5"], ["レッド", "#c84b4b"], ["グリーン", "#668d67"], ["パープル", "#8c70aa"], ["ブラウン", "#8a644d"], ["オレンジ", "#f28a2b"], ["グレー", "#a9aaad"], ["イエロー", "#f3d56b"], ["ベージュ", "#d8c2a0"], ["カーキ", "#8b8964"], ["ライトブルー", "#9fc8e8"], ["ターコイズ", "#46b8b1"], ["ネイビー", "#1f3558"], ["ボルドー", "#76263b"], ["アイボリー", "#eee6d4"], ["ミント", "#b7dfcf"], ["テラコッタ", "#c76b4a"], ["オリーブ", "#707446"], ["ゴールド", "#c6a23d"], ["シルバー", "#b7bbc1"], ["ラベンダー", "#b7a2d6"], ["キャメル", "#c28a54"]];
 const CAMO_PATTERN_INDEX = 29;
 const CAMO_PATTERN_URI = "pattern-30.png";
-const PATTERN_ASSET_VERSION = "20260831g";
+const PATTERN_ASSET_VERSION = "20260831h";
 
 function getPatternUri(index){
   const uri = index === CAMO_PATTERN_INDEX ? CAMO_PATTERN_URI : SEAMLESS_PATTERNS[index];
@@ -791,9 +844,54 @@ function captionParts(label) {
   return {html: label, twoLine:false, tight: label.length >= 16};
 }
 
+
+function formatResultDate(d = new Date()) {
+  const y = d.getFullYear();
+  const m = String(d.getMonth() + 1).padStart(2, "0");
+  const day = String(d.getDate()).padStart(2, "0");
+  return `${y}.${m}.${day}`;
+}
+
+function getResultModeLabel() {
+  if (!selectedTheme) return "RANDOM";
+  if (selectedTheme.kind === "color") return "COLOR";
+  if (selectedTheme.kind === "pattern") return "PATTERN";
+  return "RANDOM";
+}
+
+function appendResultMeta(stage) {
+  const meta = document.createElement("div");
+  meta.className = "result-meta";
+  const rows = [
+    ["DATE", formatResultDate()],
+    ["PEOPLE", `${selectedPeople} PEOPLE`],
+    ["MODE", getResultModeLabel()]
+  ];
+  rows.forEach(([key, value]) => {
+    const row = document.createElement("div");
+    row.className = "result-meta-row";
+    const k = document.createElement("span");
+    k.className = "result-meta-key";
+    k.textContent = key;
+    const v = document.createElement("span");
+    v.className = "result-meta-value";
+    v.textContent = value;
+    row.append(k, v);
+    meta.appendChild(row);
+  });
+  stage.appendChild(meta);
+
+  const kicker = document.createElement("div");
+  kicker.className = "result-kicker";
+  kicker.textContent = "image similarity lottery";
+  stage.appendChild(kicker);
+}
+
 function renderResult() {
   resultStage.innerHTML = "";
   const L = LAYOUTS[selectedPeople];
+
+  appendResultMeta(resultStage);
 
   const logo = document.createElement("img");
   logo.src = L.logo[0] === "circle" ? ROUND_LOGO : WIDE_LOGO;
