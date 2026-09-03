@@ -1,22 +1,15 @@
-Closet Drawers Ver.2 — Brand Final
+Closet Drawers Ver.3.1 production update
 
-GitHub Pagesのリポジトリ直下へ、このフォルダ内のファイルをすべてアップロードしてください。
-今回追加された画像: closet-mark.png / closet-wordmark.png
-save-image.html も必要です。
+GitHub repository root で以下の3ファイルだけを置き換えてください。
+- image-lottery.html
+- how-to-play.html
+- about.html
 
-主な最終調整:
-- MENUを2段の引き出しUIとして確実に実装（DRAWER 02にNEW）
-- 引き出しタップ時に開いてからページ遷移
-- HOMEの YOUR THEME / YOUR FASHION THEME 表記を削除
-- 最終テーマの順次表示＋オレンジライン＋小さなキラッ演出
-- HOME常設ファッションモチーフ背景
-- HOME最上部ロゴのクローゼットOPEN演出
-- HOME最下部のクローゼットCLOSE＋THANKS FOR OPENING
-- テンプレート保存はsave-image.htmlで長押し保存
+それ以外の本番ファイルは変更しません。
 
-追加アセット: closet-mark.png / closet-wordmark.png / closet-clothes.png も必ずアップロードしてください。
-
-[2026-08-31 本番修正]
-- 「今週のファッションくじ」の月曜更新を13週×4季節（52週）サイクルへ修正。
-- 2026-03-02(月)を SPRING / WEEK 01 の基準日として、13週ごとに次季節へ切り替わります。
-- 2026-08-31(月)は AUTUMN / WEEK 01 になります。
+今回の更新内容:
+- 画像でシミラーくじに COLOR RANDOM を追加
+- COLOR RANDOM 限定で3色・3分割を追加
+- くじ選択画面/トップ/人数選択/結果後導線の見た目改善
+- 遊び方ページをセクション型に整理
+- ABOUT/NEWS の更新履歴を Ver.3.1 に更新

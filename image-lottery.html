@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- bg-drift-v9: save-only figure size sync / 2026-08-31 -->
+<!-- ver3.1 visual test v3: confirmed functions + refined lottery selector / 2026-09-03 -->
 <html lang="ja">
 <head>
 <!-- caption soft-shadow test: 2026-08-31 -->
@@ -91,9 +91,9 @@ h1{font-family:"Yu Mincho","Hiragino Mincho ProN",serif;font-size:30px;margin:10
 .sub{font-size:10px;color:#947665;line-height:1.8;margin-bottom:16px}
 .people-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}
 .btn,.theme-btn,.ghost,.primary,.secondary{cursor:pointer}
-.btn{border:1px solid #ddc3a6;background:#fffaf1;border-radius:10px;padding:14px 6px;font-size:13px;font-weight:600;color:#6c5140;box-shadow:none;transition:.18s ease}
+.btn{border:1px solid #ddc3a6;background:#fffaf1;border-radius:10px;padding:14px 6px;font-size:13px;font-weight:600;color:#6c5140;box-shadow:none;transition:transform .18s ease,background .18s ease,border-color .18s ease,box-shadow .18s ease,color .18s ease}
 .btn:hover{border-color:#cfaa80;background:#fff8ed}
-.btn.selected{background:#d8b184;border-color:#cda170;color:#5e432f;transform:translateY(-1px);box-shadow:0 6px 14px rgba(156,108,66,.10)}
+.btn.selected{background:#d8b184;border-color:#c58f5e;color:#4f3726;transform:translateY(-1px);box-shadow:0 7px 16px rgba(156,108,66,.14),inset 0 0 0 1px rgba(255,255,255,.42)}
 .theme-grid{display:grid;grid-template-columns:1fr;gap:10px}
 .theme-btn{min-height:76px;border:1px solid #dfc8ad;background:#fffaf2;border-radius:12px;color:var(--ink);padding:15px 18px;text-align:left;display:flex;align-items:center;justify-content:space-between;gap:18px}
 .theme-btn .type{font:400 8px Georgia,serif;letter-spacing:.24em;color:#ad8b72;min-width:72px}
@@ -105,6 +105,84 @@ h1{font-family:"Yu Mincho","Hiragino Mincho ProN",serif;font-size:30px;margin:10
 .theme-btn.random{background:#fffaf2}
 .theme-btn.random:hover,.theme-btn.random:active{background:#e6c7a5}
 .theme-btn.random .name:after{content:"›";color:#b99a80}
+.theme-grid{gap:8px}
+.theme-group-heading{
+  display:flex;align-items:center;gap:10px;
+  font:600 10px Georgia,serif;letter-spacing:.28em;color:#b87544;
+  margin:8px 0 1px;padding-left:2px
+}
+.theme-group-heading:first-child{margin-top:1px}
+.theme-group-heading:after{content:"";height:1px;flex:1;background:linear-gradient(90deg,#dec1a0,transparent)}
+.theme-group-heading.random-group{margin-top:15px}
+.theme-btn{
+  min-height:64px;padding:11px 15px;gap:12px;
+}
+.theme-btn .type{display:none}
+.theme-btn .name-wrap{flex:1;min-width:0;display:flex;flex-direction:column;justify-content:center}
+.theme-btn .mode-name{font-size:10px;line-height:1.25;color:#9b7a64;font-weight:600;letter-spacing:.04em;margin-bottom:4px}
+.theme-btn .main-value{font-size:19px;line-height:1.22;font-weight:700;color:#4a372b;letter-spacing:.015em}
+.theme-btn .main-value:after{content:"›";float:right;font-size:22px;font-weight:400;color:#b99a80;line-height:1}
+.theme-btn .desc{font-size:10px;line-height:1.4;color:#947665;margin-top:4px}
+.theme-btn.random-card .main-value{font-size:16px}
+
+.theme-main-row{display:flex;align-items:center;gap:10px;min-width:0}
+.theme-preview-chip{
+  width:28px;height:28px;flex:0 0 28px;border-radius:50%;
+  border:1px solid rgba(151,111,79,.28);box-shadow:inset 0 0 0 1px rgba(255,255,255,.38);
+  background-color:#f7efe5;background-repeat:repeat;background-position:center;background-size:65%;
+}
+.theme-preview-chip.pattern-chip{border-radius:7px;background-size:65%;background-color:#fffaf2}
+.theme-main-row .main-value{flex:1;min-width:0}
+.intro-explain-short{margin:0 auto 15px;font-size:10px;line-height:1.7}
+.theme-btn .new-badge{
+  display:inline-block;vertical-align:2px;margin-left:7px;padding:2px 5px;
+  border:1px solid #d79d66;border-radius:999px;background:#fff4e8;
+  color:#b86f32;font:700 7px Georgia,serif;letter-spacing:.12em;
+  position:relative;overflow:hidden
+}
+
+/* ver.3.1 visual polish: A+B+D+E+F */
+.theme-group-heading:after{
+  transform:scaleX(0);transform-origin:left center;
+  animation:themeLineGrow .52s cubic-bezier(.22,.61,.36,1) .08s forwards
+}
+.theme-group-heading.random-group:after{animation-delay:.38s}
+.theme-btn{position:relative;overflow:hidden;transform-origin:center}
+.theme-btn.show{animation:themeCardFadeUp .38s cubic-bezier(.22,.61,.36,1) both}
+.theme-btn.show:nth-of-type(2){animation-delay:.04s}
+.theme-btn.show:nth-of-type(3){animation-delay:.10s}
+.theme-btn.show:nth-of-type(5){animation-delay:.18s}
+.theme-btn.show:nth-of-type(6){animation-delay:.24s}
+.theme-btn.picked:before{
+  content:"";position:absolute;inset:-1px;border-radius:12px;
+  border:1.5px solid rgba(202,132,72,.88);pointer-events:none;
+  animation:themePickGlow .42s ease-out both
+}
+.theme-btn .new-badge:after{
+  content:"";position:absolute;top:-40%;bottom:-40%;width:10px;left:-18px;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.95),transparent);
+  transform:rotate(18deg);
+  animation:newBadgeShine .9s ease .7s 1 both
+}
+@keyframes themeLineGrow{to{transform:scaleX(1)}}
+@keyframes themeCardFadeUp{
+  from{opacity:0;transform:translateY(10px)}
+  to{opacity:1;transform:translateY(0)}
+}
+@keyframes themePickGlow{
+  0%{opacity:0;box-shadow:0 0 0 rgba(202,132,72,0)}
+  30%{opacity:1;box-shadow:0 0 18px rgba(202,132,72,.22)}
+  100%{opacity:.18;box-shadow:0 0 0 rgba(202,132,72,0)}
+}
+@keyframes newBadgeShine{
+  0%{left:-18px;opacity:0}
+  18%{opacity:1}
+  72%{opacity:1}
+  100%{left:calc(100% + 18px);opacity:0}
+}
+@media (prefers-reduced-motion:reduce){
+  .theme-group-heading:after,.theme-btn.show,.theme-btn .new-badge:after,.theme-btn.picked:before{animation:none!important;transform:none!important}
+}
 
 
 .intro-screen,.flow-screen{
@@ -160,6 +238,15 @@ h1{font-family:"Yu Mincho","Hiragino Mincho ProN",serif;font-size:30px;margin:10
   }
 }
 
+.intro-explain{
+  margin:-4px auto 17px;
+  max-width:440px;
+  text-align:center;
+  font-size:10px;
+  line-height:1.75;
+  color:#806653;
+  letter-spacing:.015em;
+}
 .intro-steps{
   display:grid;
   grid-template-columns:repeat(3,1fr);
@@ -354,9 +441,9 @@ h1{font-family:"Yu Mincho","Hiragino Mincho ProN",serif;font-size:30px;margin:10
 }
 
 .hidden{display:none!important}
-.result-tools{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:20px}
-.ghost{border:1px solid #ddc3a6;background:#fffaf2;border-radius:10px;padding:11px 9px;font-size:11px;font-weight:500;color:#765b47}
-.ghost:hover{background:#fff7eb;border-color:#cfaa80}
+.result-tools{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:18px}
+.ghost{border:1px solid #e4d4c2;background:#fffdf8;border-radius:10px;padding:10px 9px;font-size:10.5px;font-weight:500;color:#806b5b;transition:.18s ease}
+.ghost:hover,.ghost:active{background:#fff8ef;border-color:#d7b995;color:#6e5140}
 .result-stage{position:relative;width:100%;aspect-ratio:1/1;background:#fff;border:1px solid #eadcca;border-radius:14px;overflow:hidden;margin:4px 0 20px}
 .logo-img{position:absolute;transform:translate(-50%,-50%);object-fit:contain;z-index:1}
 .logo-circle{width:23%}
@@ -692,9 +779,12 @@ h1{font-family:"Yu Mincho","Hiragino Mincho ProN",serif;font-size:30px;margin:10
 @keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
 .toast.post{background:#5a4435}
 
-.result-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:0}
-.primary,.secondary{border:1px solid #b98255;border-radius:11px;padding:14px;background:#b98255;color:#fff;font-weight:600;box-shadow:0 6px 14px rgba(130,84,49,.12)}
-.primary:hover,.secondary:hover{background:#a97148;border-color:#a97148}
+.result-actions{display:grid;grid-template-columns:1.12fr .88fr;gap:10px;margin-top:0}
+.primary,.secondary{border-radius:11px;padding:14px 12px;font-weight:600;transition:.18s ease}
+.primary{border:1px solid #b98255;background:#b98255;color:#fff;box-shadow:0 7px 16px rgba(130,84,49,.14)}
+.primary:hover,.primary:active{background:#a97148;border-color:#a97148;transform:translateY(-1px)}
+.secondary{border:1px solid #cda77f;background:#fffaf2;color:#765b47;box-shadow:none}
+.secondary:hover,.secondary:active{background:#f8eadb;border-color:#bf9063;transform:translateY(-1px)}
 .disclaimer{font-size:8px;line-height:1.8;color:#9a7d68;text-align:center;margin-top:14px;letter-spacing:.01em}
 .toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(15px);background:#3d3028;color:#fff;padding:10px 14px;border-radius:999px;font-size:11px;opacity:0;pointer-events:none;transition:.2s;z-index:50}
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
@@ -736,9 +826,9 @@ h1{font-family:"Yu Mincho","Hiragino Mincho ProN",serif;font-size:30px;margin:10
   to{opacity:1;transform:translateY(0)}
 }
 @keyframes buttonSelectBounce{
-  0%{transform:translateY(0) scale(1)}
-  45%{transform:translateY(1px) scale(.985)}
-  100%{transform:translateY(-1px) scale(1.01)}
+  0%{transform:translateY(0) scale(1);box-shadow:none}
+  42%{transform:translateY(1px) scale(.975);background:#efd7bd;border-color:#c98f5c;box-shadow:0 0 0 3px rgba(196,122,60,.10)}
+  100%{transform:translateY(-1px) scale(1.01);background:#d8b184;border-color:#c58f5e;box-shadow:0 7px 16px rgba(156,108,66,.14)}
 }
 .flow-screen{transition:opacity .34s ease,transform .34s cubic-bezier(.22,.61,.36,1)}
 .flow-screen.is-exiting{opacity:0;transform:translateY(-18px)}
@@ -898,6 +988,20 @@ h1{font-family:"Yu Mincho","Hiragino Mincho ProN",serif;font-size:30px;margin:10
 }
 
 </style>
+
+<style>
+/* ver.3.1 full-UX polish: UI rhythm only; result image layout untouched */
+@media(max-width:430px){
+  .wrap{padding-left:13px;padding-right:13px;padding-bottom:34px}
+  .panel{padding:18px;margin-bottom:16px}
+  .sub{margin-bottom:13px}
+  #peoplePanel .people-grid{gap:8px}
+  #peoplePanel .btn{padding:13px 6px}
+  #themePanel .theme-grid{gap:7px}
+  .result-tools{margin-bottom:16px}
+}
+</style>
+
 </head>
 <body>
 
@@ -948,7 +1052,7 @@ h1{font-family:"Yu Mincho","Hiragino Mincho ProN",serif;font-size:30px;margin:10
 
     <section class="intro-guide">
       <div class="step">HOW TO PLAY</div>
-      <h2 class="intro-guide-title intro-guide-title-en">CREATE SIMILAR LOOKS FROM IMAGES.</h2>
+      <p class="intro-explain intro-explain-short">画像をヒントに、自由にコーデを楽しもう。</p>
 
       <div class="intro-steps">
         <div class="intro-step">
@@ -958,13 +1062,13 @@ h1{font-family:"Yu Mincho","Hiragino Mincho ProN",serif;font-size:30px;margin:10
         </div>
         <div class="intro-step">
           <span class="intro-num">02</span>
-          <strong>テーマを選ぶ</strong>
-          <span>COLOR・PATTERN・RANDOMから選択。</span>
+          <strong>くじを選ぶ</strong>
+          <span>テーマを選ぶか、ランダムにするかを選択。</span>
         </div>
         <div class="intro-step">
           <span class="intro-num">03</span>
           <strong>コーデを作る</strong>
-          <span>表示された画像をヒントに自由にシミラー。</span>
+          <span>出た画像をヒントにシミラーを楽しもう。</span>
         </div>
       </div>
 
@@ -983,9 +1087,9 @@ h1{font-family:"Yu Mincho","Hiragino Mincho ProN",serif;font-size:30px;margin:10
   </section>
 
   <section class="panel flow-screen hidden" id="themePanel">
-    <div class="step">SELECT THEME</div>
-    <h2 class="title">テーマを選んでね</h2>
-    <div class="sub">COLOR・PATTERN・RANDOM の3つから選べます。</div>
+    <div class="step">SELECT LOTTERY</div>
+    <h2 class="title">くじを選んでね</h2>
+    <div class="sub">固定テーマとランダムから選べます。</div>
     <div class="theme-grid" id="themeGrid"></div>
   </section>
 
@@ -994,7 +1098,7 @@ h1{font-family:"Yu Mincho","Hiragino Mincho ProN",serif;font-size:30px;margin:10
     <h2 class="title">くじの結果</h2>
     <div class="result-tools">
       <button class="ghost" id="changePeople">人数を変更</button>
-      <button class="ghost" id="changeTheme">テーマを引き直す</button>
+      <button class="ghost" id="changeTheme">くじを選び直す</button>
     </div>
     <div class="result-stage" id="resultStage"></div>
     <div class="result-actions">
@@ -1213,27 +1317,81 @@ function handleThemeSelect(button, item) {
 function renderThemeChoices() {
   themeGrid.innerHTML = "";
   themeGrid.classList.remove("selection-leaving", "is-lock");
-  const items = [
-    {kind:"color", type:"COLOR", name:themeChoices.color[0]},
-    {kind:"pattern", type:"PATTERN", name:PATTERN_NAMES[themeChoices.patternIndex]},
-    {kind:"random", type:"RANDOM", name:"ランダム"}
+
+  const groups = [
+    {
+      heading: "テーマを選ぶ",
+      groupClass: "theme-group",
+      items: [
+        {kind:"color-fixed", modeName:"COLOR FIX", value:themeChoices.color[0], preview:"color"},
+        {kind:"pattern-fixed", modeName:"PATTERN FIX", value:PATTERN_NAMES[themeChoices.patternIndex], preview:"pattern"}
+      ]
+    },
+    {
+      heading: "ランダムにする",
+      groupClass: "random-group",
+      items: [
+        {kind:"all-random", modeName:"ALL RANDOM", value:"色・柄・形をランダム", random:true},
+        {kind:"color-only-random", modeName:"COLOR RANDOM", value:"柄を使わず、色だけランダム", random:true, isNew:true}
+      ]
+    }
   ];
-  items.forEach(item => {
-    const b = document.createElement("button");
-    b.className = "theme-btn" + (item.kind==="random" ? " random" : "");
-    b.innerHTML = `<div class="type">${item.type}</div><div class="name">${item.name}</div>`;
-    b.onclick = () => {
-      handleThemeSelect(b, item);
-    };
-    themeGrid.appendChild(b);
-    setTimeout(()=>b.classList.add("show"), 80 + themeGrid.children.length*90);
+
+  let delayIndex = 0;
+  groups.forEach(group => {
+    const head = document.createElement("div");
+    head.className = `theme-group-heading ${group.groupClass}`;
+    head.textContent = group.heading;
+    themeGrid.appendChild(head);
+
+    group.items.forEach(item => {
+      const b = document.createElement("button");
+      b.className = "theme-btn" + (item.random ? " random random-card" : "");
+
+      const newBadge = item.isNew ? '<span class="new-badge">NEW</span>' : '';
+      const wrap = document.createElement("div");
+      wrap.className = "name-wrap";
+      wrap.innerHTML = `<div class="mode-name">${item.modeName}${newBadge}</div>`;
+
+      const row = document.createElement("div");
+      row.className = "theme-main-row";
+
+      if (item.preview === "color") {
+        const chip = document.createElement("span");
+        chip.className = "theme-preview-chip color-chip";
+        chip.style.background = getColorFill(themeChoices.color);
+        chip.setAttribute("aria-hidden", "true");
+        row.appendChild(chip);
+      } else if (item.preview === "pattern") {
+        const chip = document.createElement("span");
+        chip.className = "theme-preview-chip pattern-chip";
+        chip.style.backgroundImage = `url("${getPatternUri(themeChoices.patternIndex)}")`;
+        chip.style.backgroundSize = getPatternTileSize(themeChoices.patternIndex);
+        chip.setAttribute("aria-hidden", "true");
+        row.appendChild(chip);
+      }
+
+      const value = document.createElement("div");
+      value.className = "main-value";
+      value.textContent = item.value;
+      row.appendChild(value);
+      wrap.appendChild(row);
+      b.appendChild(wrap);
+
+      b.onclick = () => handleThemeSelect(b, item);
+      themeGrid.appendChild(b);
+      delayIndex += 1;
+      setTimeout(() => b.classList.add("show"), 70 + delayIndex * 75);
+    });
   });
 }
 
 function getThemeText() {
   if (!selectedTheme) return "";
-  if (selectedTheme.kind === "color") return themeChoices.color[0];
-  if (selectedTheme.kind === "pattern") return PATTERN_NAMES[themeChoices.patternIndex];
+  if (selectedTheme.kind === "color-fixed") return `カラー固定（${themeChoices.color[0]}）`;
+  if (selectedTheme.kind === "pattern-fixed") return `柄固定（${PATTERN_NAMES[themeChoices.patternIndex]}）`;
+  if (selectedTheme.kind === "all-random") return "オールランダム";
+  if (selectedTheme.kind === "color-only-random") return "カラーのみランダム";
   return "ランダム";
 }
 
@@ -1274,6 +1432,24 @@ function chooseColor(excludeNames=[], allowBlack=true) {
   return c;
 }
 
+function chooseDistinctColors(count, allowBlack=true, fixedFirst=null) {
+  const picked = [];
+  const used = [];
+
+  if (fixedFirst) {
+    picked.push(fixedFirst);
+    used.push(fixedFirst[0]);
+  }
+
+  while (picked.length < count) {
+    const next = chooseColor(used, allowBlack);
+    picked.push(next);
+    used.push(next[0]);
+  }
+
+  return picked;
+}
+
 const PATTERN_TILE_SIZES = [
   65, 65, 65, 65, 65, 65, 65, 65, 70, 65,
   65, 65, 70, 65, 70, 70, 65, 65, 65, 65,
@@ -1292,55 +1468,75 @@ function makeIslandSpec(i) {
   let shape2 = Math.floor(Math.random()*SHAPES.length);
   while (shape2 === shape1) shape2 = Math.floor(Math.random()*SHAPES.length);
 
-  let allowBlack = selectedTheme.kind !== "pattern";
-  let c1 = chooseColor([], allowBlack);
-  let c2 = chooseColor([c1[0]], allowBlack);
   let pIndex = Math.floor(Math.random()*PATTERNS.length);
-
+  let c1 = null;
+  let c2 = null;
+  let c3 = null;
   let mode;
-  if (selectedPeople === 1) {
-    mode = "basic";
-  } else if (selectedPeople === 2) {
-    mode = i === 0 ? "basic" : "split";
-  } else if (selectedPeople === 3) {
-    mode = i === 0 ? "basic" : (i === 1 ? "layered" : "gradient");
+
+  const kind = selectedTheme.kind;
+
+  if (kind === "color-only-random") {
+    if (selectedPeople === 1) {
+      mode = "basic";
+    } else if (selectedPeople === 2) {
+      mode = i === 0 ? "basic" : "split";
+    } else if (selectedPeople === 3) {
+      mode = ["basic", "layered", "threeSplit"][i];
+    } else {
+      const modes = ["basic", "layered", "split", "gradient", "threeSplit"];
+      mode = modes[i % modes.length];
+    }
   } else {
-    const modes = ["basic", "layered", "split", "gradient"];
-    mode = modes[i % modes.length];
+    if (selectedPeople === 1) {
+      mode = "basic";
+    } else if (selectedPeople === 2) {
+      mode = i === 0 ? "basic" : "split";
+    } else if (selectedPeople === 3) {
+      mode = i === 0 ? "basic" : (i === 1 ? "layered" : "gradient");
+    } else {
+      const modes = ["basic", "layered", "split", "gradient"];
+      mode = modes[i % modes.length];
+    }
   }
 
-  if (selectedTheme.kind === "color") {
+  if (kind === "color-fixed") {
     c1 = themeChoices.color;
     c2 = chooseColor([c1[0]], true);
-  }
-  if (selectedTheme.kind === "pattern") {
+    if (mode === "threeSplit") c3 = chooseColor([c1[0], c2[0]], true);
+  } else if (kind === "pattern-fixed") {
     pIndex = themeChoices.patternIndex;
-    c1 = chooseColor([], false);
-    c2 = chooseColor([c1[0]], false);
+    [c1, c2, c3] = chooseDistinctColors(mode === "threeSplit" ? 3 : 2, false);
     if (mode === "split" || mode === "gradient") mode = "layered";
+  } else if (kind === "all-random") {
+    [c1, c2, c3] = chooseDistinctColors(mode === "threeSplit" ? 3 : 2, true);
+  } else if (kind === "color-only-random") {
+    [c1, c2, c3] = chooseDistinctColors(mode === "threeSplit" ? 3 : 2, true);
+    pIndex = null;
   }
 
-  const themeIsBlack = selectedTheme.kind === "color" && themeChoices.color[0] === BLACK_NAME;
-  const hasAnyBlack = c1[0] === BLACK_NAME || c2[0] === BLACK_NAME;
+  const themeIsBlack = kind === "color-fixed" && themeChoices.color[0] === BLACK_NAME;
+  const hasAnyBlack = [c1, c2, c3].filter(Boolean).some(c => c[0] === BLACK_NAME);
+  const patternAllowed = kind !== "color-only-random";
 
-  // pattern themes should stay pattern-based.
-  // color themes keep split / gradient as plain color expressions.
-  const usePatternBasic = mode === "basic" && c1[0] !== BLACK_NAME && !themeIsBlack;
-  const patternOnFront = mode === "layered" && c2[0] !== BLACK_NAME;
-  const patternOnBack = mode === "layered" && c2[0] === BLACK_NAME && c1[0] !== BLACK_NAME;
+  const usePatternBasic = patternAllowed && mode === "basic" && c1[0] !== BLACK_NAME && !themeIsBlack;
+  const patternOnFront = patternAllowed && mode === "layered" && c2[0] !== BLACK_NAME;
+  const patternOnBack = patternAllowed && mode === "layered" && c2[0] === BLACK_NAME && c1[0] !== BLACK_NAME;
 
   let label;
   if (mode === "basic") {
     label = usePatternBasic ? `${c1[0]}×${PATTERN_NAMES[pIndex]}` : `${c1[0]}`;
   } else if (mode === "layered") {
     label = `${c1[0]}×${c2[0]}`;
-    if (patternOnFront || patternOnBack) label += `×${PATTERN_NAMES[pIndex]}`;
+    if ((patternOnFront || patternOnBack) && pIndex !== null) label += `×${PATTERN_NAMES[pIndex]}`;
+  } else if (mode === "threeSplit") {
+    label = `${c1[0]}×${c2[0]}×${c3[0]}`;
   } else {
     label = `${c1[0]}×${c2[0]}`;
   }
 
   return {
-    shape1, shape2, c1, c2, pIndex, mode, label,
+    shape1, shape2, c1, c2, c3, pIndex, mode, label,
     usePatternBasic,
     patternOnFront,
     patternOnBack,
@@ -1406,6 +1602,11 @@ function createGradientShapeLayer(shapeUri, colorHexA, colorHexB, patternUri=nul
   return createShapeLayer(shapeUri, fill, patternUri, cls, tileSize);
 }
 
+function createThreeSplitShapeLayer(shapeUri, colorHexA, colorHexB, colorHexC, patternUri=null, cls="basic", tileSize=24) {
+  const fill = `linear-gradient(90deg, ${colorHexA} 0 33.333%, ${colorHexB} 33.333% 66.666%, ${colorHexC} 66.666% 100%)`;
+  return createShapeLayer(shapeUri, fill, patternUri, cls, tileSize);
+}
+
 
 function captionParts(label) {
   const parts = label.split("×");
@@ -1438,8 +1639,10 @@ function formatResultDate(d = new Date()) {
 
 function getResultModeLabel() {
   if (!selectedTheme) return "RANDOM";
-  if (selectedTheme.kind === "color") return "COLOR";
-  if (selectedTheme.kind === "pattern") return "PATTERN";
+  if (selectedTheme.kind === "color-fixed") return "COLOR";
+  if (selectedTheme.kind === "pattern-fixed") return "PATTERN";
+  if (selectedTheme.kind === "all-random") return "ALL RANDOM";
+  if (selectedTheme.kind === "color-only-random") return "COLOR RANDOM";
   return "RANDOM";
 }
 
@@ -1502,6 +1705,7 @@ function renderResult() {
     // Keep the selected color names/shapes unchanged, but use their base hex values in two-color fills.
     const plainFill1 = getPlainColor(spec.c1);
     const plainFill2 = getPlainColor(spec.c2);
+    const plainFill3 = spec.c3 ? getPlainColor(spec.c3) : null;
 
     if (spec.mode === "basic") {
       if (spec.usePatternBasic) {
@@ -1538,6 +1742,18 @@ function renderResult() {
           SHAPES[spec.shape1],
           plainFill1,
           plainFill2,
+          null,
+          "basic",
+          tileSize
+        )
+      );
+    } else if (spec.mode === "threeSplit") {
+      art.appendChild(
+        createThreeSplitShapeLayer(
+          SHAPES[spec.shape1],
+          plainFill1,
+          plainFill2,
+          plainFill3,
           null,
           "basic",
           tileSize
@@ -1621,7 +1837,7 @@ document.getElementById("changeTheme").onclick = () => {
 
 document.getElementById("copyBtn").onclick = async () => {
   const themeName = getThemeText();
-  const txt = `✦ Image Similarity Lottery ✦\n${selectedPeople}人で「${themeName}」テーマに挑戦したよ！\n\n🔍「Closet Drawers 画像でシミラーくじ」\n#クロドロ`;
+  const txt = `✦ Image Similarity Lottery ✦\n${selectedPeople}人で「${themeName}」くじに挑戦したよ！\n\n🔍「Closet Drawers 画像でシミラーくじ」\n#クロドロ`;
   try {
     await navigator.clipboard.writeText(txt);
     showToast("コピーしました ✦ #クロドロで投稿してね");
