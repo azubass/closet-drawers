@@ -1,0 +1,152 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>遊び方ガイド | Closet Drawers ファッションくじ Ver.3</title><meta name="description" content="ファッションくじ、今週のファッションくじ、画像でシミラーくじ、辞典、投稿テンプレートの楽しみ方。"><style>
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#fbfaf8;color:#2b211b;font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic",Meiryo,sans-serif;-webkit-font-smoothing:antialiased}.wrap{max-width:680px;margin:0 auto;padding:18px 18px 48px;min-height:100vh}.header{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;min-height:78px}.logo{width:132px;display:block;mix-blend-mode:multiply}.header-link{font-size:10px;letter-spacing:.14em;color:#5d4434;text-decoration:none}.header-link.right{justify-self:end}.header-link.left{justify-self:start}footer{margin-top:34px;padding-top:18px;border-top:1px solid #e8c49e;text-align:center;font-size:9px;line-height:1.8;color:#96755e}button,a{-webkit-tap-highlight-color:transparent}:root{--o:#d98232;--amber:#e6a24d;--apricot:#efa767;--terra:#b86635;--peach:#f5dcc4;--cream:#fffaf4;--line:#e8c49e;--ink:#2b211b;--muted:#8b6d58}.kicker{font-family:Georgia,"Times New Roman",serif;font-size:10px;letter-spacing:.24em;color:var(--o)}.page-title{font-family:"Yu Mincho","Hiragino Mincho ProN",serif;font-size:34px;text-align:center;margin:10px 0 8px}.lead{font-size:12px;line-height:1.9;color:#766052;text-align:center}.primary{border:0;background:linear-gradient(135deg,var(--amber),var(--terra));color:#fff;border-radius:12px;padding:14px 18px;font-weight:700;cursor:pointer;box-shadow:0 8px 20px rgba(184,102,53,.15)}.primary:active,.ghost:active{transform:scale(.985)}.ghost{border:1px solid #dfb98f;background:#fffdfa;color:#6d4a34;border-radius:10px;padding:12px 14px;cursor:pointer}.section-title{font-family:Georgia,serif;font-size:11px;letter-spacing:.16em;color:var(--o);margin-bottom:10px}.panel{background:linear-gradient(180deg,#fff,#fffaf5);border:1px solid #ead0b5;border-radius:16px;padding:18px}.fine{font-size:10px;line-height:1.8;color:#8a705e}.toast-ok{color:#356b48!important;border-color:#b7d8c2!important;background:#f5fbf7!important}
+.hero{text-align:center;padding:30px 0 24px;border-bottom:1px solid var(--line)}.step{display:grid;grid-template-columns:44px 1fr;gap:14px;padding:20px 0;border-bottom:1px solid #efd7bf}.num{font:28px Georgia,serif;color:var(--apricot)}.ttl{font-weight:700;font-size:14px;margin-bottom:7px}.txt{font-size:12px;line-height:1.9;color:#6f5848}.note{margin-top:24px;background:#fff3e7;border:1px solid #f0d3b5;border-radius:12px;padding:15px;text-align:center;font-size:11px;line-height:1.9;color:#755a47}</style><style>
+/* === Closet Drawers shared logo motion === */
+.cd-brand-logo{width:132px;justify-self:center;display:flex;flex-direction:column;align-items:center;line-height:0;position:relative}
+.cd-wardrobe{position:relative;width:82px;aspect-ratio:530/590;perspective:700px;transform-style:preserve-3d}
+.cd-base{display:block;width:100%;height:100%;object-fit:contain}
+.cd-wordmark{display:block;width:112px;height:auto;margin-top:-2px}
+.cd-clothes-window{position:absolute;left:48.1%;top:24.6%;width:33%;height:49.2%;overflow:hidden;background:#050505;z-index:2;pointer-events:none}
+.cd-clothes{display:block;width:100%;height:100%;object-fit:fill;transform-origin:50% 8%}
+.cd-door{position:absolute;top:18.5%;height:61%;width:21.5%;background:linear-gradient(90deg,#fff 0 83%,#f7f7f5 83% 100%);border:2px solid #111;z-index:4;backface-visibility:hidden;box-sizing:border-box}
+.cd-door:after{content:"";position:absolute;top:49%;width:3px;height:3px;border-radius:50%;background:#111}
+.cd-door-left{left:45%;transform-origin:left center}.cd-door-left:after{right:3px}
+.cd-door-right{left:66.5%;transform-origin:right center}.cd-door-right:after{left:3px}
+.cd-brand-logo.opening .cd-door-left{animation:cdOpenLeft .74s cubic-bezier(.22,.72,.24,1) .08s both}
+.cd-brand-logo.opening .cd-door-right{animation:cdOpenRight .74s cubic-bezier(.22,.72,.24,1) .08s both}
+.cd-brand-logo.opening .cd-clothes{animation:cdClothesSway 1.05s cubic-bezier(.36,.05,.2,1) .70s both}
+.cd-brand-logo .cd-spark{position:absolute;z-index:6;color:#d98232;opacity:0;font:10px Georgia,serif;pointer-events:none}
+.cd-brand-logo .cd-spark-a{right:-9px;top:21%}.cd-brand-logo .cd-spark-b{left:-6px;top:42%;font-size:7px}
+.cd-brand-logo.opening .cd-spark-a{animation:cdLogoSpark .55s ease .72s both}.cd-brand-logo.opening .cd-spark-b{animation:cdLogoSpark .55s ease .82s both}
+@keyframes cdOpenLeft{from{transform:rotateY(0deg)}to{transform:rotateY(-104deg)}}
+@keyframes cdOpenRight{from{transform:rotateY(0deg)}to{transform:rotateY(104deg)}}
+@keyframes cdClothesSway{0%{transform:rotate(0deg) translateX(0)}18%{transform:rotate(4.2deg) translateX(1.5px)}42%{transform:rotate(-3.1deg) translateX(-1px)}65%{transform:rotate(1.8deg) translateX(.6px)}82%{transform:rotate(-.8deg)}100%{transform:rotate(0deg) translateX(0)}}
+@keyframes cdLogoSpark{0%{opacity:0;transform:scale(.45)}48%{opacity:.82;transform:scale(1.22)}100%{opacity:0;transform:scale(.78)}}
+@media(max-width:430px){.cd-brand-logo{width:118px}.cd-wardrobe{width:74px}.cd-wordmark{width:101px}}
+@media(prefers-reduced-motion:reduce){.cd-brand-logo.opening .cd-door-left{animation:none;transform:rotateY(-104deg)}.cd-brand-logo.opening .cd-door-right{animation:none;transform:rotateY(104deg)}.cd-brand-logo.opening .cd-clothes,.cd-brand-logo.opening .cd-spark{animation:none}}
+</style>
+<style>
+/* === How to Play v3: one section per content === */
+.hero{padding-bottom:22px}
+.lead{max-width:520px;margin:0 auto}
+.guide-intro{padding:22px 0 16px}
+.guide-label{font-family:Georgia,"Times New Roman",serif;font-size:9px;letter-spacing:.22em;color:var(--o);text-align:center;margin-bottom:7px}
+.guide-heading{font-family:"Yu Mincho","Hiragino Mincho ProN",serif;font-size:18px;font-weight:700;text-align:center;margin:0 0 6px}
+.guide-sub{font-size:10px;line-height:1.8;color:#8a705e;text-align:center;margin:0}
+.guide-block{margin:0 0 18px;border:1px solid #ead0b5;border-radius:16px;background:linear-gradient(180deg,#fff,#fffaf5);overflow:hidden;box-shadow:0 7px 18px rgba(184,102,53,.035)}
+.guide-block summary{list-style:none;cursor:pointer;padding:18px 16px 16px;display:grid;grid-template-columns:44px 1fr auto;gap:12px;align-items:center;-webkit-tap-highlight-color:transparent}
+.guide-block summary::-webkit-details-marker{display:none}
+.guide-block[open] summary{background:#fff8ef;border-bottom:1px solid #efd7bf}
+.guide-summary-no{font:24px Georgia,serif;color:var(--apricot);align-self:start;padding-top:3px}
+.guide-summary-en{font:600 8px Georgia,serif;letter-spacing:.13em;color:#b27b55;margin-bottom:5px}
+.guide-summary-title{font-family:"Yu Mincho","Hiragino Mincho ProN",serif;font-size:16px;font-weight:700;margin-bottom:6px}
+.guide-summary-desc{font-size:10px;line-height:1.7;color:#806858}
+.guide-open-label{margin-top:9px;font-size:9px;letter-spacing:.06em;color:#a96e43;font-weight:600}
+.guide-toggle{width:28px;height:28px;border:1px solid #e4c5a7;border-radius:50%;position:relative;background:#fffdfa;align-self:center}
+.guide-toggle:before,.guide-toggle:after{content:"";position:absolute;left:7px;right:7px;top:13px;height:1px;background:#b78058;transition:transform .2s ease}
+.guide-toggle:after{transform:rotate(90deg)}
+.guide-block[open] .guide-toggle:after{transform:rotate(0deg)}
+.guide-block[open] .guide-open-label:before{content:"閉じる";font-size:0}
+.guide-body{padding:4px 16px 16px}
+.guide-point{display:grid;grid-template-columns:32px 1fr;gap:11px;padding:14px 0;border-bottom:1px solid #f0ddc9}
+.guide-point:last-child{border-bottom:0;padding-bottom:2px}
+.guide-point-num{font:18px Georgia,serif;color:#e3a466}
+.guide-point-title{font-weight:700;font-size:12px;margin-bottom:5px}
+.guide-point-text{font-size:11px;line-height:1.85;color:#6f5848}
+.section-divider{height:1px;background:linear-gradient(90deg,transparent,#e1b88f,transparent);margin:0 12px 18px}
+.after-title{margin:30px 0 12px;text-align:center}
+.after-title .section-title{margin-bottom:6px}
+.after-title h2{font-family:"Yu Mincho","Hiragino Mincho ProN",serif;font-size:18px;margin:0 0 4px}
+.after-title p{font-size:10px;color:#8a705e;margin:0}
+.after-box{border:1px solid #ead0b5;border-radius:15px;background:#fffdfa;padding:4px 16px}
+.after-item{display:grid;grid-template-columns:32px 1fr;gap:11px;padding:15px 0;border-bottom:1px solid #f0ddc9}
+.after-item:last-child{border-bottom:0}
+.after-num{font:18px Georgia,serif;color:#e3a466}
+.after-ttl{font-weight:700;font-size:12px;margin-bottom:5px}
+.after-txt{font-size:11px;line-height:1.8;color:#6f5848}
+.back-top{display:flex;justify-content:center;margin:24px 0 0}
+.back-top button{border:0;background:transparent;color:#a96e43;font:600 9px Georgia,serif;letter-spacing:.16em;cursor:pointer;padding:10px 14px}
+@media(max-width:430px){.wrap{padding-left:16px;padding-right:16px}.hero{padding-top:24px}.page-title{font-size:30px}.guide-intro{padding-top:18px}.guide-block summary{padding:16px 14px 15px}.guide-body{padding:3px 14px 14px}.guide-summary-title{font-size:15px}}
+</style>
+</head><body><main class="wrap" id="top"><header class="header"><a class="header-link left" href="menu.html">← BACK</a><div class="cd-brand-logo opening" aria-label="Closet Drawers"><div class="cd-wardrobe" aria-hidden="true"><img class="cd-base" src="closet-mark.png" alt=""><div class="cd-clothes-window"><img class="cd-clothes" src="closet-clothes.png" alt=""></div><span class="cd-door cd-door-left"></span><span class="cd-door cd-door-right"></span><span class="cd-spark cd-spark-a">✦</span><span class="cd-spark cd-spark-b">✦</span></div><img class="cd-wordmark" src="closet-wordmark.png" alt="Closet Drawers"></div><a class="header-link right" href="index.html">LOTTERY</a></header>
+
+<section class="hero"><div class="kicker">HOW TO PLAY</div><h1 class="page-title">遊び方ガイド</h1><p class="lead">いつものコーデに迷ったときも、新しい系統に挑戦したいときも。<br>自由な発想で楽しんでね♡</p></section>
+
+<section class="guide-intro" aria-label="コンテンツ一覧">
+  <div class="guide-label">3 CONTENTS</div>
+  <h2 class="guide-heading">遊びたいコンテンツを選んでね</h2>
+  <p class="guide-sub">知りたいコンテンツを開いて、詳しい遊び方をチェック。</p>
+</section>
+
+<details class="guide-block" id="fashion-guide">
+  <summary>
+    <div class="guide-summary-no">01</div>
+    <div>
+      <div class="guide-summary-en">FASHION LOTTERY</div>
+      <div class="guide-summary-title">ファッションくじ</div>
+      <div class="guide-summary-desc">COLOR・STYLE・POINTのお題でコーデ。</div>
+      <div class="guide-open-label">詳しい遊び方を見る</div>
+    </div>
+    <span class="guide-toggle" aria-hidden="true"></span>
+  </summary>
+  <div class="guide-body">
+    <div class="guide-point"><div class="guide-point-num">01</div><div><div class="guide-point-title">ファッションくじを引く</div><div class="guide-point-text">「くじを引く」を押すと、COLOR × STYLE × POINTの3つのお題がランダムに選ばれます。COLOR × COLOR / STYLE × STYLE / POINT × POINTの拡張モードも楽しめます。</div></div></div>
+    <div class="guide-point"><div class="guide-point-num">02</div><div><div class="guide-point-title">SECRET CARDでもうひとつ挑戦</div><div class="guide-point-text">くじ結果の下に現れる「シークレットカードをめくる」を押すと、COLOR / STYLE / POINTのどれかに追加ミッションがひとつプラスされます。めくらなくてもOK♡ もう少しお題がほしいときや、難しくしてみたいときに使ってね。</div></div></div>
+  </div>
+</details>
+<div class="section-divider" aria-hidden="true"></div>
+
+<details class="guide-block" id="weekly-guide">
+  <summary>
+    <div class="guide-summary-no">02</div>
+    <div>
+      <div class="guide-summary-en">WEEKLY FASHION LOTTERY</div>
+      <div class="guide-summary-title">今週のファッションくじ</div>
+      <div class="guide-summary-desc">毎週更新される全員共通テーマに挑戦。</div>
+      <div class="guide-open-label">詳しい遊び方を見る</div>
+    </div>
+    <span class="guide-toggle" aria-hidden="true"></span>
+  </summary>
+  <div class="guide-body">
+    <div class="guide-point"><div class="guide-point-num">01</div><div><div class="guide-point-title">今週のテーマをチェック</div><div class="guide-point-text">毎週ひとつ、季節に合わせた全員共通のテーマが登場。専用のCOORDINATE ADVICEはあくまでヒントなので、自分なりに自由に解釈してOKです。</div></div></div>
+  </div>
+</details>
+<div class="section-divider" aria-hidden="true"></div>
+
+<details class="guide-block" id="image-guide">
+  <summary>
+    <div class="guide-summary-no">03</div>
+    <div>
+      <div class="guide-summary-en">IMAGE SIMILARITY LOTTERY</div>
+      <div class="guide-summary-title">画像でシミラーくじ</div>
+      <div class="guide-summary-desc">表示された画像をヒントにシミラー。</div>
+      <div class="guide-open-label">詳しい遊び方を見る</div>
+    </div>
+    <span class="guide-toggle" aria-hidden="true"></span>
+  </summary>
+  <div class="guide-body">
+    <div class="guide-point"><div class="guide-point-num">01</div><div><div class="guide-point-title">人数を選ぶ</div><div class="guide-point-text">まず1〜9人から参加人数を選びます。</div></div></div>
+    <div class="guide-point"><div class="guide-point-num">02</div><div><div class="guide-point-title">くじを選ぶ</div><div class="guide-point-text">テーマを選ぶか、ランダムにするかを選びます。COLOR FIX・PATTERN FIX・ALL RANDOM・COLOR RANDOMから好きなくじを選んでね。</div></div></div>
+    <div class="guide-point"><div class="guide-point-num">03</div><div><div class="guide-point-title">画像をヒントにシミラー</div><div class="guide-point-text">表示された画像をヒントに、それぞれ自由にシミラーコーデを作ってみてね。同じ画像でも、完成するコーデは人それぞれ♡</div></div></div>
+  </div>
+</details>
+
+<section class="after-title">
+  <div class="section-title">MORE WAYS TO ENJOY</div>
+  <h2>もっと楽しむ</h2>
+  <p>3つのくじに共通して使えるヒント。</p>
+</section>
+<div class="after-box">
+  <div class="after-item"><div class="after-num">01</div><div><div class="after-ttl">分からない言葉は辞典へ</div><div class="after-txt">ファッション辞典では通常くじのCOLOR・STYLE・POINTを紹介しています。結果画面から該当項目へ直接移動することもできます。SECRETのお題は辞典には載りません。</div></div></div>
+  <div class="after-item"><div class="after-num">02</div><div><div class="after-ttl">コーデを作る</div><div class="after-txt">お題や画像の解釈、取り入れ方に正解はありません。「自分ならどう着る？」を楽しんでみてね♡</div></div></div>
+  <div class="after-item"><div class="after-num">03</div><div><div class="after-ttl">#クロドロで投稿</div><div class="after-txt">完成したコーデは、ぜひ #クロドロ をつけて投稿してね。ファッションくじ・今週のファッションくじには投稿テンプレートも用意しています。画像でシミラーくじは結果画像の保存・コピーもできます。</div></div></div>
+</div>
+
+<div class="note"><b>ENJOY YOUR STYLE ♡</b><br>テンプレートの使用は自由。使わずに投稿してももちろんOK！</div>
+<div class="back-top"><button id="backTop">↑ PAGE TOP</button></div>
+<footer>Closet Drawers / Fashion is self-expression.<br>当サイトは非公式ファン企画です。ピグパーティ運営とは関係ありません。</footer>
+</main>
+<script>
+document.getElementById('backTop').addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+</script>
+</body></html>
