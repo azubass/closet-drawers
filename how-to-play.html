@@ -68,7 +68,22 @@
 .back-top button{border:0;background:transparent;color:#a96e43;font:600 9px Georgia,serif;letter-spacing:.16em;cursor:pointer;padding:10px 14px}
 @media(max-width:430px){.wrap{padding-left:16px;padding-right:16px}.hero{padding-top:24px}.page-title{font-size:30px}.guide-intro{padding-top:18px}.guide-block summary{padding:16px 14px 15px}.guide-body{padding:3px 14px 14px}.guide-summary-title{font-size:15px}}
 </style>
-</head><body><main class="wrap" id="top"><header class="header"><a class="header-link left" href="menu.html">← BACK</a><div class="cd-brand-logo opening" aria-label="Closet Drawers"><div class="cd-wardrobe" aria-hidden="true"><img class="cd-base" src="closet-mark.png" alt=""><div class="cd-clothes-window"><img class="cd-clothes" src="closet-clothes.png" alt=""></div><span class="cd-door cd-door-left"></span><span class="cd-door cd-door-right"></span><span class="cd-spark cd-spark-a">✦</span><span class="cd-spark cd-spark-b">✦</span></div><img class="cd-wordmark" src="closet-wordmark.png" alt="Closet Drawers"></div><a class="header-link right" href="index.html">LOTTERY</a></header>
+
+<style id="cd-ver32-menu-style">
+.cd-menu-trigger{appearance:none;-webkit-appearance:none;border:0;background:transparent;padding:0;color:inherit;cursor:pointer;text-align:left;font:inherit;letter-spacing:inherit}
+.cd-menu-backdrop{position:fixed;inset:0;background:rgba(43,33,27,.26);opacity:0;visibility:hidden;transition:opacity .28s ease,visibility 0s linear .28s;z-index:9998;-webkit-tap-highlight-color:transparent}
+.cd-side-menu{position:fixed;left:0;top:0;bottom:0;width:min(70vw,430px);background:#fbfaf8;transform:translate3d(-102%,0,0);transition:transform .34s cubic-bezier(.22,.72,.24,1);box-shadow:18px 0 38px rgba(65,40,25,.15);z-index:9999;overflow:hidden;padding:env(safe-area-inset-top,0) 0 env(safe-area-inset-bottom,0)}
+.cd-side-menu-frame{display:block;width:100%;height:100%;border:0;background:#fbfaf8}
+body.cd-menu-open{overflow:hidden;touch-action:none}
+body.cd-menu-open .cd-menu-backdrop{opacity:1;visibility:visible;transition:opacity .28s ease}
+body.cd-menu-open .cd-side-menu{transform:translate3d(0,0,0)}
+@media(max-width:360px){.cd-side-menu{width:74vw}}
+@media(prefers-reduced-motion:reduce){.cd-side-menu,.cd-menu-backdrop{transition:none!important}}
+</style>
+</head><body>
+<div class="cd-menu-backdrop" id="cdMenuBackdrop" aria-hidden="true"></div>
+<aside class="cd-side-menu" id="cdSideMenu" aria-hidden="true" aria-label="サイトメニュー"><iframe class="cd-side-menu-frame" title="Closet Drawers MENU" src="menu.html"></iframe></aside>
+<main class="wrap" id="top"><header class="header"><button class="header-link left cd-menu-trigger" id="cdMenuTrigger" type="button" aria-controls="cdSideMenu" aria-expanded="false">← BACK</button><div class="cd-brand-logo opening" aria-label="Closet Drawers"><div class="cd-wardrobe" aria-hidden="true"><img class="cd-base" src="closet-mark.png" alt=""><div class="cd-clothes-window"><img class="cd-clothes" src="closet-clothes.png" alt=""></div><span class="cd-door cd-door-left"></span><span class="cd-door cd-door-right"></span><span class="cd-spark cd-spark-a">✦</span><span class="cd-spark cd-spark-b">✦</span></div><img class="cd-wordmark" src="closet-wordmark.png" alt="Closet Drawers"></div><a class="header-link right" href="fashion-lottery.html">LOTTERY</a></header>
 
 <section class="hero"><div class="kicker">HOW TO PLAY</div><h1 class="page-title">遊び方ガイド</h1><p class="lead">いつものコーデに迷ったときも、新しい系統に挑戦したいときも。<br>自由な発想で楽しんでね♡</p></section>
 
@@ -148,5 +163,15 @@
 </main>
 <script>
 document.getElementById('backTop').addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+</script>
+
+<script id="cd-ver32-menu-script">
+(function(){
+ const trigger=document.getElementById('cdMenuTrigger'),panel=document.getElementById('cdSideMenu'),backdrop=document.getElementById('cdMenuBackdrop');
+ if(!trigger||!panel||!backdrop)return;
+ function openMenu(){document.body.classList.add('cd-menu-open');panel.setAttribute('aria-hidden','false');backdrop.setAttribute('aria-hidden','false');trigger.setAttribute('aria-expanded','true')}
+ function closeMenu(){document.body.classList.remove('cd-menu-open');panel.setAttribute('aria-hidden','true');backdrop.setAttribute('aria-hidden','true');trigger.setAttribute('aria-expanded','false')}
+ trigger.addEventListener('click',openMenu);backdrop.addEventListener('click',closeMenu);document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMenu()});
+})();
 </script>
 </body></html>
