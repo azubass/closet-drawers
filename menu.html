@@ -60,7 +60,32 @@
 .drawer-card:after{border-color:rgba(194,135,82,.42)}.drawer-handle{border-color:#805031;background:linear-gradient(#efd6bd,#d6ad86);box-shadow:0 2px 5px rgba(80,43,20,.17)}
 .drawer-card.opening{transform:translateY(23px) translateZ(96px) rotateX(-9deg) scale(1.012);box-shadow:0 30px 38px rgba(85,45,22,.25);background:#fff8ef}
 .drawer-chest.locked{overflow:visible}.drawer-chest.locked .drawer-card:not(.opening){opacity:.58}
-</style></head><body><main class="wrap"><header class="header"><a class="header-link left" href="index.html">← HOME</a><div class="cd-brand-logo opening" aria-label="Closet Drawers"><div class="cd-wardrobe" aria-hidden="true"><img class="cd-base" src="closet-mark.png" alt=""><div class="cd-clothes-window"><img class="cd-clothes" src="closet-clothes.png" alt=""></div><span class="cd-door cd-door-left"></span><span class="cd-door cd-door-right"></span><span class="cd-spark cd-spark-a">✦</span><span class="cd-spark cd-spark-b">✦</span></div><img class="cd-wordmark" src="closet-wordmark.png" alt="Closet Drawers"></div><a class="header-link right" href="about.html">ABOUT</a></header><section class="menu-head"><div class="kicker">CLOSET DRAWERS</div><h1 class="page-title">MENU</h1><div class="lead">今日はどの引き出しを開ける？</div></section><div class="drawer-label">CHOOSE YOUR DRAWER</div><div class="drawer-caption">ファッションの遊びを選んでね ♡</div><div class="drawer-chest" id="drawerChest"><a class="drawer-card" href="fashion-lottery.html"><div class="drawer-number">DRAWER 01</div><div class="drawer-main">FASHION LOTTERY</div><div class="drawer-sub">ファッションくじ</div><span class="drawer-handle" aria-hidden="true"></span></a><a class="drawer-card" href="weekly.html"><div class="drawer-number">DRAWER 02</div><div class="drawer-main">WEEKLY FASHION LOTTERY</div><div class="drawer-sub">今週のファッションくじ</div><span class="drawer-handle" aria-hidden="true"></span></a><a class="drawer-card" href="image-lottery.html"><span class="drawer-new">NEW</span><div class="drawer-number">DRAWER 03</div><div class="drawer-main">IMAGE SIMILARITY LOTTERY</div><div class="drawer-sub">画像でシミラーくじ</div><span class="drawer-handle" aria-hidden="true"></span></a></div><nav class="nav"><a href="how-to-play.html"><div><span class="main">HOW TO PLAY</span><span class="sub">遊び方</span></div><span>→</span></a><a href="dictionary.html"><div><span class="main">FASHION DICTIONARY</span><span class="sub">ファッション辞典</span></div><span>→</span></a><a href="template.html"><div><span class="main">POST TEMPLATE</span><span class="sub">投稿テンプレート</span></div><span>→</span></a><a href="about.html"><div><span class="main">ABOUT / NEWS</span><span class="sub">Closet Drawersについて・お知らせ</span></div><span>→</span></a></nav><footer>Closet Drawers / Fashion is self-expression.<br>当サイトは非公式ファン企画です。ピグパーティ運営とは関係ありません。</footer></main><script>
+</style>
+<style id="cd-ver32-panel-hotfix">
+/* Ver.3.2: compact layout when MENU is shown inside the slide panel */
+@media (max-width:520px){
+  .wrap{max-width:none;width:100%;padding:20px 16px 34px;overflow-x:hidden}
+  .header{display:none}
+  .menu-head{padding:8px 0 18px}
+  .kicker{font-size:8px;letter-spacing:.21em}
+  .page-title{font-size:30px;margin:8px 0 10px}
+  .lead{font-size:10px;line-height:1.7}
+  .drawer-label{font-size:8px;letter-spacing:.18em;margin:0 0 8px}
+  .drawer-caption{font-size:9px;margin-bottom:12px}
+  .drawer-chest{padding:5px;border-radius:15px;margin-bottom:22px}
+  .drawer-card{min-height:88px;padding:17px 48px 15px 14px}
+  .drawer-number{font-size:7px;letter-spacing:.15em;margin-bottom:5px}
+  .drawer-main{font-size:12px;line-height:1.2;letter-spacing:0;white-space:normal;overflow-wrap:anywhere}
+  .drawer-sub{font-size:9px;margin-top:5px}
+  .drawer-handle{right:14px;width:27px;height:10px}
+  .drawer-new{right:10px;top:8px;font-size:7px;padding:2px 6px}
+  .nav .main{font-size:13px}
+  .nav .sub{font-size:9px;margin-top:3px}
+  .nav a{padding:15px 2px}
+  footer{margin-top:26px;padding-top:16px;font-size:8px}
+}
+</style>
+</head><body><main class="wrap"><header class="header"><a class="header-link left" href="index.html">← HOME</a><div class="cd-brand-logo opening" aria-label="Closet Drawers"><div class="cd-wardrobe" aria-hidden="true"><img class="cd-base" src="closet-mark.png" alt=""><div class="cd-clothes-window"><img class="cd-clothes" src="closet-clothes.png" alt=""></div><span class="cd-door cd-door-left"></span><span class="cd-door cd-door-right"></span><span class="cd-spark cd-spark-a">✦</span><span class="cd-spark cd-spark-b">✦</span></div><img class="cd-wordmark" src="closet-wordmark.png" alt="Closet Drawers"></div><a class="header-link right" href="about.html">ABOUT</a></header><section class="menu-head"><div class="kicker">CLOSET DRAWERS</div><h1 class="page-title">MENU</h1><div class="lead">今日はどの引き出しを開ける？</div></section><div class="drawer-label">CHOOSE YOUR DRAWER</div><div class="drawer-caption">ファッションの遊びを選んでね ♡</div><div class="drawer-chest" id="drawerChest"><a class="drawer-card" href="fashion-lottery.html"><div class="drawer-number">DRAWER 01</div><div class="drawer-main">FASHION LOTTERY</div><div class="drawer-sub">ファッションくじ</div><span class="drawer-handle" aria-hidden="true"></span></a><a class="drawer-card" href="weekly.html"><div class="drawer-number">DRAWER 02</div><div class="drawer-main">WEEKLY FASHION LOTTERY</div><div class="drawer-sub">今週のファッションくじ</div><span class="drawer-handle" aria-hidden="true"></span></a><a class="drawer-card" href="image-lottery.html"><span class="drawer-new">NEW</span><div class="drawer-number">DRAWER 03</div><div class="drawer-main">IMAGE SIMILARITY LOTTERY</div><div class="drawer-sub">画像でシミラーくじ</div><span class="drawer-handle" aria-hidden="true"></span></a></div><nav class="nav"><a href="how-to-play.html"><div><span class="main">HOW TO PLAY</span><span class="sub">遊び方</span></div><span>→</span></a><a href="dictionary.html"><div><span class="main">FASHION DICTIONARY</span><span class="sub">ファッション辞典</span></div><span>→</span></a><a href="template.html"><div><span class="main">POST TEMPLATE</span><span class="sub">投稿テンプレート</span></div><span>→</span></a><a href="about.html"><div><span class="main">ABOUT / NEWS</span><span class="sub">Closet Drawersについて・お知らせ</span></div><span>→</span></a></nav><footer>Closet Drawers / Fashion is self-expression.<br>当サイトは非公式ファン企画です。ピグパーティ運営とは関係ありません。</footer></main><script>
 (function(){
   const chest=document.getElementById('drawerChest');
   if(!chest)return;
