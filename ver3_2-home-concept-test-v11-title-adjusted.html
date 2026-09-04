@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>TEST v4｜Closet Drawers Fashion Lottery HOME</title>
+<style>
+*{box-sizing:border-box}
+:root{--o:#d98232;--amber:#e6a24d;--terra:#b86635;--line:#e8c49e;--ink:#2b211b;--muted:#8b6d58;--cream:#fffaf4;--wood:#f3e2cc;--wood2:#e5c6a3;--darkwood:#9b6a45}
+html{scroll-behavior:smooth}
+body{margin:0;background:#fbfaf8;color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic",Meiryo,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;background:radial-gradient(circle at 12% 12%,rgba(217,130,50,.04),transparent 28%),radial-gradient(circle at 92% 44%,rgba(184,102,53,.035),transparent 30%);z-index:-2}
+.bgword{position:fixed;z-index:-1;font:10px Georgia,serif;letter-spacing:.35em;color:#b87544;opacity:.055;pointer-events:none}.b1{left:5%;top:17%}.b2{right:2%;top:35%}.b3{left:1%;top:68%}.b4{right:5%;top:82%}
+.wrap{max-width:680px;margin:0 auto;padding:18px 16px 50px;position:relative}
+.header{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;min-height:112px}
+.header-link{font-size:10px;letter-spacing:.14em;color:#5d4434;text-decoration:none;border:0;background:none;padding:10px 0;cursor:pointer}.header-link.left{justify-self:start}.header-link.right{justify-self:end}
+.brand{width:136px;display:flex;align-items:center;justify-content:center}.brand img{width:128px;display:block;mix-blend-mode:multiply}
+.home-logo{display:flex;flex-direction:column;align-items:center;width:min(620px,95vw);margin:6px auto 18px;line-height:1;text-align:center}
+.home-logo-en{font:600 10px Georgia,serif;letter-spacing:.31em;margin-bottom:11px;color:#b86f32}
+.home-logo-main{width:100%;font:500 clamp(16px,4.5vw,28px) Georgia,serif;letter-spacing:.015em;border-top:1px solid #c98a4d;border-bottom:1px solid #c98a4d;padding:10px 4px 9px;white-space:nowrap}
+.home-logo-bow{position:relative;margin-top:-1px;width:64px;height:24px;color:#c47a3c;font-size:22px;line-height:23px;background:#fbfaf8;display:flex;align-items:center;justify-content:center}
+.home-logo-jp{font-family:"Yu Mincho","Hiragino Mincho ProN",serif;font-size:13px;letter-spacing:.30em;margin-top:3px;font-weight:700}
+.concept{text-align:center;margin:0 auto 20px;max-width:620px;font-family:"Yu Mincho","Hiragino Mincho ProN",serif;font-size:18px;line-height:1.7;letter-spacing:.025em;position:relative;padding-bottom:14px}
+.concept-line{display:block;opacity:0;filter:blur(4px);transform:translateY(8px);animation:conceptReveal .8s cubic-bezier(.2,.7,.25,1) forwards}
+.concept-line:nth-child(1){animation-delay:.12s}
+.concept-line:nth-child(2){animation-delay:.34s}
+.concept:after{content:"";position:absolute;left:50%;bottom:2px;width:min(260px,68%);height:1px;background:linear-gradient(90deg,transparent,#d79a61 18%,#b87544 50%,#d79a61 82%,transparent);transform:translateX(-50%) scaleX(0);transform-origin:center;opacity:.72;animation:conceptLine 1s ease .72s forwards}
+.concept small{display:block;margin-top:10px;font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic",sans-serif;font-size:10px;line-height:1.8;color:#8b6d58;opacity:0;transform:translateY(5px);animation:softIn .65s ease 1s forwards}
+@keyframes conceptReveal{0%{opacity:0;filter:blur(4px);transform:translateY(8px);letter-spacing:.055em}100%{opacity:1;filter:blur(0);transform:none;letter-spacing:.025em}}
+@keyframes conceptLine{from{transform:translateX(-50%) scaleX(0);opacity:0}to{transform:translateX(-50%) scaleX(1);opacity:.72}}
+.scene{position:relative;min-height:650px;margin:0 -6px 2px;display:flex;flex-direction:column;align-items:center;overflow:hidden}
+.wardrobe{position:relative;width:min(380px,94vw);height:430px;margin-top:4px;perspective:1300px;animation:wardrobeIn .55s ease both}
+.cabinet{position:absolute;left:12%;top:4%;width:76%;height:84%;border:2px solid var(--darkwood);border-radius:7px;background:linear-gradient(90deg,#ead0ae 0 3%,#f7e9d8 3% 97%,#e0be95 97%);box-shadow:0 14px 30px rgba(113,71,42,.12),inset 0 0 0 8px rgba(255,255,255,.25)}
+.cabinet:before{content:"";position:absolute;left:6%;right:6%;top:6%;bottom:9%;border:1px solid #b7875e;border-radius:3px;background:linear-gradient(180deg,#fffaf4 0,#f9efe4 100%)}
+.cabinet:after{content:"";position:absolute;left:8%;right:8%;bottom:4%;height:9%;border-top:1px solid #b7875e;background:linear-gradient(180deg,#e8caa8,#f4dfc6)}
+.rod{position:absolute;z-index:2;left:23%;right:23%;top:22%;height:3px;border-radius:3px;background:#7d573b;box-shadow:0 2px 2px rgba(0,0,0,.08)}
+.hanger-svg{position:absolute;z-index:2;top:19.5%;width:72px;height:68px;overflow:visible;opacity:.95;filter:drop-shadow(0 2px 2px rgba(70,42,26,.05))}
+.h1{left:23.5%}.h2{left:41%}.h3{left:58.5%}
+.garment-svg{position:absolute;z-index:3;overflow:visible;filter:drop-shadow(0 4px 7px rgba(87,54,34,.08))}
+.g1{left:24%;top:25.2%;width:76px;height:128px}
+.g2{left:41%;top:24.2%;width:84px;height:142px}
+.g3{left:59%;top:26%;width:72px;height:124px}
+.shelf{position:absolute;z-index:2;left:24%;right:24%;top:64%;height:1px;background:#bf936b}.inner-shoe{position:absolute;z-index:3;overflow:visible;filter:drop-shadow(0 3px 5px rgba(87,54,34,.05))}.strawhat{left:28.5%;top:66.0%;width:102px;height:58px}.glasses{left:56%;top:69.0%;width:78px;height:38px}
+.door{position:absolute;z-index:8;top:4%;width:38%;height:84%;border:2px solid var(--darkwood);border-radius:7px;background:linear-gradient(90deg,#eed6b8,#f8ead8 42%,#e1bd92);box-shadow:0 8px 20px rgba(94,59,37,.1);backface-visibility:hidden}
+.door:before{content:"";position:absolute;inset:8% 10%;border:1px solid #b88a63;border-radius:3px;box-shadow:inset 0 0 0 6px rgba(255,255,255,.18)}
+.door:after{content:"";position:absolute;top:50%;width:7px;height:7px;border-radius:50%;background:#99643e;box-shadow:0 0 0 2px #d8b48d}
+.door.left{left:12%;transform-origin:left center;animation:openLeft 1.05s cubic-bezier(.18,.76,.25,1) .55s both}.door.left:after{right:12px}
+.door.right{right:12%;transform-origin:right center;animation:openRight 1.05s cubic-bezier(.18,.76,.25,1) .55s both}.door.right:after{left:12px}
+@keyframes openLeft{from{transform:translateX(0) rotateY(0)}to{transform:translateX(-82%) rotateY(-52deg)}}
+@keyframes openRight{from{transform:translateX(0) rotateY(0)}to{transform:translateX(82%) rotateY(52deg)}}
+@keyframes wardrobeIn{from{opacity:0;transform:translateY(12px) scale(.97)}to{opacity:1;transform:none}}
+.fall{position:absolute;z-index:12;opacity:0;filter:drop-shadow(0 10px 10px rgba(92,55,31,.12));pointer-events:none}
+.fall-svg{overflow:visible}
+.blouse{left:3%;top:294px;width:128px;height:112px;animation:fall1 1s cubic-bezier(.18,.74,.3,1) 1.2s forwards}
+.skirt{right:5%;top:332px;width:126px;height:112px;animation:fall2 1s cubic-bezier(.18,.74,.3,1) 1.36s forwards}
+.bag{right:3%;top:448px;width:112px;height:88px;animation:fall3 1s cubic-bezier(.18,.74,.3,1) 1.54s forwards}
+.bow{left:17%;top:468px;width:94px;height:54px;animation:fall4 1s cubic-bezier(.18,.74,.3,1) 1.68s forwards}
+@keyframes fall1{0%{opacity:0;transform:translate(65px,-110px) rotate(-8deg) scale(.72)}68%{opacity:1;transform:translate(-4px,7px) rotate(4deg) scale(1.03)}100%{opacity:1;transform:none}}
+@keyframes fall2{0%{opacity:0;transform:translate(-65px,-125px) rotate(9deg) scale(.72)}68%{opacity:1;transform:translate(4px,7px) rotate(-3deg) scale(1.03)}100%{opacity:1;transform:none}}
+@keyframes fall3{0%{opacity:0;transform:translate(-55px,-120px) rotate(-10deg) scale(.72)}100%{opacity:1;transform:rotate(6deg)}}
+@keyframes fall4{0%{opacity:0;transform:translate(40px,-120px) rotate(13deg) scale(.72)}100%{opacity:1;transform:rotate(-8deg)}}
+.scene-copy{position:absolute;z-index:14;top:562px;text-align:center;width:100%;opacity:0;animation:softIn .7s ease 2.05s forwards}.scene-copy .en{font:600 9px Georgia,serif;letter-spacing:.26em;color:#b87544}.scene-copy h1{font-family:"Yu Mincho","Hiragino Mincho ProN",serif;font-size:24px;margin:9px 0 6px;letter-spacing:.03em}.scene-copy p{margin:0;color:#8b6d58;font-size:10px;line-height:1.8}
+@keyframes softIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.choose{margin-top:4px}.choose-head{display:flex;align-items:center;gap:12px;margin:0 0 12px}.choose-head .jp{font-family:"Yu Mincho","Hiragino Mincho ProN",serif;font-size:18px;font-weight:600;white-space:nowrap}.choose-head:after{content:"";height:1px;flex:1;background:linear-gradient(90deg,#d7a978,transparent)}
+.cards{display:grid;gap:11px}.card{position:relative;display:block;text-decoration:none;color:inherit;background:linear-gradient(180deg,#fff,#fffaf5);border:1px solid #ead0b5;border-radius:16px;padding:16px 17px 15px;overflow:hidden;box-shadow:0 8px 20px rgba(151,91,45,.035);transition:.18s ease}.card:active{transform:scale(.985);border-color:#cfaa80;background:#fff7ed}.card .num{position:absolute;right:14px;top:10px;font:600 30px Georgia,serif;color:#e8c49e;opacity:.7}.card .en{font:600 8px Georgia,serif;letter-spacing:.21em;color:#b87544;margin-bottom:7px}.card .jp{font-family:"Yu Mincho","Hiragino Mincho ProN",serif;font-size:19px;font-weight:600;margin-bottom:5px}.card .desc{font-size:10px;line-height:1.65;color:#8b6d58;padding-right:42px}.card .open{position:absolute;right:17px;bottom:15px;width:30px;height:30px;border:1px solid #dfb98f;border-radius:50%;display:grid;place-items:center;color:#b87544;font-size:18px}
+.tools{margin-top:24px;border-top:1px solid #ead0b5;padding-top:16px;text-align:center}.tools .label{font:600 8px Georgia,serif;letter-spacing:.24em;color:#b87544;margin-bottom:10px}.tool-links{display:flex;justify-content:center;gap:6px;flex-wrap:wrap}.tool-links a{font-size:9px;color:#6d4a34;text-decoration:none;padding:8px 10px;border:1px solid #ead0b5;border-radius:999px;background:#fffdfa}
+footer{margin-top:30px;padding-top:17px;border-top:1px solid #e8c49e;text-align:center;font-size:9px;line-height:1.8;color:#96755e}
+@media(max-width:430px){.wrap{padding-left:15px;padding-right:15px}.home-logo{width:100%}.home-logo-main{font-size:clamp(13px,4.2vw,17px);letter-spacing:.01em;padding:9px 2px 8px}.home-logo-en{font-size:9px}.home-logo-jp{font-size:12px}.concept{font-size:14px;line-height:1.85;letter-spacing:.015em;max-width:100%;padding-left:0;padding-right:0}.concept-line{white-space:nowrap}.concept small{font-size:9.5px}.header{min-height:102px}.scene{min-height:620px}.wardrobe{width:min(350px,96vw);height:410px}.g1{left:23%;top:25.2%;width:70px;height:120px}.g2{left:41%;top:24.2%;width:78px;height:134px}.g3{left:59%;top:26%;width:67px;height:118px}.blouse{top:288px;width:116px;height:102px}.skirt{top:323px;width:114px;height:102px}.bag{top:425px;width:102px;height:80px}.bow{top:448px;width:88px;height:50px}.scene-copy{top:530px}}
+@media(prefers-reduced-motion:reduce){.concept-line,.concept small{animation:none;opacity:1;filter:none;transform:none}.concept:after{animation:none;transform:translateX(-50%) scaleX(1);opacity:.72}.door.left{animation:none;transform:translateX(-82%) rotateY(-52deg)}.door.right{animation:none;transform:translateX(82%) rotateY(52deg)}.fall,.scene-copy,.wardrobe{animation:none;opacity:1}}
+</style>
+</head>
+<body>
+<span class="bgword b1">FASHION</span><span class="bgword b2">DRAWER</span><span class="bgword b3">LOTTERY</span><span class="bgword b4">STYLE</span>
+<main class="wrap">
+<header class="header">
+  <a class="header-link left" href="menu.html">☰ MENU</a>
+  <div class="brand"><img src="closet-wordmark.png" alt="Closet Drawers"></div>
+  <a class="header-link right" href="about.html">ABOUT</a>
+</header>
+<div class="home-logo" aria-label="Closet Drawers Fashion Lottery">
+  <span class="home-logo-en">CLOSET DRAWERS</span>
+  <span class="home-logo-main">CLOSET DRAWERS FASHION LOTTERY</span>
+  <span class="home-logo-bow">୨୧</span>
+  <span class="home-logo-jp">トップページ</span>
+</div>
+<div class="concept"><span class="concept-line">“ファッションの引き出し”をランダムに開けて、</span><span class="concept-line">普段なら思いつかなかったコーデに出会えますように。</span><small>クローゼットを開いて、今日のコーデのきっかけを探してみよう。</small></div>
+<section class="scene" aria-label="両開きクローゼットのトップ演出">
+  <div class="wardrobe">
+    <div class="cabinet"></div><div class="rod"></div>
+    <svg class="hanger-svg h1" viewBox="0 0 72 68" aria-hidden="true"><path d="M36 15 C36 9 30 9 30 5 C30 2 32 1 35 1 C39 1 43 4 43 8" fill="none" stroke="#8a644d" stroke-width="2.4" stroke-linecap="round"/><path d="M36 15 V24" fill="none" stroke="#8a644d" stroke-width="2.4" stroke-linecap="round"/><path d="M36 24 L14 45 Q12 47 16 49 L29 52" fill="none" stroke="#8a644d" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/><path d="M36 24 L58 45 Q60 47 56 49 L43 52" fill="none" stroke="#8a644d" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/></svg>
+    <svg class="hanger-svg h2" viewBox="0 0 72 68" aria-hidden="true"><path d="M36 15 C36 9 30 9 30 5 C30 2 32 1 35 1 C39 1 43 4 43 8" fill="none" stroke="#8a644d" stroke-width="2.4" stroke-linecap="round"/><path d="M36 15 V24" fill="none" stroke="#8a644d" stroke-width="2.4" stroke-linecap="round"/><path d="M36 24 L14 45 Q12 47 16 49 L29 52" fill="none" stroke="#8a644d" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/><path d="M36 24 L58 45 Q60 47 56 49 L43 52" fill="none" stroke="#8a644d" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/></svg>
+    <svg class="hanger-svg h3" viewBox="0 0 72 68" aria-hidden="true"><path d="M36 15 C36 9 30 9 30 5 C30 2 32 1 35 1 C39 1 43 4 43 8" fill="none" stroke="#8a644d" stroke-width="2.4" stroke-linecap="round"/><path d="M36 15 V24" fill="none" stroke="#8a644d" stroke-width="2.4" stroke-linecap="round"/><path d="M36 24 L14 45 Q12 47 16 49 L29 52" fill="none" stroke="#8a644d" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/><path d="M36 24 L58 45 Q60 47 56 49 L43 52" fill="none" stroke="#8a644d" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/></svg>
+    <svg class="garment-svg g1" viewBox="0 0 100 150" aria-hidden="true"><path d="M34 18 Q50 28 66 18 L83 32 72 49 69 128 31 128 28 49 17 32Z" fill="#f3d6c7" stroke="#a97e62" stroke-width="2"/><path d="M40 18 Q50 28 60 18" fill="none" stroke="#a97e62" stroke-width="2"/><path d="M29 48 H71" stroke="#d6a98c" stroke-width="2"/><circle cx="50" cy="42" r="2" fill="#a97e62"/></svg>
+<svg class="garment-svg g2" viewBox="0 0 100 160" aria-hidden="true"><path d="M34 15 Q50 26 66 15 L78 29 67 45 73 145 27 145 33 45 22 29Z" fill="#d7c3a7" stroke="#9f815f" stroke-width="2"/><path d="M39 15 Q50 25 61 15" fill="none" stroke="#9f815f" stroke-width="2"/><path d="M31 64 Q50 72 69 64" fill="none" stroke="#b59a78" stroke-width="2"/><path d="M37 45 L34 143 M63 45 L66 143" stroke="#c2aa8a" stroke-width="1.5"/></svg>
+<svg class="garment-svg g3" viewBox="0 0 100 150" aria-hidden="true"><path d="M31 18 H69 L82 36 70 49 66 132 34 132 30 49 18 36Z" fill="#c6d5df" stroke="#8499a8" stroke-width="2"/><path d="M38 18 Q50 30 62 18" fill="none" stroke="#8499a8" stroke-width="2"/><path d="M50 28 V130" stroke="#a7b8c4" stroke-width="2"/><path d="M34 55 H66" stroke="#a7b8c4" stroke-width="2"/></svg>
+<svg class="inner-shoe strawhat" viewBox="0 0 120 70" aria-hidden="true">
+      <ellipse cx="60" cy="49" rx="48" ry="14" fill="#e8c783" stroke="#9a7045" stroke-width="2.4"/>
+      <path d="M33 46 Q34 16 60 14 Q86 16 87 46 Z" fill="#edcf8e" stroke="#9a7045" stroke-width="2.4" stroke-linejoin="round"/>
+      <path d="M34 41 Q60 48 86 41" fill="none" stroke="#b07a48" stroke-width="3" stroke-linecap="round"/>
+      <path d="M39 24 Q60 19 81 24 M37 31 Q60 26 83 31" fill="none" stroke="#d2ad6e" stroke-width="1.6" stroke-linecap="round"/>
+      <path d="M24 51 Q60 62 96 51" fill="none" stroke="#d5af70" stroke-width="1.4" stroke-linecap="round"/>
+    </svg>
+    <svg class="inner-shoe glasses" viewBox="0 0 120 60" aria-hidden="true">
+      <rect x="11" y="19" width="38" height="23" rx="11" fill="none" stroke="#7f5a43" stroke-width="3.2"/>
+      <rect x="71" y="19" width="38" height="23" rx="11" fill="none" stroke="#7f5a43" stroke-width="3.2"/>
+      <path d="M49 29 Q60 22 71 29" fill="none" stroke="#7f5a43" stroke-width="3.2" stroke-linecap="round"/>
+      <path d="M11 25 L2 20 M109 25 L118 20" fill="none" stroke="#7f5a43" stroke-width="3" stroke-linecap="round"/>
+      <path d="M17 22 Q30 28 43 22 M77 22 Q90 28 103 22" fill="none" stroke="#b58d72" stroke-width="1.3" opacity=".8"/>
+    </svg>
+    <span class="shelf"></span>
+    <div class="door left"></div><div class="door right"></div>
+  </div>
+  <svg class="fall fall-svg blouse" viewBox="0 0 140 120" aria-hidden="true"><path d="M45 17 Q70 32 95 17 L122 35 107 57 96 49 92 108 48 108 44 49 33 57 18 35Z" fill="#f0d7c6" stroke="#a97959" stroke-width="2.5"/><path d="M56 18 Q70 33 84 18" fill="none" stroke="#a97959" stroke-width="2.5"/><path d="M47 53 H93" stroke="#d4a98c" stroke-width="2"/><circle cx="70" cy="45" r="2.5" fill="#a97959"/></svg>
+<svg class="fall fall-svg skirt" viewBox="0 0 140 120" aria-hidden="true"><path d="M49 15 H91 L111 105 H29Z" fill="#beced8" stroke="#7f95a3" stroke-width="2.5"/><rect x="46" y="12" width="48" height="12" rx="4" fill="#aebfc9" stroke="#7f95a3" stroke-width="2"/><path d="M56 26 L47 102 M70 26 V105 M84 26 L94 102" stroke="#9fb2be" stroke-width="2"/></svg>
+<svg class="fall fall-svg bag" viewBox="0 0 140 110" aria-hidden="true"><path d="M24 35 Q24 28 31 28 H109 Q116 28 116 35 V91 Q116 98 109 98 H31 Q24 98 24 91Z" fill="#c49b78" stroke="#956543" stroke-width="3"/><path d="M45 29 Q47 8 70 8 Q93 8 95 29" fill="none" stroke="#956543" stroke-width="4"/><path d="M32 54 H108" stroke="#a97651" stroke-width="2"/><rect x="61" y="50" width="18" height="13" rx="3" fill="#d8b38d" stroke="#956543" stroke-width="2"/></svg>
+<svg class="fall fall-svg bow" viewBox="0 0 120 70" aria-hidden="true"><path d="M54 31 C41 17 20 12 8 20 L16 52 C28 44 40 40 54 38Z" fill="#dca6a0" stroke="#ad7772" stroke-width="2"/><path d="M66 31 C79 17 100 12 112 20 L104 52 C92 44 80 40 66 38Z" fill="#dca6a0" stroke="#ad7772" stroke-width="2"/><rect x="52" y="25" width="16" height="20" rx="5" fill="#c98b85" stroke="#a96f69" stroke-width="2"/></svg>
+  <div class="scene-copy"><div class="en">OPEN YOUR FASHION DRAWERS</div><h1>今日はどの引き出しを開ける？</h1><p>気になるくじを選んで、コーデのきっかけを見つけよう。</p></div>
+</section>
+<section class="choose">
+  <div class="choose-head"><div class="jp">3つのくじから選ぶ</div></div>
+  <div class="cards">
+    <a class="card" href="index.html"><div class="num">01</div><div class="en">FASHION LOTTERY</div><div class="jp">ファッションくじ</div><div class="desc">COLOR・STYLE・POINTからランダムにテーマを引いてコーデ。</div><span class="open">›</span></a>
+    <a class="card" href="weekly.html"><div class="num">02</div><div class="en">WEEKLY FASHION LOTTERY</div><div class="jp">今週のファッションくじ</div><div class="desc">毎週更新される共通テーマをヒントにコーデへ挑戦。</div><span class="open">›</span></a>
+    <a class="card" href="image-lottery.html"><div class="num">03</div><div class="en">IMAGE SIMILARITY LOTTERY</div><div class="jp">画像でシミラーくじ</div><div class="desc">表示された画像をヒントに、1〜9人で自由にシミラー。</div><span class="open">›</span></a>
+  </div>
+</section>
+<section class="tools"><div class="label">TOOLS & GUIDE</div><div class="tool-links"><a href="dictionary.html">DICTIONARY</a><a href="template.html">TEMPLATE</a><a href="how-to-play.html">HOW TO PLAY</a><a href="about.html">ABOUT / NEWS</a></div></section>
+<footer>Closet Drawers / Fashion is self-expression.<br>当サイトは非公式ファン企画です。</footer>
+</main>
+</body></html>
