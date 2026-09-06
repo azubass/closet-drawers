@@ -121,6 +121,11 @@ footer .footer-jp{margin-top:4px;font-size:10px;line-height:1.8;color:#7f614d;fo
 
 @media(max-width:430px){.wrap{padding-left:15px;padding-right:15px}.home-logo{width:100%}.home-logo-main{font-size:clamp(13px,4.2vw,17px);letter-spacing:.01em;padding:9px 2px 8px}.home-logo-en{font-size:9px}.home-logo-jp{font-size:12px}.concept{font-size:14px;line-height:1.85;letter-spacing:.015em;max-width:100%;padding-left:0;padding-right:0}.concept-line{white-space:nowrap}.concept small{font-size:9.5px}.header{min-height:102px}.scene{min-height:520px}.wardrobe{width:min(350px,96vw);height:410px}.g1{left:23%;top:25.2%;width:70px;height:120px}.g2{left:41%;top:24.2%;width:78px;height:134px}.g3{left:59%;top:26%;width:67px;height:118px}.blouse{top:288px;width:116px;height:102px}.skirt{top:323px;width:114px;height:102px}.bag{top:425px;width:102px;height:80px}.bow{top:448px;width:88px;height:50px}.card .motif{right:16px;top:15px;transform:scale(.94);transform-origin:right top}.tool-links a{padding:13px 4px 12px}.tool-links a .en{font-size:8.5px}.tool-links a .jp{font-size:8.5px}.footer .footer-jp{font-size:9.5px}}
 @media(prefers-reduced-motion:reduce){.garment-svg,.strawhat,.glasses,.card{opacity:1;transform:none;animation:none!important}.fall.is-idle{animation:none!important;opacity:1}.cards.is-visible .card{animation:none!important}.concept-line,.concept small{animation:none;opacity:1;filter:none;transform:none}.concept:after{animation:none;transform:translateX(-50%) scaleX(1);opacity:.72}.door.left{animation:none;transform:translateX(-82%) rotateY(-52deg)}.door.right{animation:none;transform:translateX(82%) rotateY(52deg)}.fall,.wardrobe{animation:none;opacity:1}}
+
+.cd-today-update-badge{display:none;margin-left:7px;padding:2px 6px;border-radius:999px;
+font-size:8px;line-height:1.2;letter-spacing:.06em;font-weight:700;white-space:nowrap;
+background:#d98232;color:#fff;vertical-align:middle}
+.cd-today-update-badge.show{display:inline-block}
 </style>
 
 <style id="cd-ver32-menu-style">
@@ -200,7 +205,7 @@ body.cd-menu-open .cd-side-menu{transform:translate3d(0,0,0)}
         <svg viewBox="0 0 20 20"><rect x="2.5" y="4.5" width="15" height="13" rx="2.2" fill="none" stroke-width="1.6"/><line x1="2.5" y1="8" x2="17.5" y2="8" stroke-width="1.4"/><line x1="6.2" y1="2.4" x2="6.2" y2="6.1" stroke-width="1.6" stroke-linecap="round"/><line x1="13.8" y1="2.4" x2="13.8" y2="6.1" stroke-width="1.6" stroke-linecap="round"/><path d="M6.2 11.3h1.1M9.4 11.3h1.1M12.6 11.3h1.1M6.2 14.3h1.1M9.4 14.3h1.1" stroke-width="1.2" stroke-linecap="round"/></svg>
       </div>
       <div class="en">WEEKLY FASHION LOTTERY</div>
-      <div class="jp">今週のファッションくじ</div>
+      <div class="jp">今週のファッションくじ<span class="cd-today-update-badge" aria-hidden="true">本日更新</span></div>
       <div class="desc">毎週更新される共通テーマをヒントにコーデへ挑戦。</div>
       <span class="open">›</span>
     </a>
@@ -277,6 +282,15 @@ body.cd-menu-open .cd-side-menu{transform:translate3d(0,0,0)}
  function openMenu(){document.body.classList.add('cd-menu-open');panel.setAttribute('aria-hidden','false');backdrop.setAttribute('aria-hidden','false');trigger.setAttribute('aria-expanded','true')}
  function closeMenu(){document.body.classList.remove('cd-menu-open');panel.setAttribute('aria-hidden','true');backdrop.setAttribute('aria-hidden','true');trigger.setAttribute('aria-expanded','false')}
  trigger.addEventListener('click',openMenu);backdrop.addEventListener('click',closeMenu);document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMenu()});
+})();
+</script>
+<script>
+(function(){
+  var monday = new Date().getDay() === 1;
+  document.querySelectorAll('.cd-today-update-badge').forEach(function(el){
+    el.classList.toggle('show', monday);
+    el.setAttribute('aria-hidden', monday ? 'false' : 'true');
+  });
 })();
 </script>
 </body></html>

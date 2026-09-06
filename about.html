@@ -69,6 +69,14 @@ footer{border-top-color:var(--cd-line)}
 .history-item[open] .history-plus{transform:rotate(45deg)}
 .history-body{padding:0 0 14px 78px;font-size:11px;line-height:1.9;color:#6f5949}
 .history-note{margin-top:10px;font-size:9px;color:#a58b78}
+.history-major .history-body{padding-bottom:16px}
+.history-version-block{padding:11px 0 13px;border-top:1px dashed #efd9c3}
+.history-version-block:first-child{border-top:0;padding-top:0}
+.history-version-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:6px;font-family:Georgia,"Times New Roman",serif;color:#9a7257}
+.history-version-head span{font-size:11px;font-weight:700;color:#d98232;letter-spacing:.04em}
+.history-version-head time{font-size:9px;white-space:nowrap}
+.history-version-latest .history-version-head span:after{content:" NEW";font-size:7px;vertical-align:1px;margin-left:4px;color:#c8783b;letter-spacing:.08em}
+
 @media(max-width:430px){
   .history-body{padding-left:0}
   .news-head{align-items:start;flex-direction:column;gap:3px}
@@ -112,57 +120,56 @@ body.cd-menu-open .cd-side-menu{transform:translate3d(0,0,0)}
     </div>
 
     <div class="history-list">
-      <details class="history-item">
-        <summary>
-          <span class="history-date">2026.09.04</span>
-          <span class="history-title">Ver.3.2を公開しました</span>
-          <span class="history-plus">＋</span>
-        </summary>
-        <div class="history-body">
-          ・サイトのトップページを新設し、3つのくじへ直接アクセスできるようにしました。<br>
-          ・トップページにクローゼットが開く演出や、くじ選択までのアニメーションを追加しました。<br>
-          ・MENUを左からスライド表示する仕様に変更し、ページを見ながら移動できるようにしました。<br>
-          ・トップページ下部のTOOLS &amp; GUIDEやフッターを整理し、よりシンプルで分かりやすい構成に調整しました。
-        </div>
-      </details>
-
-      <details class="history-item">
-        <summary>
-          <span class="history-date">2026.09.03</span>
-          <span class="history-title">Ver.3.1を公開しました</span>
-          <span class="history-plus">＋</span>
-        </summary>
-        <div class="history-body">
-          ・画像でシミラーくじに「COLOR RANDOM」を追加しました。<br>
-          ・COLOR RANDOMでは、柄を使わず色と図形だけで画像を生成します。<br>
-          ・COLOR RANDOM限定で、3色・3分割の表現を追加しました。<br>
-          ・くじ選択画面や遊び方の見た目・導線を調整しました。<br>
-          ・遊び方ガイドをVer.3.1仕様に更新しました。
-        </div>
-      </details>
-
-      <details class="history-item">
+      <details class="history-item history-major">
         <summary>
           <span class="history-date">2026.09.01</span>
-          <span class="history-title">Ver.3を公開しました</span>
+          <span class="history-title">Ver.3.0を公開しました</span>
           <span class="history-plus">＋</span>
         </summary>
         <div class="history-body">
-          ・「画像でシミラーくじ」を追加しました。<br>
-          ・ファッションくじ／今週のファッションくじの投稿テンプレートを1〜6人対応にしました。<br>
-          ・投稿テンプレートページを1〜6人対応・高画質化し、「画像を保存」から直接保存できるようにしました。<br>
-          ・MENUと遊び方ガイドをVer.3仕様に更新しました。
+          <div class="history-version-block">
+            <div class="history-version-head"><span>Ver.3.0</span><time>2026.09.01</time></div>
+            ・「画像でシミラーくじ」を追加しました。<br>
+            ・ファッションくじ／今週のファッションくじの投稿テンプレートを1〜6人対応にしました。<br>
+            ・投稿テンプレートページを1〜6人対応・高画質化し、「画像を保存」から直接保存できるようにしました。<br>
+            ・MENUと遊び方ガイドをVer.3.0仕様に更新しました。
+          </div>
+
+          <div class="history-version-block">
+            <div class="history-version-head"><span>Ver.3.1</span><time>2026.09.03</time></div>
+            ・画像でシミラーくじに「COLOR RANDOM」を追加しました。<br>
+            ・COLOR RANDOMでは、柄を使わず色と図形だけで画像を生成します。<br>
+            ・COLOR RANDOM限定で、3色・3分割の表現を追加しました。<br>
+            ・くじ選択画面や遊び方の見た目・導線を調整しました。<br>
+            ・遊び方ガイドをVer.3.1仕様に更新しました。
+          </div>
+
+          <div class="history-version-block">
+            <div class="history-version-head"><span>Ver.3.2</span><time>2026.09.04</time></div>
+            ・サイトのトップページを新設し、3つのくじへ直接アクセスできるようにしました。<br>
+            ・トップページにクローゼットが開く演出や、くじ選択までのアニメーションを追加しました。<br>
+            ・MENUを左からスライド表示する仕様に変更し、ページを見ながら移動できるようにしました。<br>
+            ・トップページ下部のTOOLS &amp; GUIDEやフッターを整理し、よりシンプルで分かりやすい構成に調整しました。
+          </div>
+
+          <div class="history-version-block history-version-latest">
+            <div class="history-version-head"><span>Ver.3.3</span><time>2026.09.06</time></div>
+            ・ファッションくじ／今週のファッションくじの2〜6人用投稿テンプレートを新しいデザインに更新しました。<br>
+            ・各人数テンプレートのNAME・MEMO・くじ結果の表示位置と文字サイズを調整しました。<br>
+            ・ファッションくじの結果画面や導線など、細かなUIを調整しました。<br>
+            ・各ページのMENU表示サイズを調整し、長いメニュー文字が枠外にはみ出さないよう修正しました。
+          </div>
         </div>
       </details>
 
       <details class="history-item">
         <summary>
           <span class="history-date">2026.08.27</span>
-          <span class="history-title">Ver.2を公開しました</span>
+          <span class="history-title">Ver.2.0を公開しました</span>
           <span class="history-plus">＋</span>
         </summary>
         <div class="history-body">
-          Ver.2に向けた今回の更新内容をお知らせします。<br>
+          Ver.2.0に向けた今回の更新内容をお知らせします。<br>
           ・テンプレートの文字位置を中央揃えに修正<br>
           ・Weeklyのタイトルを通常デザインに統一<br>
           ・今週のファッションくじにもカラーアイコンを追加<br><br>

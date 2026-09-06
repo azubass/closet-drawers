@@ -62,6 +62,11 @@ h1{font:400 clamp(36px,7vw,58px) Georgia,serif;text-align:center;margin:4px 0 4p
   text-align:center;
 }
 
+
+.cd-today-update-badge{display:none;margin-left:7px;padding:2px 6px;border-radius:999px;
+font-size:8px;line-height:1.2;letter-spacing:.06em;font-weight:700;white-space:nowrap;
+background:#d98232;color:#fff;vertical-align:middle}
+.cd-today-update-badge.show{display:inline-block}
 </style>
 
 <style id="cd-ver32-menu-style">
@@ -101,7 +106,7 @@ body.cd-menu-open .cd-side-menu{transform:translate3d(0,0,0)}
       <button class="save" data-kind="fashion">画像を保存</button>
     </article>
     <article class="card">
-      <h2>今週のファッションくじ</h2>
+      <h2>今週のファッションくじ<span class="cd-today-update-badge" aria-hidden="true">本日更新</span></h2>
       <img id="weeklyImg" class="template-img" alt="今週のファッションくじ 投稿テンプレート">
       <button class="save" data-kind="weekly">画像を保存</button>
     </article>
@@ -191,6 +196,15 @@ function openFallbackImage(src, title){
  trigger.addEventListener('click',openMenu);backdrop.addEventListener('click',closeMenu);document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMenu()});
 })();
 </script>
+<script>
+(function(){
+  var monday = new Date().getDay() === 1;
+  document.querySelectorAll('.cd-today-update-badge').forEach(function(el){
+    el.classList.toggle('show', monday);
+    el.setAttribute('aria-hidden', monday ? 'false' : 'true');
+  });
+})();
+</script>
 </body></html>`);
   w.document.close();
 }
@@ -256,6 +270,15 @@ document.getElementById("previewModal").addEventListener("click",e=>{
 });
 
 render(1);
+</script>
+<script>
+(function(){
+  var monday = new Date().getDay() === 1;
+  document.querySelectorAll('.cd-today-update-badge').forEach(function(el){
+    el.classList.toggle('show', monday);
+    el.setAttribute('aria-hidden', monday ? 'false' : 'true');
+  });
+})();
 </script>
 </body>
 </html>
