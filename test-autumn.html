@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ver.3.4 ロゴ収納テスト｜秋</title>
+<style>
+:root{--accent:#8f6237;--brown:#5a321c;--ink:#24170f}
+*{box-sizing:border-box}
+body{margin:0;background:#fbfaf8;color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic",sans-serif}
+.wrap{min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:24px 14px 38px}
+.head{width:min(620px,96vw);margin:0 auto 12px}
+.kicker{font:700 10px Georgia,serif;letter-spacing:.22em;color:var(--accent);margin-bottom:6px}
+h1{font-family:"Yu Mincho","Hiragino Mincho ProN",serif;font-size:20px;margin:0 0 6px}
+.desc{font-size:11px;line-height:1.7;color:#7a6557}
+.stage{position:relative;width:min(620px,96vw);aspect-ratio:1/1;margin:4px auto 10px;overflow:hidden}
+.base,.item{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;display:block}
+.base{z-index:0}
+.item{z-index:var(--z);opacity:0;will-change:transform,opacity;animation-duration:.62s;animation-timing-function:cubic-bezier(.18,.78,.24,1);animation-fill-mode:forwards;animation-delay:calc(.55s + var(--i) * .28s)}
+.stage.play .item.hang{animation-name:storeHang}
+.stage.play .item.floor{animation-name:storeFloor}
+.stage.play .item.accessory{animation-name:storeAccessory}
+@keyframes storeHang{0%{opacity:0;transform:translateY(-54px) scale(.94)}72%{opacity:1;transform:translateY(4px) scale(1.012)}100%{opacity:1;transform:none}}
+@keyframes storeFloor{0%{opacity:0;transform:translateY(48px) scale(.93)}75%{opacity:1;transform:translateY(-3px) scale(1.012)}100%{opacity:1;transform:none}}
+@keyframes storeAccessory{0%{opacity:0;transform:translate(-42px,-18px) rotate(-3deg) scale(.94)}75%{opacity:1;transform:translate(3px,1px) rotate(.4deg) scale(1.01)}100%{opacity:1;transform:none}}
+.controls{width:min(620px,96vw);display:flex;gap:10px;align-items:center;justify-content:space-between;border-top:1px solid #ead8c8;padding-top:12px}
+.order{font-size:10px;line-height:1.7;color:#856f60}
+button{appearance:none;border:1px solid #d9b18d;background:#fff9f3;color:#7a4d2c;border-radius:999px;padding:9px 14px;font-weight:700;font-size:11px;cursor:pointer}
+button:active{transform:scale(.98)}
+.note{width:min(620px,96vw);margin-top:10px;font-size:9px;line-height:1.65;color:#9b8474}
+@media(prefers-reduced-motion:reduce){.item{opacity:1!important;transform:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="head">
+    <div class="kicker">VER.3.4 / SEASONAL CLOSET TEST</div>
+    <h1>秋｜順番に収納される演出</h1>
+    <div class="desc">完成位置・大きさは、あずみちゃんが書き出した1254×1254pxレイヤーをそのまま使用。CSSで個別配置していません。</div>
+  </div>
+  <div class="stage" id="stage" aria-label="秋のクローゼット収納アニメーション">
+    <img class="base" src="closet-brown.png" alt="焦茶の空クローゼット">
+    <img class="item hang" src="autumn-check-dress.png" alt="チェックワンピース" style="--z:1;--i:0">
+<img class="item hang" src="autumn-trench.png" alt="トレンチコート" style="--z:2;--i:1">
+<img class="item accessory" src="autumn-camera.png" alt="カメラ" style="--z:3;--i:2">
+<img class="item floor" src="autumn-handbag.png" alt="ハンドバッグ" style="--z:4;--i:3">
+  </div>
+  <div class="controls">
+    <div class="order">収納順：チェックワンピース → トレンチコート → カメラ → ハンドバッグ</div>
+    <button id="replay" type="button">もう一度見る</button>
+  </div>
+  <div class="note">※ テスト版。最終重ね順はユーザー指定を厳守し、収納時のみ奥→手前の順に表示しています。</div>
+</div>
+<script>
+const stage=document.getElementById('stage');
+const replay=document.getElementById('replay');
+function play(){stage.classList.remove('play');void stage.offsetWidth;stage.classList.add('play')}
+requestAnimationFrame(play);
+replay.addEventListener('click',play);
+</script>
+</body>
+</html>
