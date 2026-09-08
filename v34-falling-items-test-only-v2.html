@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Closet Drawers Ver.3.4 ②落下アイテム TEST v2</title>
+<style>
+:root{
+  --paper:#fbfaf8;
+  --ink:#33241b;
+  --brown:#6f432b;
+  --orange:#d77c3e;
+  --terra:#b95f3e;
+  --sand:#d9a36d;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic",sans-serif;
+  background:linear-gradient(180deg,#fbfaf8 0%,#f7f1ea 100%);
+  color:var(--ink);
+}
+.wrap{max-width:760px;margin:0 auto;padding:18px 14px 38px}
+.badge{
+  display:inline-block;padding:6px 10px;border:1px solid #e5bea0;border-radius:999px;
+  background:#fff6ee;color:#855036;font-size:12px;font-weight:800;letter-spacing:.04em
+}
+h1{font-size:20px;margin:10px 0 4px}
+.desc{font-size:13px;line-height:1.65;color:#796457;margin:0 0 14px}
+.controls{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:8px}
+button{
+  appearance:none;border:1px solid #dcc8b6;background:#fff;color:#3e2a20;
+  border-radius:12px;padding:10px 4px;font-size:14px;font-weight:800
+}
+button.active{background:#5c3928;color:#fff;border-color:#5c3928}
+#replay{width:100%;margin-bottom:14px;background:#fff8f2}
+.card{
+  position:relative;background:#fff;border-radius:22px;padding:10px;
+  box-shadow:0 8px 28px rgba(64,40,24,.09);overflow:hidden
+}
+.scene{
+  position:relative;height:590px;overflow:hidden;border-radius:16px;
+  background:
+    radial-gradient(circle at 50% 17%,rgba(229,190,151,.12),transparent 40%),
+    linear-gradient(180deg,#fffdfb 0%,#fbf6f0 100%);
+}
+
+/* wardrobe */
+.wardrobe{
+  position:absolute;left:50%;top:18px;transform:translateX(-50%);
+  width:min(380px,92%);height:430px;perspective:1300px;
+  animation:wardrobeIn .55s ease both
+}
+.cabinet{
+  position:absolute;left:12%;right:12%;top:7%;bottom:6%;
+  border:2px solid #b7835d;border-radius:8px;background:#fffaf5;
+  box-shadow:inset 0 0 0 9px #f6ede3,0 9px 22px rgba(86,50,27,.06)
+}
+.cabinet:after{
+  content:"";position:absolute;left:8%;right:8%;bottom:24%;height:1px;background:#c79a74
+}
+.rod{position:absolute;left:24%;right:24%;top:24%;height:2px;background:#91664c;border-radius:2px}
+.hanger{
+  position:absolute;top:18%;width:72px;height:68px;z-index:2;opacity:.94
+}
+.h1{left:28%}.h2{left:41%}.h3{left:54%}
+.garment{position:absolute;z-index:3;opacity:.97}
+.g1{left:26.8%;top:26%;width:84px;height:124px}
+.g2{left:40.6%;top:25.2%;width:87px;height:134px}
+.g3{left:54.5%;top:25.6%;width:86px;height:128px}
+.shelf{position:absolute;left:24%;right:24%;top:64%;height:1px;background:#bf936b;z-index:2}
+.hat-inner{position:absolute;z-index:3;left:26.5%;top:66.3%;width:96px;height:56px}
+.glasses-inner{position:absolute;z-index:3;left:56.2%;top:69.2%;width:74px;height:36px}
+.door{
+  position:absolute;z-index:8;top:7%;bottom:6%;width:38%;
+  background:linear-gradient(90deg,#f6eadf,#fff7ef 60%,#f0ddcd);
+  border:2px solid #b7835d;box-shadow:0 5px 14px rgba(75,43,23,.06)
+}
+.door.left{left:12%;transform-origin:left center;animation:openLeft 1.05s cubic-bezier(.18,.76,.25,1) .48s both}
+.door.right{right:12%;transform-origin:right center;animation:openRight 1.05s cubic-bezier(.18,.76,.25,1) .48s both}
+.door:after{content:"";position:absolute;top:49%;width:5px;height:5px;border-radius:50%;background:#8c5f43}
+.door.left:after{right:12px}.door.right:after{left:12px}
+
+@keyframes openLeft{from{transform:translateX(0) rotateY(0)}to{transform:translateX(-82%) rotateY(-52deg)}}
+@keyframes openRight{from{transform:translateX(0) rotateY(0)}to{transform:translateX(82%) rotateY(52deg)}}
+@keyframes wardrobeIn{from{opacity:0;transform:translate(-50%,12px) scale(.97)}to{opacity:1;transform:translate(-50%,0) scale(1)}}
+
+/* falling elements: moved farther away from wardrobe */
+.fall{
+  position:absolute;z-index:12;opacity:0;pointer-events:none;
+  filter:drop-shadow(0 9px 8px rgba(92,55,31,.13))
+}
+.blouse{left:-2%;top:324px;width:122px;height:104px}
+.skirt{right:-1%;top:334px;width:120px;height:108px}
+.bag{right:2%;top:464px;width:106px;height:84px}
+.bow{left:6%;top:474px;width:88px;height:50px}
+
+.fall.in.f1{animation:fall1 1s cubic-bezier(.18,.74,.3,1) forwards}
+.fall.in.f2{animation:fall2 1s cubic-bezier(.18,.74,.3,1) forwards}
+.fall.in.f3{animation:fall3 1s cubic-bezier(.18,.74,.3,1) forwards}
+.fall.in.f4{animation:fall4 1s cubic-bezier(.18,.74,.3,1) forwards}
+@keyframes fall1{0%{opacity:0;transform:translate(65px,-120px) rotate(-9deg) scale(.72)}68%{opacity:1;transform:translate(-4px,7px) rotate(4deg) scale(1.03)}100%{opacity:1;transform:none}}
+@keyframes fall2{0%{opacity:0;transform:translate(-65px,-130px) rotate(10deg) scale(.72)}68%{opacity:1;transform:translate(4px,7px) rotate(-3deg) scale(1.03)}100%{opacity:1;transform:none}}
+@keyframes fall3{0%{opacity:0;transform:translate(-52px,-125px) rotate(-11deg) scale(.72)}100%{opacity:1;transform:rotate(6deg)}}
+@keyframes fall4{0%{opacity:0;transform:translate(40px,-124px) rotate(13deg) scale(.72)}100%{opacity:1;transform:rotate(-8deg)}}
+
+/* seasonal motifs */
+.seasonal{
+  position:absolute;z-index:11;opacity:0;pointer-events:none;
+  filter:drop-shadow(0 5px 6px rgba(80,48,31,.08))
+}
+.seasonal.in{animation:seasonDrop 1.35s cubic-bezier(.18,.74,.3,1) forwards}
+.s1{left:10%;top:255px;width:44px;height:44px}
+.s2{right:14%;top:254px;width:42px;height:42px}
+.s3{left:50%;top:510px;width:36px;height:36px;margin-left:-18px}
+@keyframes seasonDrop{
+  0%{opacity:0;transform:translateY(-175px) translateX(12px) rotate(-30deg) scale(.65)}
+  38%{opacity:1}
+  72%{transform:translateY(8px) translateX(-6px) rotate(18deg) scale(1.04)}
+  100%{opacity:1;transform:none}
+}
+.seasonal.idle{opacity:1;animation:seasonFloat 5.6s ease-in-out infinite!important}
+.s2.idle{animation-delay:-1.8s!important}.s3.idle{animation-delay:-3.2s!important}
+@keyframes seasonFloat{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-4px) rotate(3deg)}}
+
+.legend{
+  display:flex;align-items:center;justify-content:space-between;gap:8px;
+  padding:11px 6px 2px;font-size:12px;color:#725c4e
+}
+.palette{display:flex;gap:6px}
+.sw{width:16px;height:16px;border-radius:50%;border:1px solid rgba(70,40,20,.12)}
+.status{font-weight:700;color:#5f3c28}
+.safe{
+  margin-top:14px;font-size:12px;line-height:1.7;color:#716054;
+  background:#f5eee7;border-radius:12px;padding:11px 12px
+}
+@media(max-width:480px){
+  .scene{height:560px}
+  .wardrobe{width:min(360px,94%);height:410px}
+  .blouse{left:-5%;top:316px;width:112px}.skirt{right:-3%;top:327px;width:112px}
+  .bag{right:1%;top:454px;width:98px}.bow{left:3%;top:466px;width:84px}
+  .s1{left:7%;top:248px}.s2{right:9%;top:248px}.s3{top:500px}
+}
+@media(prefers-reduced-motion:reduce){
+  .door.left{animation:none;transform:translateX(-82%) rotateY(-52deg)}
+  .door.right{animation:none;transform:translateX(82%) rotateY(52deg)}
+  .fall,.seasonal{opacity:1!important;animation:none!important;transform:none!important}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <span class="badge">TEST ONLY — 本番未実装</span>
+  <h1>② トップページの落下アイテム（修正版）</h1>
+  <p class="desc">既存の落下服をオレンジ・茶色・テラコッタ系に統一し、季節モチーフを一緒に落とすテストです。春・夏モチーフの認識性と位置バランスを修正しました。</p>
+
+  <div class="controls">
+    <button data-season="spring" class="active">春</button>
+    <button data-season="summer">夏</button>
+    <button data-season="autumn">秋</button>
+    <button data-season="winter">冬</button>
+  </div>
+  <button id="replay">↻ もう一度落とす</button>
+
+  <div class="card">
+    <div class="scene" id="scene">
+      <div class="wardrobe">
+        <div class="cabinet"></div><div class="rod"></div>
+
+        <svg class="hanger h1" viewBox="0 0 72 68"><path d="M36 15 C36 9 30 9 30 5 C30 2 32 1 35 1 C39 1 43 4 43 8" fill="none" stroke="#8a644d" stroke-width="2.4"/><path d="M36 15 V24 M36 24 L14 45 Q12 47 16 49 L29 52 M36 24 L58 45 Q60 47 56 49 L43 52" fill="none" stroke="#8a644d" stroke-width="2.4"/></svg>
+        <svg class="hanger h2" viewBox="0 0 72 68"><path d="M36 15 C36 9 30 9 30 5 C30 2 32 1 35 1 C39 1 43 4 43 8" fill="none" stroke="#8a644d" stroke-width="2.4"/><path d="M36 15 V24 M36 24 L14 45 Q12 47 16 49 L29 52 M36 24 L58 45 Q60 47 56 49 L43 52" fill="none" stroke="#8a644d" stroke-width="2.4"/></svg>
+        <svg class="hanger h3" viewBox="0 0 72 68"><path d="M36 15 C36 9 30 9 30 5 C30 2 32 1 35 1 C39 1 43 4 43 8" fill="none" stroke="#8a644d" stroke-width="2.4"/><path d="M36 15 V24 M36 24 L14 45 Q12 47 16 49 L29 52 M36 24 L58 45 Q60 47 56 49 L43 52" fill="none" stroke="#8a644d" stroke-width="2.4"/></svg>
+
+        <svg class="garment g1" viewBox="0 0 100 150"><path d="M34 18 Q50 28 66 18 L83 32 72 49 69 128 31 128 28 49 17 32Z" fill="#d78349" stroke="#9a5d39" stroke-width="2"/><path d="M40 18 Q50 28 60 18" fill="none" stroke="#9a5d39" stroke-width="2"/></svg>
+        <svg class="garment g2" viewBox="0 0 100 160"><path d="M34 15 Q50 26 66 15 L78 29 67 45 73 145 27 145 33 45 22 29Z" fill="#b66d45" stroke="#7e4e35" stroke-width="2"/><path d="M39 15 Q50 25 61 15" fill="none" stroke="#7e4e35" stroke-width="2"/></svg>
+        <svg class="garment g3" viewBox="0 0 100 150"><path d="M31 18 H69 L82 36 70 49 66 132 34 132 30 49 18 36Z" fill="#d5a06b" stroke="#90603e" stroke-width="2"/><path d="M38 18 Q50 30 62 18" fill="none" stroke="#90603e" stroke-width="2"/></svg>
+
+        <svg class="hat-inner" viewBox="0 0 120 70"><ellipse cx="60" cy="49" rx="48" ry="14" fill="#d59a5f" stroke="#8c5d3c" stroke-width="2.4"/><path d="M33 46 Q34 16 60 14 Q86 16 87 46 Z" fill="#dfaa71" stroke="#8c5d3c" stroke-width="2.4"/><path d="M34 41 Q60 48 86 41" fill="none" stroke="#9e653e" stroke-width="3"/></svg>
+        <svg class="glasses-inner" viewBox="0 0 120 60"><rect x="11" y="19" width="38" height="23" rx="11" fill="none" stroke="#7b4c32" stroke-width="3.2"/><rect x="71" y="19" width="38" height="23" rx="11" fill="none" stroke="#7b4c32" stroke-width="3.2"/><path d="M49 29 Q60 22 71 29 M11 25 L2 20 M109 25 L118 20" fill="none" stroke="#7b4c32" stroke-width="3.2"/></svg>
+
+        <span class="shelf"></span>
+        <div class="door left"></div><div class="door right"></div>
+      </div>
+
+      <!-- existing loose items, recolored -->
+      <svg class="fall blouse f1" viewBox="0 0 140 120"><path d="M45 17 Q70 32 95 17 L122 35 107 57 96 49 92 108 48 108 44 49 33 57 18 35Z" fill="#d8793f" stroke="#975534" stroke-width="2.5"/><path d="M56 18 Q70 33 84 18" fill="none" stroke="#975534" stroke-width="2.5"/><path d="M47 53 H93" stroke="#bd6840" stroke-width="2"/></svg>
+      <svg class="fall skirt f2" viewBox="0 0 140 120"><path d="M49 15 H91 L111 105 H29Z" fill="#a85f3f" stroke="#77442e" stroke-width="2.5"/><rect x="46" y="12" width="48" height="12" rx="4" fill="#bd714c" stroke="#77442e" stroke-width="2"/><path d="M56 26 L47 102 M70 26 V105 M84 26 L94 102" stroke="#8e5138" stroke-width="2"/></svg>
+      <svg class="fall bag f3" viewBox="0 0 140 110"><path d="M24 35 Q24 28 31 28 H109 Q116 28 116 35 V91 Q116 98 109 98 H31 Q24 98 24 91Z" fill="#9a6445" stroke="#68412e" stroke-width="3"/><path d="M45 29 Q47 8 70 8 Q93 8 95 29" fill="none" stroke="#68412e" stroke-width="4"/><path d="M32 54 H108" stroke="#7d4e35" stroke-width="2"/><rect x="61" y="50" width="18" height="13" rx="3" fill="#c88859" stroke="#68412e" stroke-width="2"/></svg>
+      <svg class="fall bow f4" viewBox="0 0 120 70"><path d="M54 31 C41 17 20 12 8 20 L16 52 C28 44 40 40 54 38Z" fill="#c66c46" stroke="#8f4c35" stroke-width="2"/><path d="M66 31 C79 17 100 12 112 20 L104 52 C92 44 80 40 66 38Z" fill="#c66c46" stroke="#8f4c35" stroke-width="2"/><rect x="52" y="25" width="16" height="20" rx="5" fill="#a9573c" stroke="#81432f" stroke-width="2"/></svg>
+
+      <div id="seasonLayer"></div>
+    </div>
+
+    <div class="legend">
+      <span class="status" id="status">春：さくら</span>
+      <span class="palette">
+        <i class="sw" style="background:#d8793f"></i>
+        <i class="sw" style="background:#9a6445"></i>
+        <i class="sw" style="background:#b95f3e"></i>
+      </span>
+    </div>
+  </div>
+
+  <div class="safe">
+    このファイルは <b>v34-falling-items-test-only-v2.html</b> だけで動く確認専用テストです。
+    <b>index.html・本番画像・本番CSSを変更しません。</b>
+  </div>
+</div>
+
+<script>
+const seasonalMarkup = {
+ spring: {
+  label:'春：さくら',
+  items:[
+   `<svg class="seasonal s1" viewBox="0 0 60 60"><g><path d="M30 11 C34 4 42 4 44 13 C53 11 58 18 53 26 C59 31 56 40 47 41 C47 50 39 55 32 49 C27 56 17 55 16 45 C8 45 3 38 8 30 C2 24 6 14 16 15 C18 5 26 4 30 11Z" fill="#f0b0b1" stroke="#c7747c" stroke-width="2"/><circle cx="30" cy="30" r="5.2" fill="#efcc69"/></g></svg>`,
+   `<svg class="seasonal s2" viewBox="0 0 60 60"><g><path d="M30 11 C34 4 42 4 44 13 C53 11 58 18 53 26 C59 31 56 40 47 41 C47 50 39 55 32 49 C27 56 17 55 16 45 C8 45 3 38 8 30 C2 24 6 14 16 15 C18 5 26 4 30 11Z" fill="#f7c0bf" stroke="#ca8380" stroke-width="2"/><circle cx="30" cy="30" r="5.2" fill="#f3d370"/></g></svg>`,
+   `<svg class="seasonal s3" viewBox="0 0 60 60"><g><path d="M30 11 C34 4 42 4 44 13 C53 11 58 18 53 26 C59 31 56 40 47 41 C47 50 39 55 32 49 C27 56 17 55 16 45 C8 45 3 38 8 30 C2 24 6 14 16 15 C18 5 26 4 30 11Z" fill="#e69ca0" stroke="#b2676b" stroke-width="2"/><circle cx="30" cy="30" r="5.2" fill="#efc25e"/></g></svg>`
+  ]
+ },
+ summer:{
+  label:'夏：貝殻',
+  items:[
+   `<svg class="seasonal s1" viewBox="0 0 60 60"><path d="M10 43 Q12 16 30 10 Q48 16 50 43Z" fill="#efc48d" stroke="#b27848" stroke-width="2.3"/><path d="M30 11 V43 M20 16 L24 43 M40 16 L36 43 M14 26 L46 26" stroke="#cc9462" stroke-width="1.7"/></svg>`,
+   `<svg class="seasonal s2" viewBox="0 0 60 60"><path d="M12 48 C14 33 19 22 27 16 C35 10 45 12 47 20 C49 28 43 37 33 42 C26 45 19 47 12 48Z" fill="#e3ad73" stroke="#9e683f" stroke-width="2.2"/><path d="M19 43 C24 33 30 24 38 18 M24 40 C28 37 33 34 39 32" fill="none" stroke="#bf8353" stroke-width="1.6"/></svg>`,
+   `<svg class="seasonal s3" viewBox="0 0 60 60"><path d="M10 43 Q12 16 30 10 Q48 16 50 43Z" fill="#dca267" stroke="#99603b" stroke-width="2.3"/><path d="M30 11 V43 M20 16 L24 43 M40 16 L36 43" stroke="#b8774a" stroke-width="1.7"/></svg>`
+  ]
+ },
+ autumn:{
+  label:'秋：落ち葉・どんぐり',
+  items:[
+   `<svg class="seasonal s1" viewBox="0 0 50 50"><path d="M25 4 C36 12 42 22 37 34 C32 44 18 45 13 34 C8 22 15 12 25 4Z" fill="#c8733f" stroke="#884a2f" stroke-width="2"/><path d="M25 8 V43 M25 24 L15 18 M25 30 L35 21" stroke="#955338" stroke-width="1.5"/></svg>`,
+   `<svg class="seasonal s2" viewBox="0 0 50 50"><ellipse cx="25" cy="29" rx="12" ry="15" fill="#9b613d" stroke="#68412c" stroke-width="2"/><path d="M13 19 Q25 8 37 19 Q25 25 13 19Z" fill="#6f472f" stroke="#553421" stroke-width="2"/><path d="M25 11 V6" stroke="#553421" stroke-width="2.5" stroke-linecap="round"/></svg>`,
+   `<svg class="seasonal s3" viewBox="0 0 50 50"><path d="M10 14 C22 9 36 13 40 25 C34 37 20 42 9 35 C17 28 17 21 10 14Z" fill="#d49a45" stroke="#8f6030" stroke-width="2"/><path d="M12 34 L38 17 M22 28 L16 20 M28 24 L35 28" stroke="#9e6a35" stroke-width="1.5"/></svg>`
+  ]
+ },
+ winter:{
+  label:'冬：雪の結晶',
+  items:[
+   `<svg class="seasonal s1" viewBox="0 0 50 50"><g stroke="#d3b191" stroke-width="2.3" stroke-linecap="round"><path d="M25 5 V45 M5 25 H45 M10.8 10.8 L39.2 39.2 M39.2 10.8 L10.8 39.2"/><path d="M25 10 L21 15 M25 10 L29 15 M25 40 L21 35 M25 40 L29 35 M10 25 L15 21 M10 25 L15 29 M40 25 L35 21 M40 25 L35 29"/></g></svg>`,
+   `<svg class="seasonal s2" viewBox="0 0 50 50"><g stroke="#e0c7ad" stroke-width="2.2" stroke-linecap="round"><path d="M25 6 V44 M6 25 H44 M11 11 L39 39 M39 11 L11 39"/></g></svg>`,
+   `<svg class="seasonal s3" viewBox="0 0 50 50"><g stroke="#caa481" stroke-width="2.4" stroke-linecap="round"><path d="M25 6 V44 M6 25 H44 M11 11 L39 39 M39 11 L11 39"/><circle cx="25" cy="25" r="3" fill="none"/></g></svg>`
+  ]
+ }
+};
+
+let current='spring', timers=[];
+const layer=document.getElementById('seasonLayer');
+const status=document.getElementById('status');
+
+function clearTimers(){timers.forEach(clearTimeout);timers=[]}
+function reset(){
+ clearTimers();
+ document.querySelectorAll('.fall').forEach(el=>{
+  el.classList.remove('in');
+  void el.offsetWidth;
+ });
+ layer.innerHTML='';
+}
+function play(season){
+ current=season; reset();
+ document.querySelectorAll('[data-season]').forEach(b=>b.classList.toggle('active',b.dataset.season===season));
+ const info=seasonalMarkup[season];
+ status.textContent=info.label;
+ layer.innerHTML=info.items.join('');
+ const falls=[...document.querySelectorAll('.fall')];
+ const seasonal=[...document.querySelectorAll('.seasonal')];
+ falls.forEach((el,i)=>timers.push(setTimeout(()=>el.classList.add('in'),760+i*170)));
+ seasonal.forEach((el,i)=>timers.push(setTimeout(()=>el.classList.add('in'),1150+i*260)));
+ timers.push(setTimeout(()=>seasonal.forEach(el=>el.classList.add('idle')),3000));
+}
+document.querySelectorAll('[data-season]').forEach(b=>b.addEventListener('click',()=>play(b.dataset.season)));
+document.getElementById('replay').addEventListener('click',()=>play(current));
+play('spring');
+</script>
+</body>
+</html>
