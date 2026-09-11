@@ -195,7 +195,7 @@ function openFallbackImage(src, title){
  function closeMenu(){document.body.classList.remove('cd-menu-open');panel.setAttribute('aria-hidden','true');backdrop.setAttribute('aria-hidden','true');trigger.setAttribute('aria-expanded','false')}
  trigger.addEventListener('click',openMenu);backdrop.addEventListener('click',closeMenu);document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMenu()});
 })();
-</script>
+<\/script>
 <script>
 (function(){
   var monday = new Date().getDay() === 1;
@@ -204,7 +204,7 @@ function openFallbackImage(src, title){
     el.setAttribute('aria-hidden', monday ? 'false' : 'true');
   });
 })();
-</script>
+<\/script>
 </body></html>`);
   w.document.close();
 }
