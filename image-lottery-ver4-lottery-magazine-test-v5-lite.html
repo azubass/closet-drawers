@@ -1,0 +1,3481 @@
+<!-- Lite package: externalized image assets for better saveability -->
+<!doctype html>
+<!-- ver3.1 visual test v3: confirmed functions + refined lottery selector / 2026-09-03 -->
+<html lang="ja">
+<head>
+<!-- caption soft-shadow test: 2026-08-31 -->
+<!-- caption museum style test: 2026-08-31 -->
+<!-- build: finalized-logos-v1 2026-08-31 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<!-- Ver.4 TEST: Image Lottery AB+C(1)(2) + magazine intro UI -->
+<title>画像でシミラーくじ | Closet Drawers ファッションくじ Ver.3</title>
+<style>
+*{box-sizing:border-box}
+:root{--amber:#e6a24d;--terra:#b86635;--cream:#fffdfa;--line:#e4c7aa;--ink:#31261f;--muted:#8b6e5b}
+body{margin:0;background:#fbfaf7;color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic",Meiryo,sans-serif;background-image:linear-gradient(rgba(255,255,255,.94),rgba(255,255,255,.94)),radial-gradient(circle at 20% 10%,rgba(194,138,84,.06),transparent 28%),radial-gradient(circle at 80% 30%,rgba(200,150,100,.05),transparent 30%)}
+.wrap{max-width:680px;margin:0 auto;padding:16px 16px 48px}
+.header{
+  display:grid;grid-template-columns:1fr auto 1fr;align-items:center;
+  min-height:210px;padding:8px 0 16px
+}
+.header-link{
+  font-size:10px;letter-spacing:.14em;
+  color:#5d4434;text-decoration:none
+}
+.header-link.right{justify-self:end}
+.header-link.left{justify-self:start}
+.site-logo-stack{
+  width:148px;display:flex;flex-direction:column;
+  align-items:center;justify-content:center
+}
+.site-mark{width:82px;display:block;mix-blend-mode:multiply;margin-bottom:2px}
+.site-wordmark{width:138px;display:block;mix-blend-mode:multiply}
+
+
+.kicker{font:700 10px Georgia,serif;letter-spacing:.28em;color:#b87544}
+h1{font-family:"Yu Mincho","Hiragino Mincho ProN",serif;font-size:30px;margin:10px 0 8px;letter-spacing:.03em}
+
+.hero{text-align:center;padding:26px 0 20px}
+.lottery-logo{
+  display:flex;flex-direction:column;align-items:center;
+  width:min(470px,94vw);margin:0 auto 20px;line-height:1
+}
+.lottery-logo-en{
+  font:600 10px Georgia,serif;letter-spacing:.31em;
+  margin-bottom:11px;color:#b86f32
+}
+.lottery-logo-main{
+  width:100%;
+  font:500 clamp(21px,6.2vw,31px) Georgia,serif;
+  letter-spacing:.025em;
+  border-top:1px solid #c98a4d;
+  border-bottom:1px solid #c98a4d;
+  padding:10px 8px 9px;
+  color:#2b211b;
+  white-space:nowrap
+}
+.lottery-logo-bow{
+  position:relative;
+  margin-top:-1px;
+  width:128px;
+  height:24px;
+  color:#c47a3c;
+  font-size:22px;
+  line-height:23px;
+  background:transparent;
+  display:flex;
+  align-items:center;
+  justify-content:center
+}
+.lottery-logo-bow:before,
+.lottery-logo-bow:after{
+  content:"";
+  position:absolute;
+  top:50%;
+  width:40px;
+  height:1px;
+  background:#c98a4d
+}
+.lottery-logo-bow:before{left:0}
+.lottery-logo-bow:after{right:0}
+.lottery-logo-jp{
+  font-family:"Yu Mincho","Hiragino Mincho ProN",serif;
+  font-size:13px;letter-spacing:.24em;
+  margin-top:4px;font-weight:600;color:#2b211b
+}
+
+.lead{font-size:12px;line-height:1.9;color:#7f695b;margin:0 auto;max-width:520px;font-weight:400}
+.badge{display:inline-block;margin-top:11px;padding:5px 9px;border:1px solid #e6c096;border-radius:999px;color:#a7683f;font-size:9px;background:#fff6ea}
+.panel{background:rgba(255,253,249,.97);border:1px solid #e6d3bf;border-radius:18px;padding:20px;margin-bottom:20px;box-shadow:0 10px 26px rgba(151,91,45,.035);position:relative;overflow:hidden}.panel:before{content:"";position:absolute;left:20px;right:20px;top:0;height:1px;background:linear-gradient(90deg,transparent,#d7b58f,transparent)}
+.step{font:400 8px Georgia,serif;letter-spacing:.28em;color:#b7967d;margin-bottom:9px}
+.title{font-family:"Yu Mincho","Hiragino Mincho ProN",serif;font-size:19px;margin:0 0 7px;font-weight:600;letter-spacing:.02em}
+.sub{font-size:10px;color:#947665;line-height:1.8;margin-bottom:16px}
+.people-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}
+.btn,.theme-btn,.ghost,.primary,.secondary{cursor:pointer}
+.btn{border:1px solid #ddc3a6;background:#fffaf1;border-radius:10px;padding:14px 6px;font-size:13px;font-weight:600;color:#6c5140;box-shadow:none;transition:transform .18s ease,background .18s ease,border-color .18s ease,box-shadow .18s ease,color .18s ease}
+.btn:hover{border-color:#cfaa80;background:#fff8ed}
+.btn.selected{background:#d8b184;border-color:#c58f5e;color:#4f3726;transform:translateY(-1px);box-shadow:0 7px 16px rgba(156,108,66,.14),inset 0 0 0 1px rgba(255,255,255,.42)}
+.theme-grid{display:grid;grid-template-columns:1fr;gap:10px}
+.theme-btn{min-height:76px;border:1px solid #dfc8ad;background:#fffaf2;border-radius:12px;color:var(--ink);padding:15px 18px;text-align:left;display:flex;align-items:center;justify-content:space-between;gap:18px}
+.theme-btn .type{font:400 8px Georgia,serif;letter-spacing:.24em;color:#ad8b72;min-width:72px}
+.theme-btn .name{font-size:17px;font-weight:600;margin-top:0;flex:1;text-align:left}
+.theme-btn .name:after{content:"›";float:right;font-size:22px;font-weight:400;color:#b99a80;line-height:1}
+.theme-btn{transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease,background .18s ease;opacity:0;transform:translateY(10px)}
+.theme-btn.show{opacity:1;transform:translateY(0)}
+.theme-btn:hover,.theme-btn:active{transform:translateY(-1px);background:#e6c7a5;border-color:#cfaa80;box-shadow:0 8px 18px rgba(156,108,66,.09)}
+.theme-btn.random{background:#fffaf2}
+.theme-btn.random:hover,.theme-btn.random:active{background:#e6c7a5}
+.theme-btn.random .name:after{content:"›";color:#b99a80}
+.theme-grid{gap:8px}
+.theme-group-heading{
+  display:flex;align-items:center;gap:10px;
+  font:600 10px Georgia,serif;letter-spacing:.28em;color:#b87544;
+  margin:8px 0 1px;padding-left:2px
+}
+.theme-group-heading:first-child{margin-top:1px}
+.theme-group-heading:after{content:"";height:1px;flex:1;background:linear-gradient(90deg,#dec1a0,transparent)}
+.theme-group-heading.random-group{margin-top:15px}
+.theme-btn{
+  min-height:64px;padding:11px 15px;gap:12px;
+}
+.theme-btn .type{display:none}
+.theme-btn .name-wrap{flex:1;min-width:0;display:flex;flex-direction:column;justify-content:center}
+.theme-btn .mode-name{font-size:10px;line-height:1.25;color:#9b7a64;font-weight:600;letter-spacing:.04em;margin-bottom:4px}
+.theme-btn .main-value{font-size:19px;line-height:1.22;font-weight:700;color:#4a372b;letter-spacing:.015em}
+.theme-btn .main-value:after{content:"›";float:right;font-size:22px;font-weight:400;color:#b99a80;line-height:1}
+.theme-btn .desc{font-size:10px;line-height:1.4;color:#947665;margin-top:4px}
+.theme-btn.random-card .main-value{font-size:16px}
+
+.theme-main-row{display:flex;align-items:center;gap:10px;min-width:0}
+.theme-preview-chip{
+  width:28px;height:28px;flex:0 0 28px;border-radius:50%;
+  border:1px solid rgba(151,111,79,.28);box-shadow:inset 0 0 0 1px rgba(255,255,255,.38);
+  background-color:#f7efe5;background-repeat:repeat;background-position:center;background-size:65%;
+}
+.theme-preview-chip.pattern-chip{border-radius:7px;background-size:65%;background-color:#fffaf2}
+.theme-main-row .main-value{flex:1;min-width:0}
+.intro-explain-short{margin:0 auto 15px;font-size:10px;line-height:1.7}
+.theme-btn .new-badge{
+  display:inline-block;vertical-align:2px;margin-left:7px;padding:2px 5px;
+  border:1px solid #d79d66;border-radius:999px;background:#fff4e8;
+  color:#b86f32;font:700 7px Georgia,serif;letter-spacing:.12em;
+  position:relative;overflow:hidden
+}
+
+/* ver.3.1 visual polish: A+B+D+E+F */
+.theme-group-heading:after{
+  transform:scaleX(0);transform-origin:left center;
+  animation:themeLineGrow .52s cubic-bezier(.22,.61,.36,1) .08s forwards
+}
+.theme-group-heading.random-group:after{animation-delay:.38s}
+.theme-btn{position:relative;overflow:hidden;transform-origin:center}
+.theme-btn.show{animation:themeCardFadeUp .38s cubic-bezier(.22,.61,.36,1) both}
+.theme-btn.show:nth-of-type(2){animation-delay:.04s}
+.theme-btn.show:nth-of-type(3){animation-delay:.10s}
+.theme-btn.show:nth-of-type(5){animation-delay:.18s}
+.theme-btn.show:nth-of-type(6){animation-delay:.24s}
+.theme-btn.picked:before{
+  content:"";position:absolute;inset:-1px;border-radius:12px;
+  border:1.5px solid rgba(202,132,72,.88);pointer-events:none;
+  animation:themePickGlow .42s ease-out both
+}
+.theme-btn .new-badge:after{
+  content:"";position:absolute;top:-40%;bottom:-40%;width:10px;left:-18px;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.95),transparent);
+  transform:rotate(18deg);
+  animation:newBadgeShine .9s ease .7s 1 both
+}
+@keyframes themeLineGrow{to{transform:scaleX(1)}}
+@keyframes themeCardFadeUp{
+  from{opacity:0;transform:translateY(10px)}
+  to{opacity:1;transform:translateY(0)}
+}
+@keyframes themePickGlow{
+  0%{opacity:0;box-shadow:0 0 0 rgba(202,132,72,0)}
+  30%{opacity:1;box-shadow:0 0 18px rgba(202,132,72,.22)}
+  100%{opacity:.18;box-shadow:0 0 0 rgba(202,132,72,0)}
+}
+@keyframes newBadgeShine{
+  0%{left:-18px;opacity:0}
+  18%{opacity:1}
+  72%{opacity:1}
+  100%{left:calc(100% + 18px);opacity:0}
+}
+@media (prefers-reduced-motion:reduce){
+  .theme-group-heading:after,.theme-btn.show,.theme-btn .new-badge:after,.theme-btn.picked:before{animation:none!important;transform:none!important}
+}
+
+
+.intro-screen,.flow-screen{
+  transition:opacity .28s ease,transform .28s ease;
+}
+.intro-screen.is-leaving{
+  opacity:0;
+  transform:translateY(-8px);
+}
+.flow-screen.is-entering{
+  opacity:0;
+  transform:translateY(10px);
+}
+.intro-guide{
+  margin:0 auto 20px;
+  background:rgba(255,253,249,.97);
+  border:1px solid #e6d3bf;
+  border-radius:18px;
+  padding:20px;
+  box-shadow:0 10px 26px rgba(151,91,45,.035);
+  position:relative;
+  overflow:hidden;
+}
+.intro-guide:before{
+  content:"";
+  position:absolute;
+  left:20px;right:20px;top:0;height:1px;
+  background:linear-gradient(90deg,transparent,#d7b58f,transparent);
+}
+.intro-guide .step{margin-bottom:11px}
+.intro-guide-title{
+  font-family:"Yu Mincho","Hiragino Mincho ProN",serif;
+  font-size:19px;
+  font-weight:600;
+  letter-spacing:.02em;
+  margin:0 0 15px;
+}
+
+.intro-guide-title-en{
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:14px;
+  font-weight:400;
+  letter-spacing:.09em;
+  line-height:1.25;
+  color:#4b382d;
+  text-transform:uppercase;
+  white-space:nowrap;
+}
+@media(max-width:430px){
+  .intro-guide-title-en{
+    font-size:12.5px;
+    letter-spacing:.07em;
+  }
+}
+
+.intro-explain{
+  margin:-4px auto 17px;
+  max-width:440px;
+  text-align:center;
+  font-size:10px;
+  line-height:1.75;
+  color:#806653;
+  letter-spacing:.015em;
+}
+.intro-steps{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:9px;
+  margin:0 0 16px;
+}
+.intro-step{
+  border-top:1px solid #e3c8aa;
+  padding:10px 4px 0;
+  min-height:74px;
+}
+.intro-num{
+  display:block;
+  font:400 8px Georgia,serif;
+  letter-spacing:.22em;
+  color:#b87544;
+  margin-bottom:7px;
+}
+.intro-step strong{
+  display:block;
+  font-family:"Yu Mincho","Hiragino Mincho ProN",serif;
+  font-size:12px;
+  font-weight:600;
+  color:#4f3a2c;
+  margin-bottom:4px;
+}
+.intro-step span:last-child{
+  display:block;
+  font-size:8.5px;
+  line-height:1.55;
+  color:#947665;
+}
+.intro-message{
+  margin:2px 0 17px;
+  text-align:center;
+  font-family:"Yu Mincho","Hiragino Mincho ProN",serif;
+  font-size:10px;
+  letter-spacing:.04em;
+  color:#806653;
+}
+.intro-start{
+  width:100%;
+  border:1px solid #cda170;
+  background:#c58a59;
+  color:#fffaf4;
+  border-radius:12px;
+  padding:14px 18px;
+  font-size:13px;
+  font-weight:600;
+  letter-spacing:.08em;
+  box-shadow:0 7px 18px rgba(156,108,66,.12);
+  cursor:pointer;
+  transition:transform .18s ease,box-shadow .18s ease,background .18s ease;
+}
+.intro-start:active{
+  transform:translateY(1px);
+  box-shadow:0 3px 10px rgba(156,108,66,.10);
+}
+.people-intro-head{
+  margin-bottom:2px;
+}
+@media(max-width:430px){
+  .intro-steps{gap:7px}
+  .intro-step{min-height:70px}
+  .intro-step strong{font-size:11px}
+  .intro-step span:last-child{font-size:8px}
+}
+
+
+/* === Intro animation test === */
+@keyframes introFadeUp{
+  from{opacity:0;transform:translateY(10px)}
+  to{opacity:1;transform:translateY(0)}
+}
+@keyframes introSoftPop{
+  0%{transform:scale(1);box-shadow:0 7px 18px rgba(156,108,66,.12)}
+  50%{transform:scale(1.018);box-shadow:0 10px 24px rgba(156,108,66,.16)}
+  100%{transform:scale(1);box-shadow:0 7px 18px rgba(156,108,66,.12)}
+}
+@keyframes introLineReveal{
+  from{opacity:0;transform:scaleX(.82)}
+  to{opacity:1;transform:scaleX(1)}
+}
+
+.intro-screen .lottery-logo-en,
+.intro-screen .lottery-logo-main,
+.intro-screen .lottery-logo-bow,
+.intro-screen .lottery-logo-jp,
+.intro-screen .intro-guide,
+.intro-screen .intro-step,
+.intro-screen .intro-message,
+.intro-screen .intro-start{
+  opacity:0;
+}
+
+.intro-screen.is-ready .lottery-logo-en{
+  animation:introFadeUp .48s cubic-bezier(.22,.61,.36,1) .06s forwards;
+}
+.intro-screen.is-ready .lottery-logo-main{
+  animation:introFadeUp .52s cubic-bezier(.22,.61,.36,1) .18s forwards;
+}
+.intro-screen.is-ready .lottery-logo-bow{
+  animation:introFadeUp .46s cubic-bezier(.22,.61,.36,1) .31s forwards;
+}
+.intro-screen.is-ready .lottery-logo-jp{
+  animation:introFadeUp .48s cubic-bezier(.22,.61,.36,1) .41s forwards;
+}
+
+.intro-screen.is-ready .intro-guide{
+  animation:introFadeUp .56s cubic-bezier(.22,.61,.36,1) .58s forwards;
+}
+.intro-screen.is-ready .intro-step:nth-child(1){
+  animation:introFadeUp .46s cubic-bezier(.22,.61,.36,1) .80s forwards;
+}
+.intro-screen.is-ready .intro-step:nth-child(2){
+  animation:introFadeUp .46s cubic-bezier(.22,.61,.36,1) .92s forwards;
+}
+.intro-screen.is-ready .intro-step:nth-child(3){
+  animation:introFadeUp .46s cubic-bezier(.22,.61,.36,1) 1.04s forwards;
+}
+.intro-screen.is-ready .intro-message{
+  animation:introFadeUp .42s cubic-bezier(.22,.61,.36,1) 1.18s forwards;
+}
+.intro-screen.is-ready .intro-start{
+  animation:
+    introFadeUp .46s cubic-bezier(.22,.61,.36,1) 1.30s forwards,
+    introSoftPop .82s ease-in-out 1.95s 2;
+}
+
+/* page transition */
+.intro-screen{
+  transform-origin:center top;
+}
+.intro-screen.is-leaving{
+  opacity:0;
+  transform:translateY(-22px) scale(.992);
+  transition:opacity .34s ease,transform .34s cubic-bezier(.22,.61,.36,1);
+}
+.flow-screen{
+  transition:opacity .38s ease,transform .38s cubic-bezier(.22,.61,.36,1);
+}
+.flow-screen.is-entering{
+  opacity:0;
+  transform:translateY(24px);
+}
+.flow-screen.is-entering.is-visible{
+  opacity:1;
+  transform:translateY(0);
+}
+
+
+/* === Theme panel animation (①②④⑤) === */
+.theme-grid.is-lock{pointer-events:none}
+.theme-btn.tap-bounce{animation:buttonSelectBounce .24s ease}
+.theme-grid.selection-leaving .theme-btn{
+  transition:
+    opacity .24s ease,
+    transform .24s ease,
+    filter .24s ease,
+    background .18s ease,
+    border-color .18s ease,
+    box-shadow .18s ease;
+}
+.theme-grid.selection-leaving .theme-btn:not(.picked){
+  opacity:.28;
+  transform:translateY(5px) scale(.985);
+  filter:saturate(.72);
+}
+.theme-grid.selection-leaving .theme-btn.picked{
+  transform:translateY(-1px) scale(1.018);
+  background:#e6c7a5;
+  border-color:#cfaa80;
+  box-shadow:0 8px 18px rgba(156,108,66,.09);
+}
+
+@media (prefers-reduced-motion:reduce){
+  .intro-screen .lottery-logo-en,
+  .intro-screen .lottery-logo-main,
+  .intro-screen .lottery-logo-bow,
+  .intro-screen .lottery-logo-jp,
+  .intro-screen .intro-guide,
+  .intro-screen .intro-step,
+  .intro-screen .intro-message,
+  .intro-screen .intro-start{
+    opacity:1!important;
+    animation:none!important;
+    transform:none!important;
+  }
+  .intro-screen,.flow-screen{
+    transition:none!important;
+  }
+}
+
+.hidden{display:none!important}
+.result-tools{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:18px}
+.ghost{border:1px solid #e4d4c2;background:#fffdf8;border-radius:10px;padding:10px 9px;font-size:10.5px;font-weight:500;color:#806b5b;transition:.18s ease}
+.ghost:hover,.ghost:active{background:#fff8ef;border-color:#d7b995;color:#6e5140}
+.result-stage{position:relative;width:100%;aspect-ratio:1/1;background:#fff;border:1px solid #eadcca;border-radius:14px;overflow:hidden;margin:4px 0 20px}
+.logo-img{position:absolute;transform:translate(-50%,-50%);object-fit:contain;z-index:1}
+.logo-circle{width:23%}
+.logo-wide{width:40%}
+.island{position:absolute;transform:translate(-50%,-50%);width:100px;z-index:2;text-align:center;overflow:visible}
+.island.large{width:154px}
+.island.n3{width:114px}
+.art{position:relative;height:78px;display:flex;align-items:center;justify-content:center}
+.island.large .art{height:124px}
+.island.n3 .art{height:96px}
+.shape-layer{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:74px;height:74px;display:flex;align-items:center;justify-content:center}
+.island.large .shape-layer{width:122px;height:122px}
+.island.n3 .shape-layer{width:88px;height:88px}
+.shape-layer.back{transform:translate(-57%,-43%) rotate(-6deg)}
+.shape-layer.front{transform:translate(-43%,-57%) rotate(7deg)}
+.shape-layer.basic{transform:translate(-50%,-50%)}
+.tint{position:absolute;inset:0;mask-size:contain;-webkit-mask-size:contain;mask-repeat:no-repeat;-webkit-mask-repeat:no-repeat;mask-position:center;-webkit-mask-position:center;background:var(--c)}
+.pattern{position:absolute;inset:0;mask-size:contain;-webkit-mask-size:contain;mask-repeat:no-repeat;-webkit-mask-repeat:no-repeat;mask-position:center;-webkit-mask-position:center;
+  background-image:var(--p);background-repeat:repeat;background-position:center;background-size:var(--tile,65%) var(--tile,65%);opacity:1;image-rendering:auto}
+.charm-overlay{
+  position:absolute;z-index:12;width:43%;height:43%;object-fit:contain;pointer-events:none;
+  filter:drop-shadow(2px 3px 3px rgba(82,63,51,.20));
+  transform:rotate(var(--rot,0deg));transform-origin:center center;
+}
+.charm-overlay.pos-tl{left:2%;top:-3%}
+.charm-overlay.pos-tr{right:2%;top:-3%}
+.charm-overlay.pos-bl{left:2%;bottom:-3%}
+.charm-overlay.pos-br{right:2%;bottom:-3%}
+.island.large .charm-overlay{width:42%;height:42%}
+.island.n3 .charm-overlay{width:43%;height:43%}
+
+.result-meta{
+  position:absolute;
+  top:5.4%;
+  right:4.8%;
+  z-index:25;
+  width:25%;
+  min-width:78px;
+  font-family:Georgia,"Times New Roman",serif;
+  color:#52443a;
+}
+.result-meta-row{
+  display:flex;
+  align-items:baseline;
+  justify-content:space-between;
+  gap:7px;
+  margin-bottom:3px;
+  white-space:nowrap;
+}
+.result-meta-key{
+  font-size:5px;
+  line-height:1;
+  font-style:italic;
+  letter-spacing:.12em;
+  color:#9b8776;
+}
+.result-meta-value{
+  font-size:6px;
+  line-height:1;
+  letter-spacing:.035em;
+  color:#5f5045;
+}
+.result-kicker{
+  position:absolute;
+  left:4.8%;
+  bottom:5.2%;
+  z-index:25;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:5px;
+  font-style:italic;
+  letter-spacing:.09em;
+  color:#8b7564;
+  white-space:nowrap;
+}
+.result-kicker::after{
+  content:"";
+  display:block;
+  width:72px;
+  height:1px;
+  margin-top:4px;
+  background:#d4c2b3;
+}
+
+.label{
+  position:absolute;
+  transform:translate(-50%,0);
+  z-index:30;
+  width:max-content;
+  max-width:118px;
+  padding:0 2px;
+  font-size:6px;
+  line-height:1.12;
+  font-weight:600;
+  color:#4f433a;
+  white-space:normal;
+  word-break:keep-all;
+  overflow-wrap:normal;
+  text-align:center;
+  pointer-events:none;
+  background:none;
+  border:0;
+  border-radius:0;
+  box-shadow:none;
+  -webkit-text-stroke:0;
+  paint-order:normal;
+  text-shadow:
+    0 0 1.5px rgba(255,255,255,.88),
+    0 0 3px rgba(255,255,255,.62),
+    -0.4px 0 0 rgba(255,255,255,.76),
+     0.4px 0 0 rgba(255,255,255,.76),
+     0 -0.4px 0 rgba(255,255,255,.76),
+     0 0.4px 0 rgba(255,255,255,.76);
+}
+.label.large{font-size:7px;max-width:150px;padding:0 2px}
+.label.n3{font-size:6.5px;max-width:135px}
+.label.caption-tight{font-size:5.5px;max-width:112px}
+.label.caption-2line{
+  max-width:112px;
+  white-space:normal;
+}
+.label.caption-2line .cap-line{display:block}
+@media(max-width:430px){
+  .label.caption-tight{font-size:5px;max-width:106px}
+  .label.caption-2line{max-width:104px}
+}
+
+
+
+.draw-overlay{
+  position:fixed;inset:0;background:rgba(251,250,247,.84);
+  backdrop-filter:blur(2px);
+  display:flex;align-items:center;justify-content:center;z-index:90;
+  opacity:0;pointer-events:none;transition:.18s ease
+}
+.draw-overlay.show{opacity:1;pointer-events:auto}
+.draw-wrap{
+  position:relative;width:320px;height:290px;
+  display:flex;align-items:center;justify-content:center
+}
+
+/* Closet Drawers風のシンプルな引き出し */
+.drawer-unit{
+  position:absolute;
+  left:50%; top:70px;
+  width:230px; height:128px;
+  transform:translateX(-50%);
+  perspective:700px;
+}
+.drawer-cabinet{
+  position:absolute; inset:0;
+  border:1.5px solid #caa074;
+  background:linear-gradient(180deg,#fffaf3 0%,#f7eadc 100%);
+  box-shadow:0 16px 30px rgba(114,77,47,.12);
+  border-radius:10px;
+}
+.drawer-cabinet:before{
+  content:"";
+  position:absolute;left:12px;right:12px;top:12px;bottom:12px;
+  border:1px solid rgba(190,145,103,.45);
+  border-radius:7px;
+}
+.drawer-slot{
+  position:absolute;
+  left:24px; right:24px; top:18px; height:88px;
+  border-radius:8px;
+  overflow:hidden;
+  z-index:2;
+}
+.drawer-cavity{
+  position:absolute; inset:0;
+  background:linear-gradient(180deg,#eddcc7 0%,#e5cfb6 100%);
+  border:1px solid #cda77f;
+  box-shadow:inset 0 10px 16px rgba(118,78,48,.08), inset 0 -8px 14px rgba(118,78,48,.05);
+  border-radius:8px;
+}
+.drawer-cavity:before{
+  content:"";
+  position:absolute; left:8px; right:8px; top:8px; bottom:8px;
+  border:1px solid rgba(190,145,103,.24);
+  border-radius:5px;
+}
+.drawer-lip{
+  position:absolute;
+  left:0; right:0; bottom:0; height:20px;
+  background:linear-gradient(180deg, rgba(242,223,202,0) 0%, rgba(242,223,202,.65) 40%, rgba(242,223,202,.96) 100%);
+  border-top:1px solid rgba(200,149,101,.22);
+  z-index:4;
+  pointer-events:none;
+}
+.drawer-box{
+  position:absolute;
+  left:18px; right:18px; top:54px; height:62px;
+  background:linear-gradient(180deg,#fffaf3,#f2dfca);
+  border:1.5px solid #c89565;
+  border-radius:7px;
+  box-shadow:0 8px 15px rgba(112,72,43,.10);
+  transform:translateY(0);
+  z-index:5;
+}
+.drawer-box:before{
+  content:"";
+  position:absolute;left:12px;right:12px;top:10px;bottom:10px;
+  border:1px solid rgba(190,145,103,.48);
+  border-radius:5px;
+}
+.drawer-knob{
+  position:absolute;
+  left:50%;top:27px;transform:translateX(-50%);
+  width:18px;height:18px;border-radius:50%;
+  background:radial-gradient(circle at 35% 30%,#e6c39d 0 18%,#b77740 55%,#8f572f 100%);
+  border:1px solid #9b6238;
+  box-shadow:0 2px 4px rgba(95,57,31,.18);
+  z-index:2;
+}
+
+/* おみくじ紙：引き出し内部の子要素として格納し、overflowで完全にマスクする */
+.omikuji-paper{
+  position:absolute;
+  left:50%; top:8px;
+  width:70px; height:176px;
+  transform:translateX(-50%) translateY(124px) scale(.98);
+  background:linear-gradient(180deg,#fffdf8,#fff7ee);
+  border:1px solid #d8b48f;
+  border-radius:4px;
+  box-shadow:0 8px 16px rgba(112,73,44,.08);
+  opacity:0;
+  z-index:3;
+  overflow:hidden;
+}
+.omikuji-paper:before{
+  content:"";
+  position:absolute; inset:7px;
+  border:1px solid rgba(198,150,103,.45);
+  border-radius:2px;
+}
+.paper-en{
+  position:absolute; left:8px; right:8px; top:28px;
+  font:600 7px Georgia,serif;
+  letter-spacing:.08em;
+  line-height:1.2; text-align:center; color:#7c5a43;
+}
+.paper-jp{
+  position:absolute; left:8px; right:8px; bottom:28px;
+  font-family:"Yu Mincho","Hiragino Mincho ProN",serif;
+  font-size:9px; letter-spacing:.10em; text-align:center; color:#7c5a43;
+}
+
+/* 初回：引き出しが先に開いて、そのあと中から紙が上に引き抜かれる */
+.draw-overlay.is-first .drawer-box{
+  animation:firstDrawerOpen 1.15s cubic-bezier(.2,.78,.22,1) both;
+}
+.draw-overlay.is-first .omikuji-paper{
+  animation:firstPaperRise 1.4s cubic-bezier(.22,.72,.2,1) both;
+  animation-delay:.58s;
+}
+.draw-overlay.is-first.take .omikuji-paper{
+  animation:paperFinalLift .92s cubic-bezier(.2,.8,.2,1) forwards;
+}
+
+/* 引き直し：少しテンポよく */
+.draw-overlay.is-redraw .drawer-box{
+  animation:redrawDrawerOpen .78s cubic-bezier(.2,.82,.2,1) both;
+}
+.draw-overlay.is-redraw .omikuji-paper{
+  animation:redrawPaperRise .95s cubic-bezier(.22,.76,.2,1) both;
+  animation-delay:.24s;
+}
+.draw-overlay.is-redraw.take .omikuji-paper{
+  animation:paperFinalLiftFast .7s cubic-bezier(.2,.86,.2,1) forwards;
+}
+
+@keyframes firstDrawerOpen{
+  0%{transform:translateY(0)}
+  35%{transform:translateY(0)}
+  100%{transform:translateY(28px)}
+}
+@keyframes redrawDrawerOpen{
+  0%{transform:translateY(0)}
+  100%{transform:translateY(30px)}
+}
+@keyframes firstPaperRise{
+  0%,58%{
+    opacity:0;
+    transform:translateX(-50%) translateY(124px) scale(.98);
+  }
+  66%{
+    opacity:1;
+    transform:translateX(-50%) translateY(86px) scale(.985);
+  }
+  84%{
+    opacity:1;
+    transform:translateX(-50%) translateY(48px) scale(.995);
+  }
+  100%{
+    opacity:1;
+    transform:translateX(-50%) translateY(20px) scale(1);
+  }
+}
+@keyframes redrawPaperRise{
+  0%,40%{
+    opacity:0;
+    transform:translateX(-50%) translateY(124px) scale(.98);
+  }
+  52%{
+    opacity:1;
+    transform:translateX(-50%) translateY(78px) scale(.985);
+  }
+  100%{
+    opacity:1;
+    transform:translateX(-50%) translateY(18px) scale(1);
+  }
+}
+@keyframes paperFinalLift{
+  0%{
+    opacity:1;
+    transform:translateX(-50%) translateY(20px) scale(1);
+  }
+  100%{
+    opacity:1;
+    transform:translateX(-50%) translateY(8px) rotate(-1deg);
+  }
+}
+@keyframes paperFinalLiftFast{
+  0%{
+    opacity:1;
+    transform:translateX(-50%) translateY(18px) scale(1);
+  }
+  100%{
+    opacity:1;
+    transform:translateX(-50%) translateY(6px) rotate(-1deg);
+  }
+}
+
+.draw-caption{
+  position:absolute;
+  bottom:14px;
+  width:100%;
+  text-align:center;
+  font:600 9px Georgia,serif;
+  letter-spacing:.18em;
+  color:#9a765c
+}
+.result-panel-enter{animation:fadeUp .35s ease both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.toast.post{background:#5a4435}
+
+.result-actions{display:grid;grid-template-columns:1.12fr .88fr;gap:10px;margin-top:0}
+.primary,.secondary{border-radius:11px;padding:14px 12px;font-weight:600;transition:.18s ease}
+.primary{border:1px solid #b98255;background:#b98255;color:#fff;box-shadow:0 7px 16px rgba(130,84,49,.14)}
+.primary:hover,.primary:active{background:#a97148;border-color:#a97148;transform:translateY(-1px)}
+.secondary{border:1px solid #cda77f;background:#fffaf2;color:#765b47;box-shadow:none}
+.secondary:hover,.secondary:active{background:#f8eadb;border-color:#bf9063;transform:translateY(-1px)}
+.disclaimer{font-size:8px;line-height:1.8;color:#9a7d68;text-align:center;margin-top:14px;letter-spacing:.01em}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(15px);background:#3d3028;color:#fff;padding:10px 14px;border-radius:999px;font-size:11px;opacity:0;pointer-events:none;transition:.2s;z-index:50}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+@media(max-width:430px){
+  .wrap{padding:13px 13px 44px}
+  h1{font-size:27px}
+  .panel{padding:15px}
+  .theme-btn{min-height:72px;padding:13px 15px}
+  .island{width:90px}
+  .art{height:68px}
+  .shape-layer{width:66px;height:66px}
+  .island.large{width:140px}
+  .island.large .art{height:108px}
+  .island.large .shape-layer{width:110px;height:110px}
+  .island.n3{width:106px}
+  .island.n3 .art{height:84px}
+  .island.n3 .shape-layer{width:80px;height:80px}
+  .label{
+    font-size:7px;
+    bottom:calc(100% + 4px);
+    max-width:118%;
+  }
+  .island.large .label{
+    font-size:9px;
+    bottom:calc(100% + 6px);
+    max-width:125%;
+  }
+  .island.n3 .label{
+    font-size:8px;
+    bottom:calc(100% + 6px);
+    max-width:125%;
+  }
+}
+
+
+/* === Player / Theme panel animation (⑤⑥⑦⑨) === */
+@keyframes panelFadeUpSoft{
+  from{opacity:0;transform:translateY(10px)}
+  to{opacity:1;transform:translateY(0)}
+}
+@keyframes buttonSelectBounce{
+  0%{transform:translateY(0) scale(1);box-shadow:none}
+  42%{transform:translateY(1px) scale(.975);background:#efd7bd;border-color:#c98f5c;box-shadow:0 0 0 3px rgba(196,122,60,.10)}
+  100%{transform:translateY(-1px) scale(1.01);background:#d8b184;border-color:#c58f5e;box-shadow:0 7px 16px rgba(156,108,66,.14)}
+}
+.flow-screen{transition:opacity .34s ease,transform .34s cubic-bezier(.22,.61,.36,1)}
+.flow-screen.is-exiting{opacity:0;transform:translateY(-18px)}
+.flow-screen .step,
+.flow-screen .title,
+.flow-screen .sub,
+.flow-screen .people-grid .btn{
+  will-change:transform,opacity;
+}
+.flow-screen.animate-in .step,
+.flow-screen.animate-in .title,
+.flow-screen.animate-in .sub,
+.flow-screen.animate-in .people-grid .btn{
+  opacity:0;
+}
+#peoplePanel.animate-in .step,
+#themePanel.animate-in .step{
+  animation:panelFadeUpSoft .38s cubic-bezier(.22,.61,.36,1) .04s forwards;
+}
+#peoplePanel.animate-in .title,
+#themePanel.animate-in .title{
+  animation:panelFadeUpSoft .44s cubic-bezier(.22,.61,.36,1) .12s forwards;
+}
+#peoplePanel.animate-in .sub,
+#themePanel.animate-in .sub{
+  animation:panelFadeUpSoft .44s cubic-bezier(.22,.61,.36,1) .20s forwards;
+}
+#peoplePanel.animate-in .people-grid .btn:nth-child(1){animation:panelFadeUpSoft .34s cubic-bezier(.22,.61,.36,1) .28s forwards}
+#peoplePanel.animate-in .people-grid .btn:nth-child(2){animation:panelFadeUpSoft .34s cubic-bezier(.22,.61,.36,1) .34s forwards}
+#peoplePanel.animate-in .people-grid .btn:nth-child(3){animation:panelFadeUpSoft .34s cubic-bezier(.22,.61,.36,1) .40s forwards}
+#peoplePanel.animate-in .people-grid .btn:nth-child(4){animation:panelFadeUpSoft .34s cubic-bezier(.22,.61,.36,1) .46s forwards}
+#peoplePanel.animate-in .people-grid .btn:nth-child(5){animation:panelFadeUpSoft .34s cubic-bezier(.22,.61,.36,1) .52s forwards}
+#peoplePanel.animate-in .people-grid .btn:nth-child(6){animation:panelFadeUpSoft .34s cubic-bezier(.22,.61,.36,1) .58s forwards}
+#peoplePanel.animate-in .people-grid .btn:nth-child(7){animation:panelFadeUpSoft .34s cubic-bezier(.22,.61,.36,1) .64s forwards}
+#peoplePanel.animate-in .people-grid .btn:nth-child(8){animation:panelFadeUpSoft .34s cubic-bezier(.22,.61,.36,1) .70s forwards}
+#peoplePanel.animate-in .people-grid .btn:nth-child(9){animation:panelFadeUpSoft .34s cubic-bezier(.22,.61,.36,1) .76s forwards}
+.btn:active{transform:translateY(1px) scale(.985)}
+.btn.tap-bounce{animation:buttonSelectBounce .24s ease}
+@media (prefers-reduced-motion:reduce){
+  .flow-screen.is-exiting{opacity:1;transform:none}
+  .flow-screen.animate-in .step,
+  .flow-screen.animate-in .title,
+  .flow-screen.animate-in .sub,
+  .flow-screen.animate-in .people-grid .btn{
+    opacity:1!important;animation:none!important;transform:none!important;
+  }
+  .btn.tap-bounce{animation:none!important}
+}
+
+
+/* === Background drift: smaller words + more thin lines === */
+.bg-drift{
+  position:fixed;
+  inset:0;
+  overflow:hidden;
+  pointer-events:none;
+  z-index:0;
+}
+.wrap{
+  position:relative;
+  z-index:1;
+}
+.bg-word,
+.bg-line{
+  position:absolute;
+  will-change:transform,opacity;
+  opacity:.11;
+}
+.bg-word{
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:clamp(10px,1.8vw,15px);
+  letter-spacing:.20em;
+  color:#a87753;
+  white-space:nowrap;
+  text-transform:uppercase;
+}
+.bg-line{
+  height:1px;
+  background:linear-gradient(90deg,transparent,rgba(174,126,88,.32),transparent);
+  transform-origin:center;
+}
+
+.bg-word.w1{left:-14%;top:6%;animation:bgWordA 26s linear infinite}
+.bg-word.w2{right:-14%;top:13%;animation:bgWordB 30s linear infinite 2s}
+.bg-word.w3{left:-18%;top:21%;animation:bgWordC 32s linear infinite 7s}
+.bg-word.w4{right:-16%;top:28%;animation:bgWordD 35s linear infinite 5s}
+.bg-word.w5{left:-20%;top:37%;animation:bgWordA 29s linear infinite 10s}
+.bg-word.w6{right:-18%;top:45%;animation:bgWordB 34s linear infinite 1s}
+.bg-word.w7{left:-16%;top:54%;animation:bgWordC 31s linear infinite 4s}
+.bg-word.w8{right:-17%;top:63%;animation:bgWordD 36s linear infinite 8s}
+.bg-word.w9{left:-15%;top:72%;animation:bgWordA 33s linear infinite 12s}
+.bg-word.w10{right:-20%;top:81%;animation:bgWordB 39s linear infinite 6s}
+.bg-word.w11{left:-18%;top:89%;animation:bgWordC 37s linear infinite 3s}
+.bg-word.w12{right:-15%;top:95%;animation:bgWordD 42s linear infinite 11s}
+
+.bg-line.l1{width:28vw;left:-20vw;top:10%;animation:bgLineA 31s linear infinite 1s}
+.bg-line.l2{width:34vw;right:-24vw;top:18%;animation:bgLineB 37s linear infinite 6s}
+.bg-line.l3{width:26vw;left:-18vw;top:30%;animation:bgLineC 34s linear infinite 3s}
+.bg-line.l4{width:38vw;right:-28vw;top:42%;animation:bgLineB 40s linear infinite 8s}
+.bg-line.l5{width:24vw;left:-16vw;top:56%;animation:bgLineA 29s linear infinite 5s}
+.bg-line.l6{width:32vw;right:-24vw;top:68%;animation:bgLineC 36s linear infinite 9s}
+.bg-line.l7{width:27vw;left:-18vw;top:79%;animation:bgLineA 33s linear infinite 12s}
+.bg-line.l8{width:35vw;right:-25vw;top:91%;animation:bgLineB 41s linear infinite 4s}
+
+@keyframes bgWordA{
+  0%{transform:translate3d(0,0,0) rotate(-3deg);opacity:0}
+  10%{opacity:.09}
+  55%{opacity:.12}
+  90%{opacity:.09}
+  100%{transform:translate3d(138vw,-14px,0) rotate(2deg);opacity:0}
+}
+@keyframes bgWordB{
+  0%{transform:translate3d(0,0,0) rotate(2deg);opacity:0}
+  10%{opacity:.09}
+  55%{opacity:.11}
+  90%{opacity:.09}
+  100%{transform:translate3d(-140vw,16px,0) rotate(-2deg);opacity:0}
+}
+@keyframes bgWordC{
+  0%{transform:translate3d(0,0,0) rotate(-1deg);opacity:0}
+  12%{opacity:.08}
+  60%{opacity:.11}
+  90%{opacity:.08}
+  100%{transform:translate3d(142vw,8px,0) rotate(1deg);opacity:0}
+}
+@keyframes bgWordD{
+  0%{transform:translate3d(0,0,0) rotate(1deg);opacity:0}
+  12%{opacity:.08}
+  60%{opacity:.11}
+  90%{opacity:.08}
+  100%{transform:translate3d(-145vw,-10px,0) rotate(-1deg);opacity:0}
+}
+@keyframes bgLineA{
+  0%{transform:translate3d(0,0,0) rotate(-8deg);opacity:0}
+  12%{opacity:.12}
+  60%{opacity:.16}
+  90%{opacity:.11}
+  100%{transform:translate3d(150vw,10px,0) rotate(5deg);opacity:0}
+}
+@keyframes bgLineB{
+  0%{transform:translate3d(0,0,0) rotate(7deg);opacity:0}
+  12%{opacity:.12}
+  60%{opacity:.16}
+  90%{opacity:.11}
+  100%{transform:translate3d(-155vw,-10px,0) rotate(-4deg);opacity:0}
+}
+@keyframes bgLineC{
+  0%{transform:translate3d(0,0,0) rotate(-4deg);opacity:0}
+  12%{opacity:.11}
+  60%{opacity:.15}
+  90%{opacity:.10}
+  100%{transform:translate3d(148vw,-6px,0) rotate(3deg);opacity:0}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .bg-word,.bg-line{animation:none!important;opacity:.05}
+}
+
+</style>
+
+<style>
+/* ver.3.1 full-UX polish: UI rhythm only; result image layout untouched */
+@media(max-width:430px){
+  .wrap{padding-left:13px;padding-right:13px;padding-bottom:34px}
+  .panel{padding:18px;margin-bottom:16px}
+  .sub{margin-bottom:13px}
+  #peoplePanel .people-grid{gap:8px}
+  #peoplePanel .btn{padding:13px 6px}
+  #themePanel .theme-grid{gap:7px}
+  .result-tools{margin-bottom:16px}
+}
+</style>
+
+
+<style id="cd-ver32-menu-style">
+.cd-menu-trigger{appearance:none;-webkit-appearance:none;border:0;background:transparent;padding:0;color:#5d4434;cursor:pointer;text-align:left;font-family:inherit;font-size:10px;font-weight:400;line-height:1.2;letter-spacing:.14em}
+.cd-menu-backdrop{position:fixed;inset:0;background:rgba(43,33,27,.26);opacity:0;visibility:hidden;transition:opacity .28s ease,visibility 0s linear .28s;z-index:9998;-webkit-tap-highlight-color:transparent}
+.cd-side-menu{position:fixed;left:0;top:0;bottom:0;width:min(70vw,430px);background:#fbfaf8;transform:translate3d(-102%,0,0);transition:transform .34s cubic-bezier(.22,.72,.24,1);box-shadow:18px 0 38px rgba(65,40,25,.15);z-index:9999;overflow:hidden;padding:env(safe-area-inset-top,0) 0 env(safe-area-inset-bottom,0)}
+.cd-side-menu-frame{display:block;width:100%;height:100%;border:0;background:#fbfaf8}
+body.cd-menu-open{overflow:hidden;touch-action:none}
+body.cd-menu-open .cd-menu-backdrop{opacity:1;visibility:visible;transition:opacity .28s ease}
+body.cd-menu-open .cd-side-menu{transform:translate3d(0,0,0)}
+@media(max-width:360px){.cd-side-menu{width:74vw}}
+@media(prefers-reduced-motion:reduce){.cd-side-menu,.cd-menu-backdrop{transition:none!important}}
+</style>
+
+<style id="cd-ver34-intro-seasonal-style">
+.cd-intro-seasonal-fall{
+  position:fixed;inset:0;overflow:hidden;pointer-events:none;
+  z-index:1;display:none;
+}
+body.cd-intro-seasonal-active .cd-intro-seasonal-fall{display:block}
+.cd-intro-seasonal-piece{
+  position:absolute;top:-15vh;left:var(--x);width:var(--size);height:auto;
+  opacity:var(--op);will-change:transform,opacity;
+  animation-duration:var(--dur);animation-delay:var(--delay);
+  animation-iteration-count:infinite;animation-timing-function:linear;
+  animation-fill-mode:both;user-select:none;-webkit-user-drag:none;
+}
+.cd-intro-seasonal-piece.spring{animation-name:cdIntroSpringFall}
+.cd-intro-seasonal-piece.summer{animation-name:cdIntroSummerFall}
+.cd-intro-seasonal-piece.autumn{animation-name:cdIntroAutumnFall}
+.cd-intro-seasonal-piece.winter{animation-name:cdIntroWinterFall}
+@keyframes cdIntroSpringFall{
+  0%{transform:translate3d(0,-12vh,0) rotate(-10deg);opacity:0}
+  8%{opacity:var(--op)}
+  30%{transform:translate3d(var(--drift1),30vh,0) rotate(35deg)}
+  65%{transform:translate3d(var(--drift2),67vh,0) rotate(88deg)}
+  92%{opacity:var(--op)}
+  100%{transform:translate3d(var(--drift3),118vh,0) rotate(135deg);opacity:0}
+}
+@keyframes cdIntroSummerFall{
+  0%{transform:translate3d(0,-12vh,0) rotate(-3deg) scale(.98);opacity:0}
+  10%{opacity:var(--op)}
+  33%{transform:translate3d(var(--drift1),30vh,0) rotate(2deg) scale(1.01)}
+  68%{transform:translate3d(var(--drift2),69vh,0) rotate(-2deg) scale(.99)}
+  92%{opacity:var(--op)}
+  100%{transform:translate3d(var(--drift3),118vh,0) rotate(3deg) scale(1);opacity:0}
+}
+@keyframes cdIntroAutumnFall{
+  0%{transform:translate3d(0,-12vh,0) rotate(-20deg);opacity:0}
+  8%{opacity:var(--op)}
+  30%{transform:translate3d(var(--drift1),28vh,0) rotate(70deg)}
+  63%{transform:translate3d(var(--drift2),66vh,0) rotate(155deg)}
+  92%{opacity:var(--op)}
+  100%{transform:translate3d(var(--drift3),118vh,0) rotate(235deg);opacity:0}
+}
+@keyframes cdIntroWinterFall{
+  0%{transform:translate3d(0,-12vh,0) rotate(0deg);opacity:0}
+  10%{opacity:var(--op)}
+  38%{transform:translate3d(var(--drift1),35vh,0) rotate(18deg)}
+  72%{transform:translate3d(var(--drift2),75vh,0) rotate(36deg)}
+  92%{opacity:var(--op)}
+  100%{transform:translate3d(var(--drift3),118vh,0) rotate(54deg);opacity:0}
+}
+@media(prefers-reduced-motion:reduce){
+  .cd-intro-seasonal-piece{animation:none!important;display:none!important}
+}
+</style>
+
+<style id="cd-ver34-result-season-style">
+.cd-result-season-layer{
+  position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden;display:none;
+}
+body.cd-result-season-on .cd-result-season-layer{display:block}
+.cd-result-season-particle{
+  position:absolute;opacity:.18;animation:cdResultSeasonFloat 8s linear infinite;
+  font-size:18px;line-height:1;user-select:none;
+}
+@keyframes cdResultSeasonFloat{
+  from{transform:translateY(-10vh) rotate(0)}
+  to{transform:translateY(110vh) rotate(180deg)}
+}
+@media(prefers-reduced-motion:reduce){
+  .cd-result-season-particle{animation:none!important;display:none!important}
+}
+/* ファッションくじ旧キラキラはVer.3.4では使用しない */
+body.cd-result-season-on #cdResultSparkField,
+body.cd-result-season-on #resultSparkLayer,
+body.cd-result-season-on .result-spark-layer{display:none!important;opacity:0!important}
+</style>
+
+<style id="cd-ver34-home-return-style">
+.cd-home-return{margin:28px 0 18px;text-align:center}
+.cd-home-return a{
+  display:inline-block;padding:9px 4px;color:#6f5544;text-decoration:none;
+  font-size:10px;letter-spacing:.08em;line-height:1.5;
+}
+.cd-home-return a:active{opacity:.55}
+</style>
+
+<style id="cd-ver34-image-bg-override">
+body.cd-intro-seasonal-active .bg-drift{opacity:0!important;visibility:hidden!important}
+body.cd-result-season-on .bg-drift{display:none!important}
+</style>
+
+<style id="cd-exact-seasonal-logo-style">
+.cd-exact-logo-stage{position:relative;overflow:hidden;background:transparent}.cd-exact-logo-stage img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;pointer-events:none}.cd-exact-logo-stage .cd-exact-base{z-index:1}.cd-exact-logo-stage .cd-exact-layer{opacity:0}.cd-exact-logo-stage .cd-exact-layer.entered{opacity:1}.cd-exact-logo-stage .motion-hang-right{transform:translate(18px,-28px) scale(.96)}.cd-exact-logo-stage .motion-hang-center{transform:translate(0,-36px) scale(.96)}.cd-exact-logo-stage .motion-floor{transform:translateY(22px) scale(.94)}.cd-exact-logo-stage .motion-accessory-left{transform:translate(-26px,-8px) scale(.95)}.cd-exact-logo-stage .cd-exact-layer.animate{animation:cdExactStoreIn .58s cubic-bezier(.2,.85,.25,1.08) forwards}@keyframes cdExactStoreIn{0%{opacity:0}72%{opacity:1;transform:translate(0,2px) scale(1.015)}100%{opacity:1;transform:translate(0,0) scale(1)}}
+</style><style id="cd-exact-header-logo-style">.cd-exact-header-closet{position:relative;width:74px;height:82px;overflow:hidden;flex:0 0 auto}.cd-exact-header-closet .cd-exact-logo-stage{position:absolute;width:204px;height:204px;left:-60px;top:-27px}.header .cd-brand-logo>.cd-wardrobe{display:none!important}.site-logo-stack>.site-mark{display:none!important}@media(max-width:430px){.cd-exact-header-closet{width:68px;height:76px}.cd-exact-header-closet .cd-exact-logo-stage{width:187px;height:187px;left:-55px;top:-25px}}</style>
+<style id="cd-ver4-magazine-intro-test-style">
+/* Ver.4 TOP UI test — approved magazine spread image + live overlays only. */
+.intro-magazine-guide{
+  margin:0 auto 20px;
+  width:100%;
+}
+.intro-magazine-stage{
+  position:relative;
+  width:100%;
+  max-width:648px;
+  margin:0 auto;
+  line-height:0;
+  perspective:1800px;
+  transform-style:preserve-3d;
+}
+.intro-magazine-book,
+.intro-magazine-turn-page{
+  display:block;
+  width:100%;
+  height:auto;
+  user-select:none;
+  -webkit-user-drag:none;
+}
+.intro-magazine-book{
+  position:relative;
+  z-index:1;
+}
+.intro-magazine-charms,
+.intro-magazine-step-lines,
+.intro-magazine-start,
+.intro-magazine-turn-page{
+  position:absolute;
+}
+.intro-magazine-charms{
+  top:9.2%;
+  left:60.8%;
+  width:21.8%;
+  height:9.8%;
+  display:flex;
+  align-items:flex-start;
+  justify-content:center;
+  gap:1.1%;
+  pointer-events:none;
+  z-index:3;
+}
+.intro-magazine-charm{
+  display:block;
+  width:31.4%;
+  height:100%;
+  object-fit:contain;
+  filter:drop-shadow(0 2px 3px rgba(93,63,42,.14));
+}
+.intro-magazine-charm:nth-child(1){transform:translateY(.5%) rotate(-7deg)}
+.intro-magazine-charm:nth-child(2){transform:translateY(-2%) rotate(1deg)}
+.intro-magazine-charm:nth-child(3){transform:translateY(1%) rotate(7deg)}
+
+.intro-magazine-step-lines{
+  inset:0;
+  pointer-events:none;
+  z-index:3;
+}
+.intro-magazine-line{
+  position:absolute;
+  height:2px;
+  border-radius:999px;
+  background:linear-gradient(90deg, rgba(214,150,89,.96), rgba(226,168,104,.96));
+  box-shadow:0 0 0 1px rgba(255,255,255,.15), 0 1px 4px rgba(172,111,57,.16);
+  transform-origin:left center;
+  transform:scaleX(0);
+  opacity:0;
+}
+.intro-magazine-line.line-1{left:7.2%;top:54.6%;width:36.0%}
+.intro-magazine-line.line-2{left:7.2%;top:72.9%;width:36.0%}
+.intro-magazine-line.line-3{left:7.2%;top:91.2%;width:36.0%}
+
+.intro-magazine-start{
+  z-index:4;
+  left:58.4%;
+  top:73.7%;
+  width:28.8%;
+  height:8.1%;
+  min-height:0;
+  border:1px solid #c98b55;
+  border-radius:999px;
+  background:#cd915a;
+  color:#fffaf4;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:clamp(12px,2.55vw,17px);
+  font-weight:600;
+  letter-spacing:.18em;
+  line-height:1;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:.62em;
+  box-shadow:0 8px 18px rgba(135,87,53,.14);
+  cursor:pointer;
+  transition:transform .16s ease,background .16s ease,box-shadow .16s ease,filter .16s ease;
+  overflow:hidden;
+}
+.intro-magazine-start span{font-family:inherit;letter-spacing:0;position:relative;z-index:1}
+.intro-magazine-start::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(90deg, transparent, rgba(255,255,255,.28), transparent);
+  transform:translateX(-135%) skewX(-24deg);
+  animation:startButtonShine 2.45s ease-in-out 1.4s infinite;
+}
+.intro-magazine-start::after{
+  content:"";
+  position:absolute;
+  inset:-3px;
+  border-radius:999px;
+  border:1px solid rgba(208,145,87,.22);
+  animation:startButtonHalo 1.85s ease-in-out 1.1s infinite;
+}
+.intro-magazine-start:hover{
+  transform:translateY(-1px) scale(1.01);
+  background:#cb8d56;
+  box-shadow:0 10px 20px rgba(135,87,53,.17);
+}
+.intro-magazine-start:active{
+  transform:translateY(1px);
+  background:#c48650;
+  box-shadow:0 3px 9px rgba(135,87,53,.09);
+}
+
+.intro-magazine-turn-page{
+  top:3.55%;
+  left:51.1%;
+  width:43.7%;
+  height:87.6%;
+  z-index:5;
+  pointer-events:none;
+  opacity:0;
+  transform-origin:left center;
+  backface-visibility:hidden;
+  border-radius:0 10px 10px 0;
+  background:
+    linear-gradient(90deg, rgba(180,164,145,.22) 0%, rgba(246,242,236,.97) 8%, rgba(252,249,245,.99) 55%, rgba(240,232,223,.98) 86%, rgba(223,213,201,.78) 100%);
+  box-shadow:
+    inset -10px 0 18px rgba(161,144,126,.14),
+    inset 8px 0 14px rgba(255,255,255,.72),
+    5px 2px 18px rgba(81,58,37,.08);
+}
+.intro-magazine-turn-page::before{
+  content:"";
+  position:absolute;
+  inset:2.1% 4.6%;
+  border:1px solid rgba(227,216,203,.82);
+  border-left:none;
+  border-radius:0 6px 6px 0;
+}
+.intro-magazine-turn-page::after{
+  content:"";
+  position:absolute;
+  left:-5px;
+  top:0;
+  bottom:0;
+  width:13px;
+  background:linear-gradient(90deg, rgba(188,170,149,.58), rgba(255,255,255,.05));
+  filter:blur(.2px);
+}
+
+.intro-magazine-stage.is-turning .intro-magazine-turn-page{
+  opacity:1;
+  animation:pageTurnOverlay .72s cubic-bezier(.32,.08,.18,1) forwards;
+}
+.intro-magazine-stage.is-turning .intro-magazine-book,
+.intro-magazine-stage.is-turning .intro-magazine-charms,
+.intro-magazine-stage.is-turning .intro-magazine-step-lines,
+.intro-magazine-stage.is-turning .intro-magazine-start{
+  animation:introStageSoftHide .72s ease forwards;
+}
+
+/* The old intro guide no longer participates in the intro animation. */
+.intro-screen .intro-magazine-guide{opacity:0;transform:translateY(10px)}
+.intro-screen.is-ready .intro-magazine-guide{animation:introFadeUp .48s ease .30s forwards}
+.intro-screen.is-ready .intro-magazine-line.line-1{animation:introLineDraw .48s cubic-bezier(.22,.61,.36,1) .92s forwards}
+.intro-screen.is-ready .intro-magazine-line.line-2{animation:introLineDraw .48s cubic-bezier(.22,.61,.36,1) 1.18s forwards}
+.intro-screen.is-ready .intro-magazine-line.line-3{animation:introLineDraw .48s cubic-bezier(.22,.61,.36,1) 1.44s forwards}
+
+@keyframes introLineDraw{
+  0%{opacity:0;transform:scaleX(0)}
+  12%{opacity:1}
+  100%{opacity:1;transform:scaleX(1)}
+}
+@keyframes startButtonHalo{
+  0%,100%{transform:scale(1);opacity:.38}
+  50%{transform:scale(1.04);opacity:.12}
+}
+@keyframes startButtonShine{
+  0%,14%{transform:translateX(-135%) skewX(-24deg);opacity:0}
+  22%{opacity:1}
+  48%{transform:translateX(130%) skewX(-24deg);opacity:1}
+  60%,100%{transform:translateX(130%) skewX(-24deg);opacity:0}
+}
+@keyframes pageTurnOverlay{
+  0%{opacity:.08;transform:rotateY(0deg) skewY(0deg)}
+  18%{opacity:.98;transform:rotateY(-24deg) skewY(.6deg)}
+  50%{opacity:.95;transform:rotateY(-88deg) skewY(.2deg)}
+  82%{opacity:.58;transform:rotateY(-148deg) skewY(-.4deg)}
+  100%{opacity:0;transform:rotateY(-172deg) skewY(-.5deg)}
+}
+@keyframes introStageSoftHide{
+  0%{opacity:1}
+  55%{opacity:1}
+  100%{opacity:0}
+}
+
+@media(max-width:430px){
+  .intro-magazine-charms{top:9.2%;left:60.5%;width:23%;height:10.2%;gap:.7%}
+  .intro-magazine-charm{width:31.9%}
+  .intro-magazine-line{height:1.8px}
+  .intro-magazine-line.line-1{left:7.1%;top:54.6%;width:36.1%}
+  .intro-magazine-line.line-2{left:7.1%;top:72.9%;width:36.1%}
+  .intro-magazine-line.line-3{left:7.1%;top:91.2%;width:36.1%}
+  .intro-magazine-start{left:58.2%;top:73.5%;width:29.4%;height:8.25%;font-size:11.6px}
+  .intro-magazine-turn-page{top:3.6%;left:51%;width:43.9%;height:87.6%}
+}
+@media(prefers-reduced-motion:reduce){
+  .intro-screen .intro-magazine-guide,
+  .intro-screen.is-ready .intro-magazine-guide{opacity:1!important;transform:none!important;animation:none!important}
+  .intro-magazine-start,.intro-magazine-start::before,.intro-magazine-start::after,.intro-magazine-line,.intro-magazine-turn-page{animation:none!important;transition:none!important}
+  .intro-screen .intro-magazine-line{opacity:1!important;transform:scaleX(1)!important}
+  .intro-magazine-stage.is-turning .intro-magazine-turn-page{display:none}
+}
+</style>
+
+<style id="cd-ver4-people-magazine-test-style">
+/* C(3) 人数選択：無地の見開き画像＋実UI。サンプル座標を1536×1024基準で再調整 */
+#peoplePanel.people-book-panel{
+  background:transparent!important;
+  border:0!important;
+  border-radius:0!important;
+  box-shadow:none!important;
+  padding:0!important;
+  overflow:visible!important;
+  margin-bottom:20px;
+}
+#peoplePanel.people-book-panel::before{display:none!important}
+.people-book-stage{
+  position:relative;
+  width:100%;
+  max-width:648px;
+  margin:0 auto;
+  line-height:1;
+  container-type:inline-size;
+}
+.people-book-bg{
+  display:block;
+  width:100%;
+  height:auto;
+  user-select:none;
+  -webkit-user-drag:none;
+  pointer-events:none;
+}
+
+/* 左ページ：テストサンプルの位置をそのまま比率化 */
+.people-book-left{
+  position:absolute;
+  left:7.3%;
+  top:7.4%;
+  width:41.5%;
+  height:85.0%;
+  color:#4c3020;
+  text-align:center;
+  z-index:2;
+  font-family:"Noto Serif JP","Yu Mincho","Hiragino Mincho ProN",serif;
+}
+.people-book-rule-top{
+  position:absolute;
+  left:6%;
+  right:6%;
+  top:7.6%;
+  height:1px;
+  background:#d9ad78;
+}
+.people-book-en{
+  position:absolute;
+  left:0;
+  right:0;
+  top:19.7%;
+  margin:0;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:clamp(18px,4.45cqw,29px);
+  font-weight:400;
+  line-height:1.20;
+  letter-spacing:.015em;
+}
+.people-book-divider{
+  position:absolute;
+  left:9%;
+  right:9%;
+  top:41.1%;
+  height:12px;
+  margin:0;
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.people-book-divider::before,.people-book-divider::after{
+  content:"";
+  height:1px;
+  flex:1;
+  background:#d9ad78;
+}
+.people-book-diamond{
+  width:7px;
+  height:7px;
+  background:#c6843e;
+  transform:rotate(45deg);
+  flex:0 0 auto;
+}
+.people-book-question{
+  position:absolute;
+  left:0;
+  right:0;
+  top:50.1%;
+  margin:0;
+  font-size:clamp(13px,2.55cqw,17px);
+  font-weight:700;
+  line-height:1.25;
+  letter-spacing:.01em;
+  white-space:nowrap;
+}
+.people-book-sub{
+  position:absolute;
+  left:0;
+  right:0;
+  top:59.0%;
+  margin:0;
+  font-size:clamp(10px,1.70cqw,12px);
+  line-height:1.25;
+  letter-spacing:.035em;
+}
+.people-book-note{
+  position:absolute;
+  left:0;
+  right:0;
+  top:78.8%;
+  color:#987257;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:clamp(8px,1.10cqw,10px);
+  line-height:1;
+  letter-spacing:.09em;
+}
+.people-book-note::after{
+  content:"";
+  display:block;
+  width:54%;
+  height:1px;
+  background:#d9ad78;
+  margin:9px auto 0;
+}
+
+/* 右ページ：サンプルの3×3グリッド位置・サイズを厳密に合わせる */
+#peoplePanel .people-grid{
+  position:absolute;
+  z-index:3;
+  left:54.4%;
+  top:20.0%;
+  width:34.65%;
+  height:42.95%;
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  grid-template-rows:repeat(3,minmax(0,1fr));
+  column-gap:4.9%;
+  row-gap:6.35%;
+  margin:0!important;
+}
+#peoplePanel .people-grid .btn{
+  width:100%!important;
+  height:100%!important;
+  min-width:0!important;
+  min-height:0!important;
+  margin:0!important;
+  padding:0!important;
+  border:1px solid #d59a5d!important;
+  border-radius:clamp(8px,1.45cqw,14px)!important;
+  background:rgba(255,252,247,.91)!important;
+  color:#71471f!important;
+  font-family:"Noto Serif JP","Yu Mincho","Hiragino Mincho ProN",serif!important;
+  font-size:clamp(11px,2.35cqw,15px)!important;
+  font-weight:400!important;
+  line-height:1!important;
+  box-shadow:0 4px 9px rgba(109,74,41,.07)!important;
+  transition:transform .16s ease,background .16s ease,color .16s ease,box-shadow .16s ease!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  box-sizing:border-box!important;
+}
+#peoplePanel .people-grid .btn:hover{
+  background:#d09155!important;
+  color:#fff!important;
+  transform:translateY(-1px);
+  box-shadow:0 6px 12px rgba(109,74,41,.12)!important;
+}
+#peoplePanel .people-grid .btn:active{
+  background:#c98549!important;
+  color:#fff!important;
+  transform:translateY(1px) scale(.985);
+}
+
+.people-book-right-footer{
+  position:absolute;
+  z-index:2;
+  left:55.3%;
+  top:75.2%;
+  width:33.4%;
+  color:#987257;
+  text-align:center;
+  font-family:Georgia,"Times New Roman",serif;
+}
+.people-book-footer-line{display:flex;align-items:center;gap:10px}
+.people-book-footer-line::before,.people-book-footer-line::after{content:"";height:1px;flex:1;background:#d9ad78}
+.people-book-footer-line i{width:7px;height:7px;background:#c6843e;transform:rotate(45deg);display:block;flex:0 0 auto}
+.people-book-footer-text{
+  font-size:clamp(8px,1.05cqw,10px);
+  letter-spacing:.10em;
+  margin-top:9px;
+  line-height:1;
+}
+
+#peoplePanel.animate-in .people-book-left,
+#peoplePanel.animate-in .people-book-right-footer{animation:peopleBookCopyIn .55s ease .12s both}
+@keyframes peopleBookCopyIn{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
+
+@media(max-width:430px){
+  .people-book-stage{width:100%}
+  .people-book-en{font-size:clamp(18px,4.45cqw,22px)}
+  .people-book-question{font-size:clamp(12px,2.55cqw,14px)}
+  .people-book-sub{font-size:clamp(9px,1.70cqw,11px)}
+  #peoplePanel .people-grid .btn{font-size:clamp(10px,2.35cqw,12px)!important}
+}
+@media(prefers-reduced-motion:reduce){
+  #peoplePanel.animate-in .people-book-left,#peoplePanel.animate-in .people-book-right-footer{animation:none!important}
+}
+
+
+/* C(3) 人数選択 演出テスト：押す→オレンジ→1.03倍→左から右へ線→0.4秒後にページめくり */
+.bg-drift{display:none!important}
+body.cd-result-season-on .cd-intro-seasonal-fall{display:none!important}
+
+.people-book-stage{
+  perspective:1800px;
+  transform-style:preserve-3d;
+}
+#peoplePanel .people-grid .btn{
+  position:relative!important;
+  overflow:visible!important;
+  isolation:isolate;
+  transition:
+    transform .22s ease,
+    background .22s ease,
+    border-color .22s ease,
+    color .22s ease,
+    box-shadow .22s ease,
+    opacity .22s ease!important;
+}
+#peoplePanel .people-grid .btn::after{
+  content:"";
+  position:absolute;
+  left:14%;
+  right:14%;
+  bottom:14%;
+  height:2px;
+  border-radius:999px;
+  background:linear-gradient(90deg,rgba(214,150,89,.96),rgba(226,168,104,.96));
+  transform:scaleX(0);
+  transform-origin:left center;
+  opacity:0;
+  pointer-events:none;
+  z-index:2;
+}
+#peoplePanel .people-grid .btn.people-choice-picked{
+  background:#d09155!important;
+  color:#fff!important;
+  border-color:#bd7840!important;
+  box-shadow:0 8px 18px rgba(151,94,45,.18),0 0 0 1px rgba(255,255,255,.24) inset!important;
+  animation:peoplePickSoftPop .36s cubic-bezier(.2,.78,.24,1) both!important;
+}
+#peoplePanel .people-grid .btn.people-choice-picked::after{
+  opacity:1;
+  animation:peopleSweepLine .26s ease-out .04s forwards;
+}
+#peoplePanel .people-grid.is-choosing .btn:not(.people-choice-picked){
+  opacity:.58;
+  transform:scale(.986);
+}
+
+.people-book-turn-page{
+  position:absolute;
+  top:3.7%;
+  left:50.15%;
+  width:43.25%;
+  height:88.7%;
+  z-index:8;
+  pointer-events:none;
+  opacity:0;
+  transform-origin:left center;
+  backface-visibility:hidden;
+  border-radius:0 10px 10px 0;
+  background:
+    linear-gradient(90deg,rgba(173,156,136,.18) 0%,rgba(247,244,239,.99) 8%,rgba(253,250,246,.99) 56%,rgba(241,233,224,.98) 87%,rgba(220,210,197,.82) 100%);
+  box-shadow:inset -10px 0 18px rgba(145,126,106,.11),inset 8px 0 13px rgba(255,255,255,.8),6px 2px 18px rgba(76,53,33,.08);
+}
+.people-book-turn-page::before{
+  content:"";
+  position:absolute;
+  inset:2.2% 4.2%;
+  border:1px solid rgba(218,197,171,.72);
+  border-left:0;
+  border-radius:0 6px 6px 0;
+}
+.people-book-turn-page::after{
+  content:"";
+  position:absolute;
+  top:0;
+  bottom:0;
+  left:-5px;
+  width:16px;
+  background:linear-gradient(90deg,rgba(171,151,130,.52),rgba(255,255,255,.04));
+}
+.people-book-stage.is-page-turning .people-book-turn-page{
+  opacity:1;
+  animation:peopleBookPageTurn .76s cubic-bezier(.34,.08,.18,1) forwards;
+}
+.people-book-stage.is-page-turning .people-book-bg,
+.people-book-stage.is-page-turning .people-book-left,
+.people-book-stage.is-page-turning .people-grid,
+.people-book-stage.is-page-turning .people-book-right-footer{
+  animation:peopleBookStageFade .76s ease forwards;
+}
+
+@keyframes peoplePickSoftPop{
+  0%{transform:scale(1)}
+  45%{transform:scale(1.03)}
+  100%{transform:scale(1.03)}
+}
+@keyframes peopleSweepLine{
+  0%{transform:scaleX(0);opacity:0}
+  10%{opacity:1}
+  100%{transform:scaleX(1);opacity:1}
+}
+@keyframes peopleBookPageTurn{
+  0%{opacity:.08;transform:rotateY(0deg) skewY(0deg)}
+  20%{opacity:.98;transform:rotateY(-20deg) skewY(.45deg)}
+  52%{opacity:.96;transform:rotateY(-88deg) skewY(.12deg)}
+  84%{opacity:.58;transform:rotateY(-150deg) skewY(-.26deg)}
+  100%{opacity:0;transform:rotateY(-173deg) skewY(-.34deg)}
+}
+@keyframes peopleBookStageFade{
+  0%,52%{opacity:1}
+  100%{opacity:0}
+}
+@media(prefers-reduced-motion:reduce){
+  #peoplePanel .people-grid .btn.people-choice-picked,
+  #peoplePanel .people-grid .btn.people-choice-picked::after,
+  .people-book-stage.is-page-turning .people-book-turn-page,
+  .people-book-stage.is-page-turning .people-book-bg,
+  .people-book-stage.is-page-turning .people-book-left,
+  .people-book-stage.is-page-turning .people-grid,
+  .people-book-stage.is-page-turning .people-book-right-footer{animation:none!important}
+  .people-book-stage.is-page-turning .people-book-turn-page{display:none!important}
+}
+
+
+
+
+/* C(3) くじ選択：雑誌見開きテスト */
+#themePanel{
+  padding:0!important;
+  background:transparent!important;
+  border:0!important;
+  box-shadow:none!important;
+  overflow:visible!important;
+}
+#themePanel::before{display:none!important}
+.theme-book-stage{
+  position:relative;
+  width:100%;
+  aspect-ratio:3/2;
+  container-type:inline-size;
+  isolation:isolate;
+  perspective:1800px;
+  transform-style:preserve-3d;
+}
+.theme-book-bg{
+  position:absolute;
+  inset:0;
+  width:100%;height:100%;
+  object-fit:contain;
+  pointer-events:none;
+  user-select:none;
+  z-index:0;
+}
+.theme-book-left{
+  position:absolute;
+  z-index:2;
+  left:9.6%;
+  top:8.8%;
+  width:39.0%;
+  height:81.2%;
+  color:#443027;
+  font-family:"Noto Serif JP","Hiragino Mincho ProN","Yu Mincho",Georgia,serif;
+  text-align:center;
+}
+.theme-book-rule-top{
+  display:block;
+  position:absolute;
+  left:8.5%;right:8.5%;top:3.7%;height:1px;
+  background:#d9ad78;
+}
+.theme-book-en{
+  position:absolute;
+  top:12.0%;left:0;right:0;
+  font:700 clamp(20px,3.9cqw,36px)/1.05 Georgia,"Times New Roman",serif;
+  letter-spacing:.015em;
+  color:#493328;
+}
+.theme-book-divider{
+  position:absolute;
+  left:39.5%;right:39.5%;top:29.6%;height:1px;
+  background:#d9ad78;
+}
+.theme-book-question{
+  position:absolute;
+  left:0;right:0;top:36.6%;
+  font-size:clamp(13px,2.15cqw,22px);
+  font-weight:700;
+  line-height:1.24;
+}
+.theme-book-sub{
+  position:absolute;
+  left:0;right:0;top:43.2%;
+  font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic",Meiryo,sans-serif;
+  font-size:clamp(8px,1.0cqw,10px);
+  color:#8c6f5c;
+  line-height:1.35;
+}
+.theme-book-list{
+  position:absolute;
+  left:7.6%;right:7.6%;top:50.8%;bottom:7.4%;
+  display:grid;
+  grid-template-rows:repeat(3,1fr);
+  gap:1.4%;
+  text-align:left;
+}
+.theme-book-list-row{
+  display:grid;
+  grid-template-columns:26% 1fr;
+  align-items:center;
+  border-bottom:1px solid rgba(221,198,172,.72);
+  min-height:0;
+}
+.theme-book-list-row:last-child{border-bottom:0}
+.theme-book-list-no{
+  color:#cb8f55;
+  font:700 clamp(17px,2.85cqw,31px)/1 Georgia,"Times New Roman",serif;
+  text-align:center;
+  border-right:1px solid #d9ad78;
+  padding-right:9%;
+}
+.theme-book-list-copy{padding-left:8.2%}
+.theme-book-list-title{
+  font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic",Meiryo,sans-serif;
+  font-size:clamp(10px,1.48cqw,16px);
+  font-weight:700;
+  color:#493328;
+  line-height:1.22;
+}
+.theme-book-list-desc{
+  margin-top:4px;
+  font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic",Meiryo,sans-serif;
+  font-size:clamp(7px,1.0cqw,10.5px);
+  color:#8f725f;
+  line-height:1.23;
+}
+.theme-book-right-copy{
+  position:absolute;
+  z-index:2;
+  left:58.5%;
+  top:18.0%;
+  width:26.0%;
+  height:21.0%;
+  color:#4a342a;
+  text-align:center;
+  font-family:"Noto Serif JP","Hiragino Mincho ProN","Yu Mincho",Georgia,serif;
+}
+.theme-book-right-ornament{
+  display:flex;align-items:center;gap:10px;
+  margin:0 auto 13%;width:79%;
+}
+.theme-book-right-ornament::before,.theme-book-right-ornament::after{
+  content:"";height:1px;flex:1;background:#d9ad78;
+}
+.theme-book-right-ornament i{
+  width:7px;height:7px;background:#c6843e;transform:rotate(45deg);display:block;flex:0 0 auto;
+}
+.theme-book-quote{
+  font-size:clamp(13px,1.95cqw,20px);
+  font-weight:700;
+  line-height:1.78;
+  letter-spacing:.02em;
+}
+#themePanel .theme-grid{
+  position:absolute!important;
+  z-index:3;
+  left:59.8%;
+  top:47.0%;
+  width:27.2%;
+  height:30.8%;
+  display:grid!important;
+  grid-template-columns:minmax(0,1fr)!important;
+  grid-template-rows:repeat(3,minmax(0,1fr))!important;
+  justify-items:stretch!important;
+  align-items:stretch!important;
+  gap:6.0%!important;
+  margin:0!important;
+}
+#themePanel .theme-group-heading{display:none!important}
+#themePanel .theme-btn{
+  opacity:1!important;
+  transform:none!important;
+  width:100%!important;
+  height:100%!important;
+  min-width:0!important;
+  min-height:0!important;
+  padding:0 7%!important;
+  border-radius:999px!important;
+  border:1px solid #bf7f49!important;
+  background:#d09258!important;
+  color:#fff!important;
+  box-shadow:0 5px 0 rgba(167,104,52,.24),0 10px 20px rgba(122,79,43,.11)!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  text-align:center!important;
+  overflow:hidden!important;
+  transition:transform .18s ease,background .18s ease,box-shadow .18s ease,filter .18s ease!important;
+}
+#themePanel .theme-btn .name-wrap{display:block!important;width:100%!important}
+#themePanel .theme-btn .mode-name{display:none!important}
+#themePanel .theme-btn .theme-main-row{display:block!important}
+#themePanel .theme-btn .main-value{
+  font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic",Meiryo,sans-serif!important;
+  font-size:clamp(10px,1.52cqw,15px)!important;
+  line-height:1.12!important;
+  font-weight:700!important;
+  letter-spacing:.015em!important;
+  color:#fff!important;
+  text-align:center!important;
+}
+#themePanel .theme-btn .main-value::after{display:none!important}
+#themePanel .theme-btn .main-value span{
+  display:block!important;
+  margin-top:4px!important;
+  font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic",Meiryo,sans-serif!important;
+  font-size:clamp(6px,.78cqw,8.3px)!important;
+  line-height:1.1!important;
+  font-weight:400!important;
+  letter-spacing:.04em!important;
+  color:rgba(255,248,242,.94)!important;
+}
+#themePanel .theme-btn:hover,#themePanel .theme-btn:active{
+  background:#c9864d!important;
+  border-color:#b8743e!important;
+  transform:translateY(-1px)!important;
+  box-shadow:0 4px 0 rgba(158,93,44,.27),0 9px 18px rgba(122,79,43,.13)!important;
+}
+#themePanel .theme-btn.picked{
+  background:#c47c41!important;
+  border-color:#aa6632!important;
+  transform:scale(1.025)!important;
+  filter:saturate(1.05);
+}
+#themePanel .theme-btn.picked::before{display:none!important}
+.theme-book-right-note{
+  position:absolute;
+  z-index:2;
+  left:59.3%;right:10.1%;bottom:8.7%;
+  text-align:center;
+  color:#987257;
+  font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic",Meiryo,sans-serif;
+  font-size:clamp(8px,1.0cqw,10px);
+}
+.theme-book-turn-page{
+  position:absolute;
+  top:3.7%;
+  left:50.15%;
+  width:43.25%;
+  height:88.7%;
+  z-index:8;
+  pointer-events:none;
+  opacity:0;
+  transform-origin:left center;
+  backface-visibility:hidden;
+  border-radius:0 10px 10px 0;
+  background:
+    linear-gradient(90deg,rgba(173,156,136,.18) 0%,rgba(247,244,239,.99) 8%,rgba(253,250,246,.99) 56%,rgba(241,233,224,.98) 87%,rgba(220,210,197,.82) 100%);
+  box-shadow:inset -10px 0 18px rgba(145,126,106,.11),inset 8px 0 13px rgba(255,255,255,.8),6px 2px 18px rgba(76,53,33,.08);
+}
+.theme-book-turn-page::before{
+  content:"";
+  position:absolute;
+  inset:2.2% 4.2%;
+  border:1px solid rgba(218,197,171,.72);
+  border-left:0;
+  border-radius:0 6px 6px 0;
+}
+.theme-book-turn-page::after{
+  content:"";
+  position:absolute;
+  top:0;bottom:0;left:-5px;width:16px;
+  background:linear-gradient(90deg,rgba(171,151,130,.52),rgba(255,255,255,.04));
+}
+.theme-book-stage.is-page-turning .theme-book-turn-page{
+  opacity:1;
+  animation:themeBookPageTurn .76s cubic-bezier(.34,.08,.18,1) forwards;
+}
+.theme-book-stage.is-page-turning .theme-book-bg,
+.theme-book-stage.is-page-turning .theme-book-left,
+.theme-book-stage.is-page-turning .theme-book-right-copy,
+.theme-book-stage.is-page-turning .theme-grid,
+.theme-book-stage.is-page-turning .theme-book-right-note{
+  animation:themeBookStageFade .76s ease forwards;
+}
+@keyframes themeBookPageTurn{
+  0%{opacity:.08;transform:rotateY(0deg) skewY(0deg)}
+  20%{opacity:.98;transform:rotateY(-20deg) skewY(.45deg)}
+  52%{opacity:.96;transform:rotateY(-88deg) skewY(.12deg)}
+  84%{opacity:.58;transform:rotateY(-150deg) skewY(-.26deg)}
+  100%{opacity:0;transform:rotateY(-173deg) skewY(-.34deg)}
+}
+@keyframes themeBookStageFade{
+  0%,52%{opacity:1}
+  100%{opacity:0}
+}
+#themePanel.animate-in .theme-book-left,
+#themePanel.animate-in .theme-book-right-copy,
+#themePanel.animate-in .theme-book-right-note{animation:themeBookCopyIn .5s ease .08s both}
+@keyframes themeBookCopyIn{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
+@media(max-width:430px){
+  .theme-book-left{left:9.3%;top:8.7%;width:39.1%;height:80.8%}
+  .theme-book-en{font-size:clamp(18px,3.9cqw,22px)}
+  .theme-book-question{font-size:clamp(11px,2.1cqw,14px)}
+  .theme-book-sub{font-size:clamp(7px,1.1cqw,9px)}
+  .theme-book-list-title{font-size:clamp(8px,1.42cqw,10px)}
+  .theme-book-list-desc{font-size:clamp(6px,.9cqw,7.5px)}
+  .theme-book-right-copy{left:58.7%;top:18.0%;width:26.0%}
+  .theme-book-quote{font-size:clamp(11px,1.95cqw,13px)}
+  #themePanel .theme-grid{left:59.6%;top:47.4%;width:27.5%;height:30.4%}
+  #themePanel .theme-btn .main-value{font-size:clamp(9px,1.45cqw,11px)!important}
+  #themePanel .theme-btn .main-value span{font-size:clamp(5.5px,.72cqw,6.8px)!important;margin-top:2px!important}
+  .theme-book-right-note{font-size:clamp(7px,.92cqw,8.4px)}
+}
+@media(prefers-reduced-motion:reduce){
+  #themePanel.animate-in .theme-book-left,#themePanel.animate-in .theme-book-right-copy,#themePanel.animate-in .theme-book-right-note{animation:none!important}
+  .theme-book-stage.is-page-turning .theme-book-turn-page,
+  .theme-book-stage.is-page-turning .theme-book-bg,
+  .theme-book-stage.is-page-turning .theme-book-left,
+  .theme-book-stage.is-page-turning .theme-book-right-copy,
+  .theme-book-stage.is-page-turning .theme-grid,
+  .theme-book-stage.is-page-turning .theme-book-right-note{animation:none!important}
+  .theme-book-stage.is-page-turning .theme-book-turn-page{display:none!important}
+}
+
+</style>
+
+</head>
+<body>
+<div class="cd-menu-backdrop" id="cdMenuBackdrop" aria-hidden="true"></div>
+<aside class="cd-side-menu" id="cdSideMenu" aria-hidden="true" aria-label="サイトメニュー"><iframe class="cd-side-menu-frame" title="Closet Drawers MENU" src="menu.html"></iframe></aside>
+
+
+<div class="bg-drift" aria-hidden="true">
+  <span class="bg-word w1">IMAGE</span>
+  <span class="bg-word w2">STYLE</span>
+  <span class="bg-word w3">PATTERN</span>
+  <span class="bg-word w4">SIMILAR</span>
+  <span class="bg-word w5">LOOK</span>
+  <span class="bg-word w6">COLOR</span>
+  <span class="bg-word w7">OUTFIT</span>
+  <span class="bg-word w8">FASHION</span>
+  <span class="bg-word w9">SELECT</span>
+  <span class="bg-word w10">RANDOM</span>
+  <span class="bg-word w11">COLLAGE</span>
+  <span class="bg-word w12">MOOD</span>
+
+  <span class="bg-line l1"></span>
+  <span class="bg-line l2"></span>
+  <span class="bg-line l3"></span>
+  <span class="bg-line l4"></span>
+  <span class="bg-line l5"></span>
+  <span class="bg-line l6"></span>
+  <span class="bg-line l7"></span>
+  <span class="bg-line l8"></span>
+</div>
+
+<div class="cd-intro-seasonal-fall" id="cdIntroSeasonalFall" aria-hidden="true"></div>
+<div class="cd-result-season-layer" id="cdResultSeasonLayer" aria-hidden="true"></div>
+<main class="wrap">
+  <header class="header">
+    <button class="header-link left cd-menu-trigger" id="cdMenuTrigger" type="button" aria-controls="cdSideMenu" aria-expanded="false">≡ MENU</button>
+    <div class="site-logo-stack" aria-label="Closet Drawers"><div class="cd-exact-header-closet"><div class="cd-exact-logo-stage cd-exact-header-stage"></div></div>
+      <img class="site-mark" src="assets/img_001_40b41edb68.png" alt="">
+      <img class="site-wordmark" src="assets/img_002_f45e524737.png" alt="Closet Drawers">
+    </div>
+    <a class="header-link right" href="about.html">ABOUT</a>
+  </header>
+
+  <div class="intro-screen" id="introScreen">
+    <section class="hero">
+      <div class="lottery-logo">
+        <span class="lottery-logo-en">CLOSET DRAWERS</span>
+        <span class="lottery-logo-main">IMAGE SIMILARITY LOTTERY</span>
+        <span class="lottery-logo-bow">୨୧</span>
+        <span class="lottery-logo-jp">画像でシミラーくじ</span>
+      </div>
+      
+    </section>
+
+
+    <section class="intro-magazine-guide" aria-label="HOW TO PLAY">
+      <div class="intro-magazine-stage" id="introMagazineStage">
+        <img class="intro-magazine-book" src="assets/img_003_7e170ad5b9.png" alt="HOW TO PLAY。01 人数を選ぶ、02 くじを選ぶ、03 コーデを作る。同じ画像でも、完成するコーデは人それぞれ。">
+        <div class="intro-magazine-step-lines" aria-hidden="true">
+          <span class="intro-magazine-line line-1"></span>
+          <span class="intro-magazine-line line-2"></span>
+          <span class="intro-magazine-line line-3"></span>
+        </div>
+        <div class="intro-magazine-charms" id="introMagazineCharms" aria-hidden="true"></div>
+        <button class="intro-magazine-start" id="startLotteryBtn" type="button">START <span aria-hidden="true">→</span></button>
+        <div class="intro-magazine-turn-page" aria-hidden="true"></div>
+      </div>
+    </section>
+<div class="cd-home-return"><a href="index.html">← トップページへ戻る</a></div>
+<footer style="margin-top:34px;padding-top:18px;border-top:1px solid #e8c49e;text-align:center;font-size:9px;line-height:1.8;color:#96755e">Closet Drawers / Fashion is self-expression.<br>当サイトは非公式ファン企画です。ピグパーティ運営とは関係ありません。</footer>
+  </div>
+
+  <section class="panel flow-screen hidden people-book-panel" id="peoplePanel">
+    <div class="people-book-stage" id="peopleBookStage">
+      <img class="people-book-bg" src="assets/img_004_e6a321e1d4.png" alt="">
+      <div class="people-book-left">
+        <span class="people-book-rule-top" aria-hidden="true"></span>
+        <div class="people-book-en">SELECT<br>PEOPLE</div>
+        <div class="people-book-divider" aria-hidden="true"><i class="people-book-diamond"></i></div>
+        <div class="people-book-question">何人でシミラーする？</div>
+        <div class="people-book-sub">1〜9人から選んでね。</div>
+        <div class="people-book-note">CHOOSE YOUR PEOPLE</div>
+      </div>
+      <div class="people-grid" id="peopleGrid" aria-label="参加人数を選択"></div>
+      <div class="people-book-right-footer" aria-hidden="true">
+        <div class="people-book-footer-line"><i></i></div>
+        <div class="people-book-footer-text">BETTER TOGETHER</div>
+      </div>
+      <div class="people-book-turn-page" aria-hidden="true"></div>
+    </div>
+  </section>
+
+  <section class="panel flow-screen hidden" id="themePanel">
+    <div class="theme-book-stage" id="themeBookStage">
+      <img class="theme-book-bg" src="assets/img_004_e6a321e1d4.png" alt="" aria-hidden="true">
+      <div class="theme-book-left">
+        <span class="theme-book-rule-top" aria-hidden="true"></span>
+        <div class="theme-book-en">SELECT LOTTERY</div>
+        <span class="theme-book-divider" aria-hidden="true"></span>
+        <div class="theme-book-question">くじを選んでね</div>
+        <div class="theme-book-sub">3つの中からひとつ選んで、次へ進もう。</div>
+        <div class="theme-book-list" aria-hidden="true">
+          <div class="theme-book-list-row"><div class="theme-book-list-no">01</div><div class="theme-book-list-copy"><div class="theme-book-list-title">オールランダム</div><div class="theme-book-list-desc">すべてランダムで引く</div></div></div>
+          <div class="theme-book-list-row"><div class="theme-book-list-no">02</div><div class="theme-book-list-copy"><div class="theme-book-list-title">カラーランダム</div><div class="theme-book-list-desc">色をメインに楽しむ</div></div></div>
+          <div class="theme-book-list-row"><div class="theme-book-list-no">03</div><div class="theme-book-list-copy"><div class="theme-book-list-title">チャームランダム</div><div class="theme-book-list-desc">チャームを主役に楽しむ</div></div></div>
+        </div>
+      </div>
+      <div class="theme-book-right-copy" aria-hidden="true">
+        <div class="theme-book-right-ornament"><i></i></div>
+        <div class="theme-book-quote">気分に合わせて、<br>引き方を選ぼう。</div>
+      </div>
+      <div class="theme-grid" id="themeGrid" aria-label="くじを選択"></div>
+      <div class="theme-book-right-note" aria-hidden="true">ひとつ選んで、次のページへ。</div>
+      <div class="theme-book-turn-page" aria-hidden="true"></div>
+    </div>
+  </section>
+
+  <section class="panel flow-screen hidden" id="resultPanel">
+    <div class="step">LOTTERY RESULT</div>
+    <h2 class="title">くじの結果</h2>
+    <div class="result-tools">
+      <button class="ghost" id="changePeople">人数を変更</button>
+      <button class="ghost" id="changeTheme">くじを選び直す</button>
+    </div>
+    <div class="result-stage" id="resultStage"></div>
+    <div class="result-actions">
+      <button class="primary" id="saveBtn">画像を保存</button>
+      <button class="secondary" id="copyBtn">結果をコピー</button>
+    </div>
+    <div class="disclaimer">
+      本コンテンツで使用している柄・図形は、Closet Drawers用に制作したオリジナル素材です。<br>
+      Closet Drawers は非公式の個人制作コンテンツであり、ピグパーティおよび運営会社とは関係ありません。
+    </div>
+    <div class="cd-home-return"><a href="index.html">← トップページへ戻る</a></div>
+  </section>
+</main>
+
+<div class="draw-overlay" id="drawOverlay" aria-hidden="true">
+  <div class="draw-wrap">
+    <div class="drawer-unit" aria-hidden="true">
+      <div class="drawer-cabinet"></div>
+      <div class="drawer-slot">
+        <div class="drawer-cavity"></div>
+        <div class="omikuji-paper">
+          <div class="paper-en">IMAGE SIMILARITY<br>LOTTERY</div>
+          <div class="paper-jp">画像でシミラーくじ</div>
+        </div>
+        <div class="drawer-lip"></div>
+      </div>
+
+      <div class="drawer-box">
+        <div class="drawer-knob"></div>
+      </div>
+    </div>
+
+    <div class="draw-caption">DRAWING...</div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<!-- Ver.4 AB+C(1)(2) TEST v2: result-render null-color fix -->
+<!-- Ver.4 AB+C(1)(2) TEST v3: multi-color supports charm -->
+<!-- Ver.4 AB+C(1)(2) TEST v4: single bias 65/35 + no duplicate color names -->
+<!-- Ver.4 C(3) TEST: people selection uses approved blank magazine spread + live 1-9 buttons -->
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+<script>
+const SHAPES = ["assets/img_005_a0981489f3.png", "assets/img_006_40404666e4.png", "assets/img_007_06de00398f.png", "assets/img_008_252858b2b3.png", "assets/img_009_695f757519.png", "assets/img_010_dc4e3c2e53.png", "assets/img_011_6f49a3ad68.png", "assets/img_012_20f6c26687.png", "assets/img_013_3f7d984cdb.png", "assets/img_014_a444825ed9.png", "assets/img_015_aa682d45e9.png", "assets/img_016_9cee3eab91.png", "assets/img_017_0a012e60b2.png", "assets/img_018_3438585f12.png", "assets/img_019_49133fe4f6.png"];
+const PATTERNS = ["pattern-01.png", "pattern-02.png", "pattern-03.png", "pattern-04.png", "pattern-05.png", "pattern-06.png", "pattern-07.png", "pattern-08.png", "pattern-11.png", "pattern-12.png", "pattern-13.png", "pattern-14.png", "pattern-15.png", "pattern-16.png", "pattern-17.png", "pattern-18.png", "pattern-23.png", "pattern-27.png", "pattern-28.png", "pattern-30.png"];
+const PATTERN_NAMES = ["ドット柄", "ストライプ柄", "チェック柄", "ギンガムチェック柄", "格子柄", "ボーダー柄", "波線柄", "リボン柄", "アーガイル柄", "市松模様", "ニット柄", "デニム柄", "レザー柄", "レース柄", "キルティング柄", "チュール柄", "十字架柄", "チェーン柄", "ヒョウ柄", "迷彩柄"];
+const SEAMLESS_PATTERNS = ["pattern-01.png", "pattern-02.png", "pattern-03.png", "pattern-04.png", "pattern-05.png", "pattern-06.png", "pattern-07.png", "pattern-08.png", "pattern-11.png", "pattern-12.png", "pattern-13.png", "pattern-14.png", "pattern-15.png", "pattern-16.png", "pattern-17.png", "pattern-18.png", "pattern-23.png", "pattern-27.png", "pattern-28.png", "pattern-30.png"];
+const COLORS = [["ピンク", "#f3a6b8"], ["ブラック", "#111111"], ["ホワイト", "#f7f7f5"], ["ブルー", "#7196c5"], ["レッド", "#c84b4b"], ["グリーン", "#668d67"], ["パープル", "#8c70aa"], ["ブラウン", "#8a644d"], ["オレンジ", "#f28a2b"], ["グレー", "#a9aaad"], ["黄色", "#f3d56b"], ["ベージュ", "#d8c2a0"], ["カーキ", "#8b8964"], ["ライトブルー", "#9fc8e8"], ["ターコイズ", "#46b8b1"], ["アースカラー", "linear-gradient(135deg,#8b8964 0 33%,#8a644d 33% 66%,#d8c2a0 66%)"], ["マリンカラー", "linear-gradient(135deg,#18365f 0 28%,#ffffff 28% 52%,#6fa8dc 52% 76%,#c84b4b 76%)"], ["セピア", "linear-gradient(135deg,#6f513e,#b79a7a,#e2d0b5)"], ["モノクロ", "linear-gradient(135deg,#111 0 33%,#999 33% 66%,#f7f7f7 66%)"], ["ネオンカラー", "linear-gradient(135deg,#ff3bf5 0 25%,#b7ff00 25% 50%,#00eaff 50% 75%,#fff200 75%)"], ["パステルカラー", "linear-gradient(135deg,#f6b8c8 0 25%,#b9d9f5 25% 50%,#f6e6a8 50% 75%,#d7c1ee 75%)"], ["ビビットカラー", "linear-gradient(135deg,#ff3b30 0 25%,#006cff 25% 50%,#ffd500 50% 75%,#00a651 75%)"], ["くすみカラー", "linear-gradient(135deg,#b7858e 0 25%,#849e8b 25% 50%,#8295a8 50% 75%,#9b806f 75%)"], ["ニュアンスカラー", "linear-gradient(135deg,#c7b9ad 0 33%,#b8b3aa 33% 66%,#c1b8c3 66%)"], ["ペールカラー", "linear-gradient(135deg,#f7dce5 0 33%,#dcebf7 33% 66%,#eee7c9 66%)"], ["ダークカラー", "linear-gradient(135deg,#1f2b3d 0 33%,#3a243d 33% 66%,#253a2e 66%)"], ["アイシーカラー", "linear-gradient(135deg,#d8edf8 0 33%,#e7def5 33% 66%,#f7fbfd 66%)"], ["ジュエルカラー", "linear-gradient(135deg,#9e1b32 0 25%,#006b54 25% 50%,#24478f 50% 75%,#6d2f8d 75%)"], ["メタリックカラー", "linear-gradient(135deg,#bfc2c5 0 50%,#d4af37 50%)"], ["シャーベットカラー", "linear-gradient(135deg,#ffd5d8 0 25%,#cce8e6 25% 50%,#d9dcfa 50% 75%,#ffe6b7 75%)"], ["レトロカラー", "linear-gradient(135deg,#c98a21 0 25%,#b85433 25% 50%,#365b43 50% 75%,#70452d 75%)"], ["クラシックカラー", "linear-gradient(135deg,#701f35 0 33%,#162c4c 33% 66%,#234736 66%)"], ["ネイビー", "#1f3558"], ["ボルドー", "#76263b"], ["アイボリー", "#eee6d4"], ["ミント", "#b7dfcf"], ["テラコッタ", "#c76b4a"], ["オリーブ", "#707446"], ["ゴールド", "#c6a23d"], ["シルバー", "#b7bbc1"], ["ラベンダー", "#b7a2d6"], ["キャメル", "#c28a54"], ["ハンバーガーカラー", "linear-gradient(135deg,#8b5a2b 0 25%,#f2c84b 25% 50%,#c84b4b 50% 75%,#668d67 75%)"], ["三色団子カラー", "linear-gradient(135deg,#f2a8b8 0 33%,#f7f4ed 33% 66%,#8fb878 66%)"], ["孔雀カラー", "linear-gradient(135deg,#1d78a8 0 33%,#2f8a67 33% 66%,#7052a3 66%)"], ["蜂カラー", "linear-gradient(135deg,#f2c84b 0 50%,#1b1b1b 50%)"], ["グラデーションカラー", "linear-gradient(135deg,#f1b4a8,#e5c08a,#9fc8e8,#b7a2d6)"], ["黄緑", "#b7d65c"], ["暖色", "linear-gradient(135deg,#e85d4a 0 33%,#f49a45 33% 66%,#f0cf62 66%)"], ["寒色", "linear-gradient(135deg,#5e83c4 0 33%,#63b7c4 33% 66%,#8876b8 66%)"], ["中性色", "linear-gradient(135deg,#7e9b63 0 33%,#8a6d58 33% 66%,#8b7a93 66%)"], ["ネギカラー", "linear-gradient(135deg,#f5f1df 0 48%,#86b65c 48%)"], ["かぼちゃタルト", "linear-gradient(135deg,#d9822b 0 45%,#f2c46d 45% 72%,#7d4d2c 72%)"], ["オムライス", "linear-gradient(135deg,#f2cc4d 0 62%,#d95b42 62%)"], ["モカ", "#9b7863"], ["ビタミンカラー", "linear-gradient(135deg,#ff6b35 0 25%,#ffd23f 25% 50%,#7ac943 50% 75%,#ff4f8b 75%)"], ["チョコミントカラー", "linear-gradient(135deg,#8bd9c7 0 58%,#5a3b2e 58%)"]];
+const CAMO_PATTERN_INDEX = 19;
+const CAMO_PATTERN_URI = "pattern-30.png";
+const CHARM_NAMES = ["メガネ", "ハート", "星", "リボン", "蝶", "さくらんぼ", "いちご", "チェーン", "花", "ドクロ", "ヘッドフォン", "ネクタイ", "ブーツ", "サングラス", "キャップ", "つけ襟", "スカーフ", "ベルト", "バラ", "チューリップ", "しずく", "音符", "宝石", "レモン", "きのこ", "葉っぱ", "雪の結晶", "ボタン", "雲", "貝殻", "クローバー", "桜", "惑星", "カメラ", "本"];
+const CHARM_URIS = ["assets/img_020_4762c4fa21.png", "assets/img_021_af19d88684.png", "assets/img_022_0e976bb3ec.png", "assets/img_023_949801d602.png", "assets/img_024_4716619144.png", "assets/img_025_5a7c47a3d7.png", "assets/img_026_d1a284a5c4.png", "assets/img_027_dc70f81350.png", "assets/img_028_28459da695.png", "assets/img_029_7f2fbe91d3.png", "assets/img_030_d2c438217f.png", "assets/img_031_cd316b571b.png", "assets/img_032_11f999ccc5.png", "assets/img_033_0b757a6ca1.png", "assets/img_034_9db029e9ad.png", "assets/img_035_1c8ecf71b6.png", "assets/img_036_e59ff50b1c.png", "assets/img_037_465e6782da.png", "assets/img_038_efa49174b8.png", "assets/img_039_0715d0f15a.png", "assets/img_040_a7008ca9b6.png", "assets/img_041_1d42eef622.png", "assets/img_042_308cbec63c.png", "assets/img_043_c3cd386970.png", "assets/img_044_548941f38f.png", "assets/img_045_fce78604a1.png", "assets/img_046_776363b10f.png", "assets/img_047_72d38190e6.png", "assets/img_048_410d3ace3f.png", "assets/img_049_373828b40b.png", "assets/img_050_d260604c29.png", "assets/img_051_03101e8b9a.png", "assets/img_052_dfd98c3908.png", "assets/img_053_660bfc18f1.png", "assets/img_054_2861e95db4.png"];
+const SINGLE_COLORS = COLORS.filter(c => !String(c[1]).startsWith("linear-gradient("));
+const MULTI_COLORS = COLORS.filter(c => String(c[1]).startsWith("linear-gradient("));
+const PATTERN_ASSET_VERSION = "20260831h";
+
+function getPatternUri(index){
+  const uri = index === CAMO_PATTERN_INDEX ? CAMO_PATTERN_URI : SEAMLESS_PATTERNS[index];
+  return uri + "?v=" + PATTERN_ASSET_VERSION;
+}
+
+function getColorFill(colorTuple){
+  // Ver.4 test fix: c2/c3 are null for basic / pattern / charm / multi modes.
+  if (!colorTuple) return "transparent";
+  const [name, hex] = colorTuple;
+  if (name === "ゴールド") {
+    return "linear-gradient(135deg,#8b6a1b 0%,#b98b22 18%,#f4e0a5 42%,#c89b2f 58%,#9b7420 82%,#7d5d18 100%)";
+  }
+  if (name === "シルバー") {
+    return "linear-gradient(135deg,#888d95 0%,#cfd4da 28%,#f5f7f8 48%,#bec4cb 62%,#8f949b 84%,#d7dbe1 100%)";
+  }
+  return hex;
+}
+
+function getPlainColor(colorTuple){
+  // Ver.4 test fix: allow modes that intentionally have no second color.
+  return colorTuple ? colorTuple[1] : "transparent";
+}
+
+const ROUND_LOGO = "assets/img_055_d6c2646056.png";
+const WIDE_LOGO = "assets/img_056_270b7accf9.png";
+const LAYOUTS = {"1": {"pts": [[0.5, 0.6]], "logo": ["circle", [0.16, 0.18]]}, "2": {"pts": [[0.34, 0.62], [0.66, 0.62]], "logo": ["wide", [0.5, 0.18]]}, "3": {"pts": [[0.64, 0.43], [0.36, 0.72], [0.64, 0.72]], "logo": ["circle", [0.36, 0.43]]}, "4": {"pts": [[0.3, 0.34], [0.7, 0.34], [0.3, 0.72], [0.7, 0.72]], "logo": ["wide", [0.5, 0.53]]}, "5": {"pts": [[0.7, 0.27], [0.34, 0.49], [0.7, 0.49], [0.34, 0.75], [0.7, 0.75]], "logo": ["circle", [0.27, 0.23]]}, "6": {"pts": [[0.5, 0.22], [0.25, 0.38], [0.75, 0.38], [0.25, 0.68], [0.75, 0.68], [0.5, 0.82]], "logo": ["circle", [0.5, 0.52]]}, "7": {"pts": [[0.3, 0.22], [0.5, 0.22], [0.72, 0.22], [0.78, 0.5], [0.3, 0.8], [0.5, 0.8], [0.72, 0.8]], "logo": ["circle", [0.44, 0.52]]}, "8": {"pts": [[0.24, 0.22], [0.5, 0.22], [0.76, 0.22], [0.18, 0.49], [0.82, 0.49], [0.24, 0.8], [0.5, 0.8], [0.76, 0.8]], "logo": ["circle", [0.5, 0.53]]}, "9": {"pts": [[0.24, 0.4], [0.5, 0.4], [0.76, 0.4], [0.24, 0.61], [0.5, 0.61], [0.76, 0.61], [0.24, 0.82], [0.5, 0.82], [0.76, 0.82]], "logo": ["wide", [0.5, 0.16]]}};
+const BLACK_NAME = "ブラック";
+
+let selectedPeople = 1;
+let selectedTheme = null;
+let themeChoices = null;
+let changingMode = null;
+
+let currentCards = [];
+let currentThemeText = "";
+let currentRenderedPeople = null;
+let hasDrawnOnce = false;
+
+const introScreen = document.getElementById("introScreen");
+const introMagazineStage = document.getElementById("introMagazineStage");
+const startLotteryBtn = document.getElementById("startLotteryBtn");
+const peopleGrid = document.getElementById("peopleGrid");
+const peoplePanel = document.getElementById("peoplePanel");
+const peopleBookStage = document.getElementById("peopleBookStage");
+const themePanel = document.getElementById("themePanel");
+const themeBookStage = document.getElementById("themeBookStage");
+const themeGrid = document.getElementById("themeGrid");
+const resultPanel = document.getElementById("resultPanel");
+const resultStage = document.getElementById("resultStage");
+const toast = document.getElementById("toast");
+const drawOverlay = document.getElementById("drawOverlay");
+
+requestAnimationFrame(() => {
+  requestAnimationFrame(() => {
+    introScreen.classList.add("is-ready");
+  });
+});
+
+function playFlowEntrance(panel){
+  panel.classList.remove("hidden","is-exiting","is-entering","is-visible","animate-in");
+  panel.classList.add("is-entering");
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      panel.classList.add("is-visible","animate-in");
+    });
+  });
+  setTimeout(() => {
+    panel.classList.remove("is-entering","is-visible","animate-in");
+  }, 1100);
+}
+
+function transitionFlowPanels(fromPanel, toPanel){
+  if(fromPanel){
+    fromPanel.classList.remove("hidden");
+    fromPanel.classList.remove("animate-in","is-entering","is-visible");
+    fromPanel.classList.add("is-exiting");
+  }
+  if(toPanel){
+    toPanel.classList.remove("hidden","is-exiting","animate-in","is-visible");
+    toPanel.classList.add("is-entering");
+  }
+
+  window.scrollTo({top:0,behavior:"auto"});
+
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      if(toPanel){
+        toPanel.classList.add("is-visible","animate-in");
+      }
+    });
+  });
+
+  setTimeout(() => {
+    if(fromPanel){
+      fromPanel.classList.add("hidden");
+      fromPanel.classList.remove("is-exiting");
+    }
+    if(toPanel){
+      toPanel.classList.remove("is-entering","is-visible","animate-in");
+    }
+  }, 1100);
+}
+
+startLotteryBtn.onclick = () => {
+  startLotteryBtn.disabled = true;
+
+  const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const turnDuration = prefersReducedMotion ? 120 : 720;
+
+  if (introMagazineStage) {
+    introMagazineStage.classList.add("is-turning");
+  }
+
+  setTimeout(() => {
+    introScreen.classList.add("is-leaving");
+  }, prefersReducedMotion ? 0 : 220);
+
+  setTimeout(() => {
+    introScreen.classList.add("hidden");
+    introScreen.classList.remove("is-leaving","is-ready");
+    if (introMagazineStage) {
+      introMagazineStage.classList.remove("is-turning");
+    }
+    playFlowEntrance(peoplePanel);
+    window.scrollTo({top:0,behavior:"auto"});
+    setTimeout(() => {
+      startLotteryBtn.disabled = false;
+    }, 1100);
+  }, turnDuration + (prefersReducedMotion ? 40 : 120));
+};
+
+function rand(arr){ return arr[Math.floor(Math.random()*arr.length)] }
+function showToast(t){ toast.textContent=t; toast.classList.add("show"); setTimeout(()=>toast.classList.remove("show"),1500); }
+function go(el){ setTimeout(()=>el.scrollIntoView({behavior:"smooth",block:"start"}),60); }
+
+for(let n=1;n<=9;n++) {
+  const b = document.createElement("button");
+  b.className = "btn";
+  b.textContent = n + "人";
+  b.onclick = () => {
+    if (peopleGrid.classList.contains("is-choosing")) return;
+
+    const reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    peopleGrid.classList.add("is-choosing");
+    [...peopleGrid.children].forEach(el => el.classList.remove("people-choice-picked","tap-bounce"));
+    b.classList.add("people-choice-picked");
+
+    // 押す → ボタンがオレンジになる → 1.03倍ほどふわっと拡大 → 線が左から右へ描かれる → 0.4秒後にページをめくる
+    const pickDelay = reduced ? 80 : 400;
+    const turnDelay = reduced ? 40 : 760;
+
+    setTimeout(() => {
+      if (peopleBookStage) peopleBookStage.classList.add("is-page-turning");
+    }, pickDelay);
+
+    setTimeout(() => {
+      handlePeople(n);
+      peopleGrid.classList.remove("is-choosing");
+      b.classList.remove("people-choice-picked");
+      if (peopleBookStage) peopleBookStage.classList.remove("is-page-turning");
+    }, pickDelay + turnDelay);
+  };
+  peopleGrid.appendChild(b);
+}
+
+function markPeople() {
+  [...peopleGrid.children].forEach((b,i)=>b.classList.toggle("selected", i+1===selectedPeople));
+}
+
+function newThemeChoices() {
+  themeChoices = {
+    color: rand(COLORS),
+    patternIndex: Math.floor(Math.random()*PATTERN_NAMES.length)
+  };
+}
+
+
+function handleThemeSelect(button, item) {
+  if (themeGrid.classList.contains("is-lock")) return;
+
+  button.classList.remove("tap-bounce");
+  void button.offsetWidth;
+  button.classList.add("tap-bounce");
+
+  themeGrid.classList.add("is-lock");
+  [...themeGrid.children].forEach(el => el.classList.remove("picked"));
+  button.classList.add("picked");
+
+  selectedTheme = item;
+  currentRenderedPeople = null; // new theme forces a fresh result
+  buildCurrentResult(true);
+
+  requestAnimationFrame(() => {
+    themeGrid.classList.add("selection-leaving");
+  });
+
+  const reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const turnDelay = reduced ? 60 : 360;
+  const turnDuration = reduced ? 120 : 760;
+
+  setTimeout(() => {
+    if (themeBookStage) themeBookStage.classList.add("is-page-turning");
+  }, turnDelay);
+
+  setTimeout(() => {
+    button.classList.remove("tap-bounce");
+    if (themeBookStage) themeBookStage.classList.remove("is-page-turning");
+    playDrawAnimation(showResult, hasDrawnOnce);
+  }, turnDelay + turnDuration);
+}
+
+function renderThemeChoices() {
+  themeGrid.innerHTML = "";
+  themeGrid.classList.remove("selection-leaving", "is-lock");
+
+  const items = [
+    {kind:"all-random", modeName:"ALL RANDOM", value:"オールランダム", desc:"ALL RANDOM"},
+    {kind:"color-only-random", modeName:"COLOR RANDOM", value:"カラーランダム", desc:"COLOR RANDOM"},
+    {kind:"charm-random", modeName:"CHARM RANDOM", value:"チャームランダム", desc:"CHARM RANDOM"}
+  ];
+
+  const head = document.createElement("div");
+  head.className = "theme-group-heading random-group";
+  head.textContent = "くじを選ぶ";
+  themeGrid.appendChild(head);
+
+  items.forEach((item, index) => {
+    const b = document.createElement("button");
+    b.className = "theme-btn random random-card";
+
+    const wrap = document.createElement("div");
+    wrap.className = "name-wrap";
+    wrap.innerHTML = `<div class="mode-name">${item.modeName}</div>`;
+
+    const row = document.createElement("div");
+    row.className = "theme-main-row";
+
+    const value = document.createElement("div");
+    value.className = "main-value";
+    value.innerHTML = `${item.value}<span style="display:block;margin-top:4px;font-size:9px;font-weight:400;letter-spacing:.02em;color:#9a8879">${item.desc}</span>`;
+    row.appendChild(value);
+    wrap.appendChild(row);
+    b.appendChild(wrap);
+
+    b.onclick = () => handleThemeSelect(b, item);
+    themeGrid.appendChild(b);
+    setTimeout(() => b.classList.add("show"), 70 + index * 85);
+  });
+}
+function getThemeText() {
+  if (!selectedTheme) return "";
+  if (selectedTheme.kind === "all-random") return "オールランダム";
+  if (selectedTheme.kind === "color-only-random") return "カラーランダム";
+  if (selectedTheme.kind === "charm-random") return "チャームランダム";
+  return "ランダム";
+}
+function handlePeople(n) {
+  const wasChangingPeople = changingMode === "people";
+  const prevPeople = selectedPeople;
+  selectedPeople = n;
+  markPeople();
+
+  if (wasChangingPeople && selectedTheme) {
+    changingMode = null;
+    peoplePanel.classList.add("hidden");
+
+    if (currentRenderedPeople === n && currentCards.length) {
+      // same people count selected again -> keep shapes/patterns/colors exactly as they were
+      showResult();
+      return;
+    }
+
+    buildCurrentResult(true);
+    showResult();
+    return;
+  }
+
+  if (!themeChoices) newThemeChoices();
+  renderThemeChoices();
+  resultPanel.classList.add("hidden");
+
+  // Keep the next magazine spread in the same viewport position.
+  // Do not render it below the people spread or scroll down to it.
+  peoplePanel.classList.add("hidden");
+  peoplePanel.classList.remove("is-exiting","is-entering","is-visible","animate-in");
+  playFlowEntrance(themePanel);
+  window.scrollTo({top:0,behavior:"auto"});
+}
+
+function chooseColor(excludeNames=[], allowBlack=true) {
+  let pool = COLORS.filter(c => allowBlack || c[0] !== BLACK_NAME);
+  let c = rand(pool), guard = 0;
+  while(excludeNames.includes(c[0]) && guard < 100) {
+    c = rand(pool); guard++;
+  }
+  return c;
+}
+
+function chooseDistinctColors(count, allowBlack=true, fixedFirst=null) {
+  const picked = [];
+  const used = [];
+
+  if (fixedFirst) {
+    picked.push(fixedFirst);
+    used.push(fixedFirst[0]);
+  }
+
+  while (picked.length < count) {
+    const next = chooseColor(used, allowBlack);
+    picked.push(next);
+    used.push(next[0]);
+  }
+
+  return picked;
+}
+
+function chooseSingleColor(excludeNames=[], allowBlack=true) {
+  const pool = SINGLE_COLORS.filter(c => (allowBlack || c[0] !== BLACK_NAME) && !excludeNames.includes(c[0]));
+  if (pool.length) return rand(pool);
+  const fallback = SINGLE_COLORS.filter(c => allowBlack || c[0] !== BLACK_NAME);
+  return rand(fallback);
+}
+function chooseMultiColor(excludeNames=[]) {
+  const pool = MULTI_COLORS.filter(c => !excludeNames.includes(c[0]));
+  if (pool.length) return rand(pool);
+  return rand(MULTI_COLORS);
+}
+function isMultiColor(c) { return !!c && String(c[1]).startsWith("linear-gradient("); }
+function chooseDistinctSingleColors(count, allowBlack=true, excludeNames=[]) {
+  const out=[], used=[...excludeNames];
+  while(out.length < count){
+    const c = chooseSingleColor(used, allowBlack);
+    out.push(c); used.push(c[0]);
+  }
+  return out;
+}
+function chooseWeightedBaseColor(excludeNames=[], allowBlack=true, singleWeight=0.65) {
+  const singles = SINGLE_COLORS.filter(c => (allowBlack || c[0] !== BLACK_NAME) && !excludeNames.includes(c[0]));
+  const multis = MULTI_COLORS.filter(c => !excludeNames.includes(c[0]));
+
+  if (!singles.length && !multis.length) {
+    return rand((allowBlack ? COLORS : COLORS.filter(c => c[0] !== BLACK_NAME)));
+  }
+  if (!singles.length) return rand(multis);
+  if (!multis.length) return rand(singles);
+
+  return Math.random() < singleWeight ? rand(singles) : rand(multis);
+}
+function randomCharmPlacement(){
+  const r = Math.random();
+  if (r < .34) return "tr";
+  if (r < .64) return "tl";
+  if (r < .82) return "br";
+  return "bl";
+}
+function randomCharmAngle(index){
+  const gentle = [0,11,13,15,17,33,34].includes(index);
+  const pool = gentle ? [-8,-5,0,5,8] : [-18,-14,-10,-6,0,6,10,14,18];
+  return rand(pool);
+}
+
+const PATTERN_TILE_SIZES = [65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 70, 65, 70, 70, 65, 65, 65, 65, 65, 70];
+
+// Ver.4: 現行30柄から指定10柄のみ削除。残す20柄の表示サイズ・仕様は変更しない。
+function getPatternTileSize(index) {
+  const size = PATTERN_TILE_SIZES[index] || 65;
+  return size + "%";
+}
+
+function makeIslandSpec(i, usedColorNames=[]) {
+  let shape1 = Math.floor(Math.random()*SHAPES.length);
+  let shape2 = Math.floor(Math.random()*SHAPES.length);
+  while (shape2 === shape1) shape2 = Math.floor(Math.random()*SHAPES.length);
+
+  const kind = selectedTheme.kind;
+  let c1 = null, c2 = null;
+  let pIndex = null, charmIndex = null;
+  let mode = "basic";
+  let charmPos = null, charmAngle = 0;
+
+  // Ver.4 final tuning:
+  // - single colors should appear a bit more often (target ~65%)
+  // - the same color name should not appear twice within one result
+  if (kind === "charm-random") {
+    c1 = chooseWeightedBaseColor(usedColorNames, true, 0.65);
+    mode = "charm";
+  } else {
+    const picked = chooseWeightedBaseColor(usedColorNames, true, 0.65);
+    c1 = picked;
+
+    if (isMultiColor(picked)) {
+      // multi-color master: as-is, or with charm only in all-random.
+      if (kind === "all-random") {
+        mode = rand(["multi", "charm"]);
+      } else {
+        mode = "multi";
+      }
+    } else {
+      if (kind === "color-only-random") {
+        const modes = selectedPeople === 1
+          ? ["layered","split","gradient"]
+          : ["basic","layered","split","gradient"];
+        mode = rand(modes);
+      } else {
+        const modes = selectedPeople === 1
+          ? ["layered","split","gradient","pattern","charm"]
+          : ["basic","layered","split","gradient","pattern","charm"];
+        mode = rand(modes);
+      }
+    }
+  }
+
+  if (["layered","split","gradient"].includes(mode)) {
+    c2 = chooseSingleColor([...usedColorNames, c1[0]], true);
+  }
+  if (mode === "pattern") {
+    pIndex = Math.floor(Math.random()*PATTERNS.length);
+  }
+  if (mode === "charm") {
+    charmIndex = Math.floor(Math.random()*CHARM_NAMES.length);
+    charmPos = randomCharmPlacement();
+    charmAngle = randomCharmAngle(charmIndex);
+  }
+
+  let label = c1 ? c1[0] : "";
+  if (["layered","split","gradient"].includes(mode) && c2) label = `${c1[0]}×${c2[0]}`;
+  if (mode === "pattern") label = `${c1[0]}×${PATTERN_NAMES[pIndex]}`;
+  if (mode === "charm") label = `${c1[0]}×${CHARM_NAMES[charmIndex]}`;
+
+  return {
+    shape1, shape2, c1, c2, pIndex, charmIndex, charmPos, charmAngle,
+    mode, label,
+    usePatternBasic: mode === "pattern",
+    patternOnFront: false,
+    patternOnBack: false,
+    hasAnyBlack: [c1,c2].filter(Boolean).some(c => c[0] === BLACK_NAME)
+  };
+}
+function buildCurrentResult(forceNew=false) {
+  if (!selectedTheme) return;
+  currentThemeText = getThemeText();
+
+  if (!forceNew && currentRenderedPeople === selectedPeople && currentCards.length) return;
+
+  currentCards = [];
+  const usedColorNames = [];
+  for (let i=0; i<selectedPeople; i++) {
+    const spec = makeIslandSpec(i, usedColorNames);
+    currentCards.push(spec);
+    if (spec.c1) usedColorNames.push(spec.c1[0]);
+    if (spec.c2) usedColorNames.push(spec.c2[0]);
+  }
+  currentRenderedPeople = selectedPeople;
+}
+
+function applyMask(el, uri) {
+  el.style.maskImage = `url("${uri}")`;
+  el.style.webkitMaskImage = `url("${uri}")`;
+}
+
+function createShapeLayer(shapeUri, fillStyle, patternUri=null, cls="basic", tileSize=24) {
+  const layer = document.createElement("div");
+  layer.className = "shape-layer " + cls;
+
+  const tint = document.createElement("div");
+  tint.className = "tint";
+  tint.style.setProperty("--c", fillStyle);
+  applyMask(tint, shapeUri);
+  layer.appendChild(tint);
+
+  if (patternUri) {
+    const patt = document.createElement("div");
+    patt.className = "pattern";
+    patt.style.setProperty("--p", `url("${patternUri}")`);
+    patt.style.setProperty("--tile", tileSize || "65%");
+    applyMask(patt, shapeUri);
+    layer.appendChild(patt);
+  }
+
+  return layer;
+}
+
+function createSolidShapeLayer(shapeUri, colorHex, cls="basic") {
+  return createShapeLayer(shapeUri, colorHex, null, cls);
+}
+
+function createPatternShapeLayer(shapeUri, colorHex, patternUri, cls="basic", tileSize=24) {
+  return createShapeLayer(shapeUri, colorHex, patternUri, cls, tileSize);
+}
+
+function createSplitShapeLayer(shapeUri, colorHexA, colorHexB, patternUri=null, cls="basic", tileSize=24) {
+  const fill = `linear-gradient(90deg, ${colorHexA} 0 50%, ${colorHexB} 50% 100%)`;
+  return createShapeLayer(shapeUri, fill, patternUri, cls, tileSize);
+}
+
+function createGradientShapeLayer(shapeUri, colorHexA, colorHexB, patternUri=null, cls="basic", tileSize=24) {
+  const fill = `linear-gradient(135deg, ${colorHexA} 0%, ${colorHexB} 100%)`;
+  return createShapeLayer(shapeUri, fill, patternUri, cls, tileSize);
+}
+
+function createThreeSplitShapeLayer(shapeUri, colorHexA, colorHexB, colorHexC, patternUri=null, cls="basic", tileSize=24) {
+  const fill = `linear-gradient(90deg, ${colorHexA} 0 33.333%, ${colorHexB} 33.333% 66.666%, ${colorHexC} 66.666% 100%)`;
+  return createShapeLayer(shapeUri, fill, patternUri, cls, tileSize);
+}
+
+
+function createCharmOverlay(index, pos, angle){
+  const img = document.createElement("img");
+  img.className = `charm-overlay pos-${pos || "tr"}`;
+  img.src = CHARM_URIS[index];
+  img.alt = "";
+  img.setAttribute("aria-hidden", "true");
+  img.style.setProperty("--rot", `${angle || 0}deg`);
+  return img;
+}
+
+function captionParts(label) {
+  const parts = label.split("×");
+  // Keep short captions on one line
+  if (label.length <= 12 || parts.length <= 2) {
+    return {html: label, twoLine:false, tight:false};
+  }
+
+  // Prefer breaking before the final pattern name
+  if (parts.length >= 3) {
+    const first = parts.slice(0, -1).join("×");
+    const second = "×" + parts[parts.length - 1];
+    return {
+      html: `<span class="cap-line">${first}</span><span class="cap-line">${second}</span>`,
+      twoLine:true,
+      tight: label.length >= 18
+    };
+  }
+
+  return {html: label, twoLine:false, tight: label.length >= 16};
+}
+
+
+function formatResultDate(d = new Date()) {
+  const y = d.getFullYear();
+  const m = String(d.getMonth() + 1).padStart(2, "0");
+  const day = String(d.getDate()).padStart(2, "0");
+  return `${y}.${m}.${day}`;
+}
+
+function getResultModeLabel() {
+  if (!selectedTheme) return "RANDOM";
+  if (selectedTheme.kind === "all-random") return "ALL RANDOM";
+  if (selectedTheme.kind === "color-only-random") return "COLOR RANDOM";
+  if (selectedTheme.kind === "charm-random") return "CHARM RANDOM";
+  return "RANDOM";
+}
+function appendResultMeta(stage) {
+  const meta = document.createElement("div");
+  meta.className = "result-meta";
+  const rows = [
+    ["DATE", formatResultDate()],
+    ["PEOPLE", `${selectedPeople} PEOPLE`],
+    ["MODE", getResultModeLabel()]
+  ];
+  rows.forEach(([key, value]) => {
+    const row = document.createElement("div");
+    row.className = "result-meta-row";
+    const k = document.createElement("span");
+    k.className = "result-meta-key";
+    k.textContent = key;
+    const v = document.createElement("span");
+    v.className = "result-meta-value";
+    v.textContent = value;
+    row.append(k, v);
+    meta.appendChild(row);
+  });
+  stage.appendChild(meta);
+
+  const kicker = document.createElement("div");
+  kicker.className = "result-kicker";
+  kicker.textContent = "image similarity lottery";
+  stage.appendChild(kicker);
+}
+
+function renderResult() {
+  resultStage.innerHTML = "";
+  const L = LAYOUTS[selectedPeople];
+
+  appendResultMeta(resultStage);
+
+  const logo = document.createElement("img");
+  logo.src = L.logo[0] === "circle" ? ROUND_LOGO : WIDE_LOGO;
+  logo.className = "logo-img " + (L.logo[0] === "circle" ? "logo-circle" : "logo-wide");
+  logo.style.left = (L.logo[1][0] * 100) + "%";
+  logo.style.top = (L.logo[1][1] * 100) + "%";
+  resultStage.appendChild(logo);
+
+  currentCards.forEach((spec, i) => {
+    const pt = L.pts[i];
+    const island = document.createElement("div");
+    island.className = "island";
+    if (selectedPeople === 1) island.classList.add("large");
+    if (selectedPeople === 3) island.classList.add("n3");
+    island.style.left = (pt[0] * 100) + "%";
+    island.style.top = (pt[1] * 100) + "%";
+
+    const art = document.createElement("div");
+    art.className = "art";
+    const tileSize = getPatternTileSize(spec.pIndex);
+    const fill1 = getColorFill(spec.c1);
+    const fill2 = getColorFill(spec.c2);
+    // split / gradient cannot safely nest metallic CSS gradients.
+    // Keep the selected color names/shapes unchanged, but use their base hex values in two-color fills.
+    const plainFill1 = getPlainColor(spec.c1);
+    const plainFill2 = getPlainColor(spec.c2);
+    const plainFill3 = spec.c3 ? getPlainColor(spec.c3) : null;
+
+    if (spec.mode === "basic" || spec.mode === "multi") {
+      art.appendChild(createSolidShapeLayer(SHAPES[spec.shape1], fill1, "basic"));
+    } else if (spec.mode === "pattern") {
+      art.appendChild(createPatternShapeLayer(SHAPES[spec.shape1], fill1, getPatternUri(spec.pIndex), "basic", tileSize));
+    } else if (spec.mode === "charm") {
+      art.appendChild(createSolidShapeLayer(SHAPES[spec.shape1], fill1, "basic"));
+      art.appendChild(createCharmOverlay(spec.charmIndex, spec.charmPos, spec.charmAngle));
+    } else if (spec.mode === "layered") {
+      art.appendChild(createSolidShapeLayer(SHAPES[spec.shape1], fill1, "back"));
+      art.appendChild(createSolidShapeLayer(SHAPES[spec.shape2], fill2, "front"));
+    } else if (spec.mode === "split") {
+      art.appendChild(
+        createSplitShapeLayer(
+          SHAPES[spec.shape1],
+          plainFill1,
+          plainFill2,
+          null,
+          "basic",
+          tileSize
+        )
+      );
+    } else if (spec.mode === "gradient") {
+      art.appendChild(
+        createGradientShapeLayer(
+          SHAPES[spec.shape1],
+          plainFill1,
+          plainFill2,
+          null,
+          "basic",
+          tileSize
+        )
+      );
+    }
+
+    island.appendChild(art);
+    resultStage.appendChild(island);
+
+    const label = document.createElement("div");
+    label.className = "label";
+    if (selectedPeople === 1) label.classList.add("large");
+    if (selectedPeople === 3) label.classList.add("n3");
+    const cap = captionParts(spec.label);
+    label.innerHTML = cap.html;
+    if (cap.twoLine) label.classList.add("caption-2line");
+    if (cap.tight || selectedPeople >= 7) label.classList.add("caption-tight");
+
+    const yOffset = selectedPeople === 1 ? 0.105 : (selectedPeople === 3 ? 0.092 : 0.078);
+    let labelY = pt[1] + yOffset;
+    if (selectedPeople >= 7) labelY = Math.min(labelY, 0.965);
+    else labelY = Math.min(labelY, 0.955);
+    label.style.left = (pt[0] * 100) + "%";
+    label.style.top = (labelY * 100) + "%";
+    resultStage.appendChild(label);
+  });
+}
+
+
+function playDrawAnimation(after, isRedraw){
+  drawOverlay.className = "draw-overlay";
+  drawOverlay.setAttribute("aria-hidden","false");
+
+  requestAnimationFrame(()=>{
+    drawOverlay.classList.add("show", isRedraw ? "is-redraw" : "is-first");
+
+    const takeDelay = isRedraw ? 1320 : 2050;
+    const endDelay  = isRedraw ? 2400 : 3300;
+
+    setTimeout(()=>drawOverlay.classList.add("take"), takeDelay);
+
+    setTimeout(()=>{
+      drawOverlay.className = "draw-overlay";
+      drawOverlay.setAttribute("aria-hidden","true");
+      hasDrawnOnce = true;
+      after();
+    }, endDelay);
+  });
+}
+
+function showResult() {
+  renderResult();
+
+  const fromPanel = !themePanel.classList.contains("hidden")
+    ? themePanel
+    : (!peoplePanel.classList.contains("hidden") ? peoplePanel : null);
+
+  resultPanel.classList.remove("hidden");
+  resultPanel.classList.remove("result-panel-enter","animate-in","is-entering","is-visible","is-exiting");
+  void resultPanel.offsetWidth;
+  resultPanel.classList.add("result-panel-enter","is-entering");
+
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      resultPanel.classList.add("is-visible","animate-in");
+    });
+  });
+
+  setTimeout(() => {
+    resultPanel.classList.remove("is-entering","is-visible","animate-in");
+  }, 1100);
+
+  // テーマ/人数ページを残したまま結果を下に追加して、下へ移動するモーションを見せる
+  go(resultPanel);
+}
+
+document.getElementById("changePeople").onclick = () => {
+  changingMode = "people";
+  resultPanel.classList.add("hidden");
+  themePanel.classList.add("hidden");
+  markPeople();
+  playFlowEntrance(peoplePanel);
+  go(peoplePanel);
+};
+
+document.getElementById("changeTheme").onclick = () => {
+  changingMode = "theme";
+  resultPanel.classList.add("hidden");
+  peoplePanel.classList.add("hidden");
+  newThemeChoices();
+  renderThemeChoices();
+  playFlowEntrance(themePanel);
+  go(themePanel);
+};
+
+document.getElementById("copyBtn").onclick = async () => {
+  const themeName = getThemeText();
+  const txt = `✦ Image Similarity Lottery ✦\n${selectedPeople}人で「${themeName}」くじに挑戦したよ！\n\n🔍「Closet Drawers 画像でシミラーくじ」\n#クロドロ`;
+  try {
+    await navigator.clipboard.writeText(txt);
+    showToast("コピーしました ✦ #クロドロで投稿してね");
+  } catch(e) {
+    const ta = document.createElement("textarea");
+    ta.value = txt;
+    document.body.appendChild(ta);
+    ta.select();
+    try {
+      document.execCommand("copy");
+      showToast("コピーしました ✦ #クロドロで投稿してね");
+    } catch(err) {
+      showToast("コピーに失敗しました");
+    }
+    ta.remove();
+  }
+};
+
+async function dataUrlToFile(dataUrl, filename) {
+  const res = await fetch(dataUrl);
+  const blob = await res.blob();
+  return new File([blob], filename, {type: blob.type || "image/png"});
+}
+
+function loadImageForSave(src) {
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    if (!src.startsWith("data:")) img.crossOrigin = "anonymous";
+    img.onload = () => resolve(img);
+    img.onerror = reject;
+    img.src = src;
+  });
+}
+
+function cssVar(el, name) {
+  return (el.style.getPropertyValue(name) || getComputedStyle(el).getPropertyValue(name) || "").trim();
+}
+
+function parseCssUrl(value) {
+  const m = String(value || "").match(/url\((['"]?)(.*?)\1\)/);
+  return m ? m[2] : "";
+}
+
+function splitGradientParts(s) {
+  const out = [];
+  let part = "", depth = 0;
+  for (const ch of s) {
+    if (ch === "(") depth++;
+    if (ch === ")") depth--;
+    if (ch === "," && depth === 0) {
+      out.push(part.trim());
+      part = "";
+    } else {
+      part += ch;
+    }
+  }
+  if (part.trim()) out.push(part.trim());
+  return out;
+}
+
+function cssGradientToCanvas(ctx, w, h, value) {
+  const m = String(value).match(/^linear-gradient\((.*)\)$/i);
+  if (!m) return null;
+
+  const parts = splitGradientParts(m[1]);
+  let angle = 180;
+  if (parts[0] && /deg$/i.test(parts[0])) {
+    angle = parseFloat(parts.shift());
+  }
+
+  // CSS: 0deg = up, 90deg = right.
+  const rad = angle * Math.PI / 180;
+  const vx = Math.sin(rad), vy = -Math.cos(rad);
+  const half = Math.abs(vx) * w / 2 + Math.abs(vy) * h / 2;
+  const cx = w / 2, cy = h / 2;
+  const g = ctx.createLinearGradient(
+    cx - vx * half, cy - vy * half,
+    cx + vx * half, cy + vy * half
+  );
+
+  const stops = [];
+
+  function parseStopPosition(token) {
+    if (token == null) return null;
+    const t = String(token).trim();
+    if (!t) return null;
+    if (t.endsWith("%")) return parseFloat(t) / 100;
+
+    // CSS accepts zero without a unit (e.g. "0 50%").
+    // Treat other unitless values as a normalized fraction only as a safe fallback.
+    const n = parseFloat(t);
+    if (!Number.isFinite(n)) return null;
+    if (n === 0) return 0;
+    if (n === 1) return 1;
+    return n / 100;
+  }
+
+  for (const p of parts) {
+    // Supports:
+    //   #fff
+    //   #fff 50%
+    //   #fff 0 50%
+    //   rgba(...) 50% 100%
+    const sm = p.match(
+      /^(#[0-9a-f]{3,8}|rgba?\([^)]+\)|[a-z]+)(?:\s+(-?\d+(?:\.\d+)?%?))?(?:\s+(-?\d+(?:\.\d+)?%?))?$/i
+    );
+    if (!sm) continue;
+
+    const color = sm[1];
+    const pos1 = parseStopPosition(sm[2]);
+    const pos2 = parseStopPosition(sm[3]);
+
+    // A CSS color stop with two positions creates two identical-color stops.
+    // This is required for the 50/50 split style:
+    // colorA 0 50%, colorB 50% 100%
+    stops.push([color, pos1]);
+    if (pos2 != null) stops.push([color, pos2]);
+  }
+
+  // Fill missing positions evenly.
+  if (!stops.length) return null;
+  for (let i = 0; i < stops.length; i++) {
+    if (stops[i][1] == null) {
+      let j = i;
+      while (j < stops.length && stops[j][1] == null) j++;
+      const left = i > 0 ? stops[i-1][1] : 0;
+      const right = j < stops.length ? stops[j][1] : 1;
+      const count = j - i + 1;
+      for (let k = i; k < j; k++) {
+        stops[k][1] = left + (right - left) * ((k - i + 1) / count);
+      }
+      i = j - 1;
+    }
+  }
+
+  for (const [color, pos] of stops) {
+    g.addColorStop(Math.max(0, Math.min(1, pos)), color);
+  }
+  return g;
+}
+
+async function rasterizeShapeLayerForSave(layer) {
+  const tint = layer.querySelector(".tint");
+  const patt = layer.querySelector(".pattern");
+  if (!tint) return null;
+
+  const w = Math.max(1, layer.offsetWidth);
+  const h = Math.max(1, layer.offsetHeight);
+  const scale = 4;
+  const cw = Math.round(w * scale);
+  const ch = Math.round(h * scale);
+
+  const canvas = document.createElement("canvas");
+  canvas.width = cw;
+  canvas.height = ch;
+  const ctx = canvas.getContext("2d");
+
+  // 1) Base color / gradient
+  const fill = cssVar(tint, "--c");
+  const grad = cssGradientToCanvas(ctx, cw, ch, fill);
+  ctx.fillStyle = grad || fill || "#000";
+  ctx.fillRect(0, 0, cw, ch);
+
+  // 2) Pattern overlay, matching CSS background-size/background-position.
+  if (patt) {
+    const rawPattern = cssVar(patt, "--p");
+    const patternSrc = parseCssUrl(rawPattern);
+    if (patternSrc) {
+      const abs = patternSrc.startsWith("data:")
+        ? patternSrc
+        : new URL(patternSrc, location.href).href;
+      const pimg = await loadImageForSave(abs);
+
+      const tileValue = cssVar(patt, "--tile") || "65%";
+      let tw, th;
+      if (/%$/.test(tileValue)) {
+        const ratio = parseFloat(tileValue) / 100;
+        tw = Math.max(1, Math.round(cw * ratio));
+        th = Math.max(1, Math.round(ch * ratio));
+      } else {
+        const px = Math.max(1, parseFloat(tileValue) || 24) * scale;
+        tw = th = Math.round(px);
+      }
+
+      // CSS background-position:center with repeat.
+      const startX = ((cw - tw) / 2) % tw - tw;
+      const startY = ((ch - th) / 2) % th - th;
+      for (let y = startY; y < ch + th; y += th) {
+        for (let x = startX; x < cw + tw; x += tw) {
+          ctx.drawImage(pimg, x, y, tw, th);
+        }
+      }
+    }
+  }
+
+  // 3) Apply the exact PNG shape alpha as a mask.
+  const maskCss = tint.style.webkitMaskImage || tint.style.maskImage || getComputedStyle(tint).webkitMaskImage || getComputedStyle(tint).maskImage;
+  const maskSrc = parseCssUrl(maskCss);
+  if (!maskSrc) return null;
+
+  const maskImg = await loadImageForSave(maskSrc);
+  const mw = maskImg.naturalWidth || maskImg.width;
+  const mh = maskImg.naturalHeight || maskImg.height;
+  const ratio = Math.min(cw / mw, ch / mh);
+  const dw = mw * ratio, dh = mh * ratio;
+  const dx = (cw - dw) / 2, dy = (ch - dh) / 2;
+
+  ctx.globalCompositeOperation = "destination-in";
+  ctx.drawImage(maskImg, dx, dy, dw, dh);
+  ctx.globalCompositeOperation = "source-over";
+
+  return canvas.toDataURL("image/png");
+}
+
+async function installSaveRasterShapes() {
+  const restores = [];
+  const layers = [...resultStage.querySelectorAll(".shape-layer")];
+
+  for (const layer of layers) {
+    const png = await rasterizeShapeLayerForSave(layer);
+    if (!png) continue;
+
+    const oldChildren = [...layer.childNodes];
+    oldChildren.forEach(n => n.remove());
+
+    const img = document.createElement("img");
+    img.src = png;
+    img.alt = "";
+    img.style.position = "absolute";
+    img.style.inset = "0";
+    img.style.width = "100%";
+    img.style.height = "100%";
+    img.style.objectFit = "contain";
+    img.style.display = "block";
+    layer.appendChild(img);
+
+    restores.push(() => {
+      layer.innerHTML = "";
+      oldChildren.forEach(n => layer.appendChild(n));
+    });
+  }
+
+  return () => restores.reverse().forEach(fn => fn());
+}
+
+
+function freezeResultLayoutForSave(root) {
+  const entries = [];
+  const rootRect = root.getBoundingClientRect();
+
+  function saveStyle(el) {
+    entries.push([el, el.getAttribute("style")]);
+  }
+
+  function px(v) {
+    return `${Math.round(v * 1000) / 1000}px`;
+  }
+
+  // Freeze the result canvas itself to the exact size currently visible on screen.
+  saveStyle(root);
+  root.style.width = px(rootRect.width);
+  root.style.height = px(rootRect.height);
+  root.style.aspectRatio = "auto";
+
+  const selectors = [
+    ".logo-img",
+    ".result-meta", ".result-meta-row", ".result-meta-key", ".result-meta-value",
+    ".result-kicker",
+    ".island", ".art", ".shape-layer", ".charm-overlay",
+    ".label", ".label .cap-line"
+  ];
+
+  root.querySelectorAll(selectors.join(",")).forEach(el => {
+    saveStyle(el);
+    const cs = getComputedStyle(el);
+
+    // Freeze responsive dimensions so html2canvas cannot switch to desktop sizing.
+    if (el.matches(".logo-img,.island,.art,.shape-layer,.charm-overlay,.label")) {
+      const r = el.getBoundingClientRect();
+
+      // IMPORTANT:
+      // For .shape-layer, getBoundingClientRect() includes the rotated
+      // bounding box and makes the saved figure slightly larger.
+      // Use the actual computed CSS size instead so the saved figure
+      // matches the live page exactly. This affects save capture only.
+      if (el.matches(".shape-layer")) {
+        el.style.width = cs.width;
+        el.style.height = cs.height;
+      } else {
+        if (el.matches(".logo-img,.island,.label")) {
+          el.style.width = px(r.width);
+        }
+        if (el.matches(".logo-img,.art")) {
+          el.style.height = px(r.height);
+        }
+      }
+
+      el.style.maxWidth = "none";
+      el.style.minWidth = "0";
+    }
+
+    // Absolute positioning / transforms must stay identical to the live result.
+    if (el.matches(".logo-img,.result-meta,.result-kicker,.island,.shape-layer,.charm-overlay,.label")) {
+      el.style.left = cs.left;
+      el.style.top = cs.top;
+      el.style.right = cs.right;
+      el.style.transform = cs.transform === "none" ? "none" : cs.transform;
+    }
+
+    if (el.matches(".result-meta")) {
+      el.style.width = cs.width;
+      el.style.minWidth = cs.minWidth;
+    }
+
+    if (el.matches(".result-kicker")) {
+      el.style.bottom = cs.bottom;
+      el.style.top = "auto";
+    }
+
+    if (el.matches(".label")) {
+      // Mobile CSS previously supplied bottom/font-size values.
+      // Keep the actual on-screen top position and remove the competing bottom rule.
+      el.style.bottom = "auto";
+      el.style.fontSize = cs.fontSize;
+      el.style.lineHeight = cs.lineHeight;
+      el.style.fontWeight = cs.fontWeight;
+      el.style.fontFamily = cs.fontFamily;
+      el.style.letterSpacing = cs.letterSpacing;
+      el.style.padding = cs.padding;
+      el.style.whiteSpace = cs.whiteSpace;
+      el.style.textShadow = cs.textShadow;
+    }
+
+    if (el.matches(".result-meta,.result-meta-row,.result-meta-key,.result-meta-value,.result-kicker,.label .cap-line")) {
+      el.style.fontSize = cs.fontSize;
+      el.style.lineHeight = cs.lineHeight;
+      el.style.fontWeight = cs.fontWeight;
+      el.style.fontFamily = cs.fontFamily;
+      el.style.fontStyle = cs.fontStyle;
+      el.style.letterSpacing = cs.letterSpacing;
+      el.style.color = cs.color;
+    }
+  });
+
+  return () => {
+    entries.reverse().forEach(([el, styleAttr]) => {
+      if (styleAttr === null) el.removeAttribute("style");
+      else el.setAttribute("style", styleAttr);
+    });
+  };
+}
+
+document.getElementById("saveBtn").onclick = async () => {
+  let restoreShapes = null;
+  let restoreLayout = null;
+
+  try {
+    if (typeof html2canvas !== "function") {
+      throw new Error("html2canvas is not available");
+    }
+
+    // 1) Freeze the exact responsive layout currently visible on the iPhone.
+    //    This prevents html2canvas from re-evaluating the result with desktop sizes.
+    restoreLayout = freezeResultLayoutForSave(resultStage);
+
+    // 2) Safari/html2canvas cannot preserve CSS mask-image reliably.
+    //    Convert only the figure layers to temporary PNGs for capture.
+    restoreShapes = await installSaveRasterShapes();
+
+    const tempImgs = [...resultStage.querySelectorAll(".shape-layer img")];
+    await Promise.all(
+      tempImgs.map(img => img.decode ? img.decode().catch(() => {}) : Promise.resolve())
+    );
+
+    const rect = resultStage.getBoundingClientRect();
+
+    const canvas = await html2canvas(resultStage, {
+      backgroundColor: "#ffffff",
+      scale: 3,
+      useCORS: true,
+      allowTaint: false,
+      logging: false,
+      imageTimeout: 15000,
+      removeContainer: true,
+      width: Math.round(rect.width),
+      height: Math.round(rect.height),
+      windowWidth: document.documentElement.clientWidth,
+      windowHeight: window.innerHeight
+    });
+
+    const pngUrl = canvas.toDataURL("image/png");
+    const filename = `image-similarity-lottery-${selectedPeople}p.png`;
+    const file = await dataUrlToFile(pngUrl, filename);
+
+    // Restore the live page before opening the share sheet.
+    restoreShapes();
+    restoreShapes = null;
+    restoreLayout();
+    restoreLayout = null;
+
+    if (
+      navigator.share &&
+      navigator.canShare &&
+      navigator.canShare({files:[file]})
+    ) {
+      await navigator.share({
+        files:[file],
+        title:"Closet Drawers 画像でシミラーくじ"
+      });
+      return;
+    }
+
+    const a = document.createElement("a");
+    a.href = pngUrl;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+
+    showToast("Saved! ✦");
+  } catch (err) {
+    if (restoreShapes) {
+      try { restoreShapes(); } catch (_) {}
+    }
+    if (restoreLayout) {
+      try { restoreLayout(); } catch (_) {}
+    }
+    if (err && err.name === "AbortError") return;
+    console.error(err);
+    showToast("画像保存に失敗しました");
+  }
+};
+
+newThemeChoices();
+markPeople();
+</script>
+
+<script id="cd-ver32-menu-script">
+(function(){
+ const trigger=document.getElementById('cdMenuTrigger'),panel=document.getElementById('cdSideMenu'),backdrop=document.getElementById('cdMenuBackdrop');
+ if(!trigger||!panel||!backdrop)return;
+ function openMenu(){document.body.classList.add('cd-menu-open');panel.setAttribute('aria-hidden','false');backdrop.setAttribute('aria-hidden','false');trigger.setAttribute('aria-expanded','true')}
+ function closeMenu(){document.body.classList.remove('cd-menu-open');panel.setAttribute('aria-hidden','true');backdrop.setAttribute('aria-hidden','true');trigger.setAttribute('aria-expanded','false')}
+ trigger.addEventListener('click',openMenu);backdrop.addEventListener('click',closeMenu);document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMenu()});
+})();
+</script>
+
+<script id="cd-ver34-intro-seasonal-script">
+(() => {
+  const SPRITES={"spring":["assets/img_057_fcf0a4215b.png","assets/img_058_75367a9745.png","assets/img_059_a9509f6e0c.png","assets/img_060_3d2910996d.png","assets/img_061_5df39f54be.png","assets/img_062_27541b84b5.png","assets/img_063_c5fa2ab62c.png"],"summer":["assets/img_064_fd65e4780e.png","assets/img_065_8734c39ebb.png","assets/img_066_f6cf57431f.png","assets/img_067_495a9f7ff3.png","assets/img_068_34e4ecc6b1.png","assets/img_069_90aab83b73.png","assets/img_070_e2c94f3b2b.png","assets/img_071_2ef559a98c.png"],"autumn":["assets/img_072_b227cec813.png","assets/img_073_79e75a2563.png","assets/img_074_8f2904c945.png","assets/img_075_84df3dd56d.png","assets/img_076_23cc5beb30.png","assets/img_077_7f4d0f5c6a.png","assets/img_078_eaba1cab1f.png","assets/img_079_d5df6a1584.png"],"winter":["assets/img_080_d87adc1f4b.png","assets/img_081_346287488b.png","assets/img_082_0c2a174a73.png","assets/img_083_577314e727.png","assets/img_084_98c45218d5.png","assets/img_085_994fbf30ed.png","assets/img_086_6db9dd55ad.png","assets/img_087_5b60c0cd3e.png"]};
+  const fall=document.getElementById('cdIntroSeasonalFall');
+  if(!fall)return;
+  const month=(new Date()).getMonth()+1;
+const season=month>=3&&month<=5?'spring':month>=6&&month<=8?'summer':month>=9&&month<=11?'autumn':'winter';
+  
+const settings={
+  spring:{count:13,min:10.0,max:14.0,sizeMin:14,sizeMax:24},
+  summer:{count:12,min:12.0,max:16.5,sizeMin:14,sizeMax:23},
+  autumn:{count:13,min:10.5,max:15.0,sizeMin:14,sizeMax:24},
+  winter:{count:13,min:12.5,max:17.0,sizeMin:14,sizeMax:24}
+};
+
+  const rnd=(a,b)=>a+Math.random()*(b-a);
+  function render(s){
+    fall.innerHTML='';
+    const pool=SPRITES[s],cfg=settings[s];
+    for(let i=0;i<cfg.count;i++){
+      const img=document.createElement('img');
+      img.className='cd-intro-seasonal-piece '+s;
+      img.src=pool[i%pool.length];
+      img.alt='';
+      img.style.setProperty('--x',rnd(4,92).toFixed(1)+'vw');
+      img.style.setProperty('--size',rnd(cfg.sizeMin,cfg.sizeMax).toFixed(0)+'px');
+      img.style.setProperty('--op',rnd(.18,.28).toFixed(2));
+      img.style.setProperty('--dur',rnd(cfg.min,cfg.max).toFixed(2)+'s');
+      img.style.setProperty('--delay',(-rnd(0,cfg.max)).toFixed(2)+'s');
+      img.style.setProperty('--drift1',rnd(-18,18).toFixed(1)+'px');
+      img.style.setProperty('--drift2',rnd(-25,25).toFixed(1)+'px');
+      img.style.setProperty('--drift3',rnd(-20,20).toFixed(1)+'px');
+      fall.appendChild(img);
+    }
+  }
+  function showSeasonal(){
+    document.body.classList.add('cd-intro-seasonal-active');
+    if(!fall.childElementCount) render(season);
+  }
+  function hideSeasonal(){
+    document.body.classList.remove('cd-intro-seasonal-active');
+    fall.innerHTML='';
+  }
+  window.cdShowAmbientSeasonal = showSeasonal;
+  window.cdHideAmbientSeasonal = hideSeasonal;
+  showSeasonal();
+})();
+</script>
+
+<script id="cd-ver34-image-result-season-script">
+(() => {
+  const month=(new Date()).getMonth()+1;
+const season=month>=3&&month<=5?'spring':month>=6&&month<=8?'summer':month>=9&&month<=11?'autumn':'winter';
+  
+const charsBySeason={
+  spring:["🌸","✿","·"],
+  summer:["✦","⋆","☀"],
+  autumn:["🍂","❧","·"],
+  winter:["❄","✦","·"]
+};
+function cdRenderResultSeason(layer,season){
+  layer.innerHTML='';
+  const chars=charsBySeason[season]||charsBySeason.spring;
+  for(let i=0;i<8;i++){
+    const p=document.createElement('span');
+    p.className='cd-result-season-particle';
+    p.textContent=chars[i%chars.length];
+    p.style.left=(6+i*13)+'%';
+    p.style.animationDelay=(-i*1.1)+'s';
+    p.style.animationDuration=(7+(i%3)*2)+'s';
+    layer.appendChild(p);
+  }
+}
+
+  const resultPanel=document.getElementById('resultPanel');
+  const layer=document.getElementById('cdResultSeasonLayer');
+  if(!resultPanel||!layer)return;
+  function sync(){
+    const active=!resultPanel.classList.contains('hidden');
+    document.body.classList.toggle('cd-result-season-on',active);
+    if(active)cdRenderResultSeason(layer,season);else layer.innerHTML='';
+  }
+  new MutationObserver(sync).observe(resultPanel,{attributes:true,attributeFilter:['class']});
+  sync();
+})();
+</script>
+
+<script id="cd-exact-seasonal-logo-script">window.cdMountExactSeasonalLogo=function(stage,season){if(!stage)return;const DATA={"spring":{"label":"春","layers":[{"key":"bottom","name":"ワンピース","motion":"hang-right","src":"assets/img_088_3fdd97b6fd.png"},{"key":"middle","name":"カーディガン","motion":"hang-center","src":"assets/img_089_ea5f3a2de1.png"},{"key":"floor","name":"ローファー","motion":"floor","src":"assets/img_090_387139e144.png"},{"key":"top","name":"ショルダーバッグ","motion":"accessory-left","src":"assets/img_091_def548ce96.png"}]},"summer":{"label":"夏","layers":[{"key":"bottom","name":"ポロシャツノースリーブワンピース","motion":"hang-right","src":"assets/img_092_c1cea07908.png"},{"key":"middle","name":"しましまワンピース","motion":"hang-center","src":"assets/img_093_7b8c9eeae6.png"},{"key":"floor","name":"香水＆サングラス","motion":"floor","src":"assets/img_094_cf17a1bd7b.png"},{"key":"top","name":"麦わら帽子","motion":"accessory-left","src":"assets/img_095_01caf63b7c.png"}]},"autumn":{"label":"秋","layers":[{"key":"bottom","name":"チェックワンピース","motion":"hang-right","src":"assets/img_096_86daf78c4e.png"},{"key":"middle","name":"トレンチコート","motion":"hang-center","src":"assets/img_097_419e9e4ce9.png"},{"key":"top2","name":"カメラ","motion":"accessory-left","src":"assets/img_098_969fdc9ee2.png"},{"key":"top","name":"ハンドバッグ","motion":"floor","src":"assets/img_099_61ff6e1197.png"}]},"winter":{"label":"冬","layers":[{"key":"bottom","name":"襟なしコート","motion":"hang-right","src":"assets/img_100_092e5c391b.png"},{"key":"middle","name":"ニット","motion":"hang-center","src":"assets/img_101_3a16fef0af.png"},{"key":"floor","name":"ブーツ","motion":"floor","src":"assets/img_102_082f44eace.png"},{"key":"top","name":"マフラー","motion":"accessory-left","src":"assets/img_103_aca30c0b03.png"}]}};const BASE="assets/img_104_92d184ee8d.png";stage.innerHTML='';const b=document.createElement('img');b.className='cd-exact-base';b.src=BASE;b.alt='';stage.appendChild(b);DATA[season].layers.forEach((item,idx)=>{const img=document.createElement('img');img.src=item.src;img.alt='';img.className='cd-exact-layer motion-'+item.motion;img.style.zIndex=String(10+idx);stage.appendChild(img);setTimeout(()=>img.classList.add('entered','animate'),550+idx*760);});};</script><script id="cd-exact-header-logo-run">(()=>{const m=(new Date()).getMonth()+1;const season=m>=3&&m<=5?'spring':m>=6&&m<=8?'summer':m>=9&&m<=11?'autumn':'winter';document.querySelectorAll('.cd-exact-header-stage').forEach(s=>window.cdMountExactSeasonalLogo(s,season));})();</script>
+<script id="cd-ver4-magazine-intro-test-script">
+(() => {
+  const INTRO_CHARMS = [{"name":"メガネ","uri":"assets/img_020_4762c4fa21.png"},{"name":"ハート","uri":"assets/img_021_af19d88684.png"},{"name":"星","uri":"assets/img_022_0e976bb3ec.png"},{"name":"リボン","uri":"assets/img_023_949801d602.png"},{"name":"蝶","uri":"assets/img_024_4716619144.png"},{"name":"さくらんぼ","uri":"assets/img_025_5a7c47a3d7.png"},{"name":"いちご","uri":"assets/img_026_d1a284a5c4.png"},{"name":"チェーン","uri":"assets/img_027_dc70f81350.png"},{"name":"花","uri":"assets/img_028_28459da695.png"},{"name":"ドクロ","uri":"assets/img_029_7f2fbe91d3.png"},{"name":"ヘッドフォン","uri":"assets/img_030_d2c438217f.png"},{"name":"ネクタイ","uri":"assets/img_031_cd316b571b.png"},{"name":"ブーツ","uri":"assets/img_032_11f999ccc5.png"},{"name":"サングラス","uri":"assets/img_033_0b757a6ca1.png"},{"name":"キャップ","uri":"assets/img_034_9db029e9ad.png"},{"name":"つけ襟","uri":"assets/img_035_1c8ecf71b6.png"},{"name":"スカーフ","uri":"assets/img_036_e59ff50b1c.png"},{"name":"ベルト","uri":"assets/img_037_465e6782da.png"},{"name":"バラ","uri":"assets/img_038_efa49174b8.png"},{"name":"チューリップ","uri":"assets/img_039_0715d0f15a.png"},{"name":"しずく","uri":"assets/img_040_a7008ca9b6.png"},{"name":"音符","uri":"assets/img_041_1d42eef622.png"},{"name":"宝石","uri":"assets/img_042_308cbec63c.png"},{"name":"レモン","uri":"assets/img_043_c3cd386970.png"},{"name":"きのこ","uri":"assets/img_044_548941f38f.png"},{"name":"葉っぱ","uri":"assets/img_045_fce78604a1.png"},{"name":"雪の結晶","uri":"assets/img_046_776363b10f.png"},{"name":"ボタン","uri":"assets/img_047_72d38190e6.png"},{"name":"雲","uri":"assets/img_048_410d3ace3f.png"},{"name":"貝殻","uri":"assets/img_049_373828b40b.png"},{"name":"クローバー","uri":"assets/img_050_d260604c29.png"},{"name":"桜","uri":"assets/img_051_03101e8b9a.png"},{"name":"惑星","uri":"assets/img_052_dfd98c3908.png"},{"name":"カメラ","uri":"assets/img_053_660bfc18f1.png"},{"name":"本","uri":"assets/img_054_2861e95db4.png"}];
+  function pickThreeUnique(items) {
+    const pool = items.slice();
+    for (let i = pool.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [pool[i], pool[j]] = [pool[j], pool[i]];
+    }
+    return pool.slice(0, 3);
+  }
+  function renderIntroCharms() {
+    const row = document.getElementById('introMagazineCharms');
+    if (!row) return;
+    row.replaceChildren();
+    pickThreeUnique(INTRO_CHARMS).forEach((item) => {
+      const img = document.createElement('img');
+      img.className = 'intro-magazine-charm';
+      img.src = item.uri;
+      img.alt = '';
+      img.decoding = 'async';
+      row.appendChild(img);
+    });
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', renderIntroCharms, {once:true});
+  } else {
+    renderIntroCharms();
+  }
+})();
+</script>
+</body>
+</html>
