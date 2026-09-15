@@ -2555,6 +2555,10 @@ document.addEventListener("DOMContentLoaded",()=>{
   ];
 
   document.addEventListener("DOMContentLoaded",()=>{
+    /* Capture the persisted screen before any startup rendering can overwrite it. */
+    let persistedLastViewAtLoad="";
+    try{persistedLastViewAtLoad=localStorage.getItem("cd_style_bingo_last_view")||""}catch(e){}
+
     const progress=window.STYLE_BINGO_PROGRESS;
     if(!progress)return;
 
@@ -2869,8 +2873,8 @@ document.addEventListener("DOMContentLoaded",()=>{
     openPassport?.addEventListener("click",()=>{try{localStorage.setItem("cd_style_bingo_sealbook_return","passport")}catch(e){}});
 
     async function restoreLastView(){
-      let last="";
-      try{last=localStorage.getItem("cd_style_bingo_last_view")||""}catch(e){}
+      /* Use the snapshot from page load so the initial BINGO render cannot erase it. */
+      const last=persistedLastViewAtLoad;
       if(!last)return;
       const setView=window.STYLE_BINGO_SET_VIEW;
       if(typeof setView!=="function")return;
