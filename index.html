@@ -77,6 +77,7 @@ body:before{content:"";position:fixed;inset:0;pointer-events:none;background:rad
 .card .motif.weekly svg rect,.card .motif.weekly svg path,.card .motif.weekly svg line{stroke:#d09159}
 .card .motif.image svg rect,.card .motif.image svg path,.card .motif.image svg circle{stroke:#c07a44}
 .card .motif.image svg .fill{fill:#e7c7a6;stroke:none}
+.card .motif.bingo svg circle{fill:#d09159;stroke:none}
 .tools{margin-top:28px;border-top:1px solid #ead0b5;padding-top:18px}
 .tools .label{text-align:center;font:600 8px Georgia,serif;letter-spacing:.24em;color:#b87544;margin-bottom:12px}
 .tool-links{border-top:1px solid #ead0b5}
@@ -109,6 +110,7 @@ footer{margin-top:34px;padding-top:18px;border-top:1px solid #e8c49e;text-align:
 .cards.is-visible .card{animation:cardReveal .55s cubic-bezier(.2,.72,.25,1) forwards}
 .cards.is-visible .card:nth-child(2){animation-delay:.10s}
 .cards.is-visible .card:nth-child(3){animation-delay:.20s}
+.cards.is-visible .card:nth-child(4){animation-delay:.30s}
 @keyframes cardReveal{to{opacity:1;transform:none}}
 
 /* D: stronger but still subtle tap response */
@@ -310,7 +312,7 @@ body.cd-menu-open .cd-side-menu{transform:translate3d(0,0,0)}
   </div>
 </section>
 <section class="choose">
-  <div class="choose-head"><div class="jp">3つのくじから選ぶ</div></div>
+  <div class="choose-head"><div class="jp">4つのくじから選ぶ</div></div>
   <div class="cards">
     <a class="card" href="fashion-lottery.html">
       <div class="motif fashion" aria-hidden="true"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
@@ -335,6 +337,15 @@ body.cd-menu-open .cd-side-menu{transform:translate3d(0,0,0)}
       <div class="en">IMAGE SIMILARITY LOTTERY</div>
       <div class="jp">画像でシミラーくじ</div>
       <div class="desc">表示された画像をヒントに、1〜9人で自由にシミラー。</div>
+      <span class="open">›</span>
+    </a>
+    <a class="card" href="style-bingo-lottery.html">
+      <div class="motif bingo" aria-hidden="true">
+        <svg viewBox="0 0 20 20"><circle cx="5" cy="5" r="1.25"/><circle cx="10" cy="5" r="1.25"/><circle cx="15" cy="5" r="1.25"/><circle cx="5" cy="10" r="1.25"/><circle cx="10" cy="10" r="1.25"/><circle cx="15" cy="10" r="1.25"/><circle cx="5" cy="15" r="1.25"/><circle cx="10" cy="15" r="1.25"/><circle cx="15" cy="15" r="1.25"/></svg>
+      </div>
+      <div class="en">STYLE BINGO LOTTERY</div>
+      <div class="jp">BINGOでファッションくじ</div>
+      <div class="desc">BINGOのお題に挑戦して、シーリングスタンプを集めよう。</div>
       <span class="open">›</span>
     </a>
   </div>
