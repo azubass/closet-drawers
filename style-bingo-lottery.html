@@ -1960,7 +1960,26 @@ document.addEventListener("DOMContentLoaded",()=>{
   if(!card||!complete||!grid||!stampStage||!result||!progress)return;
 
   const HISTORY_KEY="cd_style_bingo_history_v1";
+  const PASSPORT_STATE_KEY="cd_style_bingo_passport_state_v1";
   let currentTasks=[];
+
+  function loadPassportState(){
+    try{return JSON.parse(localStorage.getItem(PASSPORT_STATE_KEY)||"null");}
+    catch(e){return null;}
+  }
+
+  function savePassportState(){
+    if(currentTasks.length!==2)return;
+    try{
+      localStorage.setItem(PASSPORT_STATE_KEY,JSON.stringify({
+        themeIndex:idx,
+        theme:t.name,
+        tasks:[currentTasks[0],currentTasks[1]],
+        savedAt:Date.now()
+      }));
+      localStorage.setItem("cd_style_bingo_last_view","passport");
+    }catch(e){}
+  }
 
   function splitTask(text){
     return (text||"").split("×").map(s=>s.trim()).slice(0,2);
@@ -2027,6 +2046,7 @@ document.addEventListener("DOMContentLoaded",()=>{
 
     stampStage.hidden=true;
     result.hidden=false;
+    savePassportState();
 
     const history=loadHistory();
     history[t.name]={
@@ -2054,6 +2074,46 @@ document.addEventListener("DOMContentLoaded",()=>{
     renderHistory();
   }
 
+  // Reload restoration for the BINGO CHALLENGE passport screen.
+  // Rebuild the screen from persisted challenge data before the shared view controller initializes.
+  (function restorePassportOnLoad(){
+    let last="";
+    try{last=localStorage.getItem("cd_style_bingo_last_view")||"";}catch(e){}
+    if(last!=="passport")return;
+    let saved=loadPassportState();
+    // Backward-compatible fallback for users who reached the passport screen before this fix:
+    // the completed challenge is already recorded in COMPLETE HISTORY.
+    if(!saved || saved.theme!==t.name || !Array.isArray(saved.tasks) || saved.tasks.length!==2){
+      const rec=loadHistory()?.[t.name];
+      if(rec && Array.isArray(rec.tasks) && rec.tasks.length===2){
+        saved={themeIndex:idx,theme:t.name,tasks:rec.tasks.slice(0,2),savedAt:rec.completedAt||Date.now()};
+        try{localStorage.setItem(PASSPORT_STATE_KEY,JSON.stringify(saved));}catch(e){}
+      }
+    }
+    if(!saved || saved.theme!==t.name || !Array.isArray(saved.tasks) || saved.tasks.length!==2)return;
+
+    currentTasks=saved.tasks.slice(0,2);
+    kicker.textContent="";
+    if(challengeTitle)challengeTitle.textContent=`${t.name} BINGO CHALLENGE`;
+    bg.style.background=t.color;
+    template.src=passport;
+    seal.src=stamps[t.name];
+    writeTask(left,currentTasks[0]);
+    writeTask(right,currentTasks[1]);
+    stampStage.hidden=true;
+    card.hidden=true;
+    allComplete.hidden=true;
+    result.hidden=false;
+
+    if(idx>=themes.length-1){
+      next.disabled=false;
+      next.textContent=progress.state.round>=4 ? "ALL COMPRETE！" : "COMPRETE！";
+    }else{
+      next.disabled=false;
+      next.textContent="次のBINGOへ";
+    }
+  })();
+
   complete.addEventListener("click",()=>{
     const picks=(window.STYLE_BINGO_CURRENT_PICKS||(()=>[]))();
     if(picks.length!==2)return;
@@ -2075,7 +2135,9 @@ document.addEventListener("DOMContentLoaded",()=>{
   });
 
   next.addEventListener("click",()=>{
+    try{localStorage.removeItem(PASSPORT_STATE_KEY);}catch(e){}
     if(idx<themes.length-1){
+      try{localStorage.setItem("cd_style_bingo_last_view","bingo");}catch(e){}
       const nextIdx=idx+1;
       const unlocked=Math.max(
         parseInt(localStorage.getItem("cd_style_bingo_unlocked")||"0",10)||0,
@@ -2090,6 +2152,7 @@ document.addEventListener("DOMContentLoaded",()=>{
     }
 
     // 10テーマ目：ROUND COMPLETE / FINALへ
+    try{localStorage.setItem("cd_style_bingo_last_view","round-complete");}catch(e){}
     next.classList.remove("sb-complete-press");
     void next.offsetWidth;
     next.classList.add("sb-complete-press");
@@ -2907,7 +2970,26 @@ document.addEventListener("DOMContentLoaded",()=>{
       if(typeof setView!=="function")return;
 
       if(last==="bingo"){ setView("bingo"); return; }
-      if(last==="passport"){ setView("passport"); return; }
+      if(last==="passport"){
+        let saved=null;
+        try{saved=JSON.parse(localStorage.getItem("cd_style_bingo_passport_state_v1")||"null");}catch(e){}
+        const currentTheme=window.STYLE_BINGO_THEMES?.[window.STYLE_BINGO_CURRENT_INDEX||0]?.name;
+        if(!saved || saved.theme!==currentTheme || !Array.isArray(saved.tasks) || saved.tasks.length!==2){
+          try{
+            const h=JSON.parse(localStorage.getItem("cd_style_bingo_history_v1")||"{}");
+            const rec=h?.[currentTheme];
+            if(rec && Array.isArray(rec.tasks) && rec.tasks.length===2){
+              saved={theme:currentTheme,tasks:rec.tasks.slice(0,2)};
+            }
+          }catch(e){}
+        }
+        if(saved && saved.theme===currentTheme && Array.isArray(saved.tasks) && saved.tasks.length===2){
+          setView("passport");
+        }else{
+          setView("bingo");
+        }
+        return;
+      }
       if(last.startsWith("sealbook:")){
         const ret=last.split(":")[1]==="passport"?"passport":"bingo";
         setView(ret);
