@@ -2770,6 +2770,12 @@ document.addEventListener("DOMContentLoaded",()=>{
 
 <script id="style-bingo-new-content-final-adjust-js">
 (function(){
+  // Snapshot the persisted screen as soon as this script is evaluated, before any
+  // DOMContentLoaded startup logic can temporarily show the BINGO card.
+  const persistedLastViewAtLoad=(()=>{
+    try{return localStorage.getItem("cd_style_bingo_last_view")||"";}catch(e){return "";}
+  })();
+
   document.addEventListener("DOMContentLoaded",()=>{
     const progress=window.STYLE_BINGO_PROGRESS;
     const allComplete=document.getElementById("styleBingoAllComplete");
@@ -2871,6 +2877,27 @@ document.addEventListener("DOMContentLoaded",()=>{
 
     openTop?.addEventListener("click",()=>{try{localStorage.setItem("cd_style_bingo_sealbook_return","bingo")}catch(e){}});
     openPassport?.addEventListener("click",()=>{try{localStorage.setItem("cd_style_bingo_sealbook_return","passport")}catch(e){}});
+
+    // Persist the actually visible screen immediately before Safari unloads/reloads.
+    // This is especially important for the passport challenge screen on iPhone.
+    function persistVisibleViewNow(){
+      try{
+        if(viewer && !viewer.hidden){
+          const ret=viewer.dataset.returnView||localStorage.getItem("cd_style_bingo_sealbook_return")||"bingo";
+          localStorage.setItem("cd_style_bingo_last_view",`sealbook:${ret}`);
+        }else if(allComplete && !allComplete.hidden){
+          if(specialInput && !specialInput.hidden)localStorage.setItem("cd_style_bingo_last_view","special-input");
+          else if(isClaimed())localStorage.setItem("cd_style_bingo_last_view","final-complete");
+          else localStorage.setItem("cd_style_bingo_last_view","round-complete");
+        }else if(result && !result.hidden){
+          localStorage.setItem("cd_style_bingo_last_view","passport");
+        }else if(card && !card.hidden){
+          localStorage.setItem("cd_style_bingo_last_view","bingo");
+        }
+      }catch(e){}
+    }
+    window.addEventListener("pagehide",persistVisibleViewNow);
+    window.addEventListener("beforeunload",persistVisibleViewNow);
 
     async function restoreLastView(){
       /* Use the snapshot from page load so the initial BINGO render cannot erase it. */
