@@ -1,0 +1,18 @@
+{
+  "issues": [
+    {
+      "id": "issue-001",
+      "title": "Closet Drawers",
+      "issue": "ISSUE 001",
+      "publishedAt": "2026-11-18",
+      "cover": "magazine-cover.svg",
+      "pages": [
+        "magazine-page-01.svg",
+        "magazine-page-02.svg",
+        "magazine-page-03.svg",
+        "magazine-page-04.svg"
+      ],
+      "backCover": "magazine-back-cover.svg"
+    }
+  ]
+}
